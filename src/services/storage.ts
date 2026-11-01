@@ -113,19 +113,6 @@ export class StorageService {
         stored.sections.push(initSec);
         changed = true;
       } else {
-        // Keep the Generative AI resource catalog authoritative while preserving
-        // cached progress, notes, and any other user-edited topic fields.
-        if (slug === 'ai-ml' && initSec.id === 'sec-aiml-generative-ai') {
-          for (const initTopic of initSec.topics || []) {
-            const cachedTopic = stored.sections
-              .flatMap(section => section.topics || [])
-              .find(topic => topic.id === initTopic.id);
-            if (cachedTopic && initTopic.resources && JSON.stringify(cachedTopic.resources) !== JSON.stringify(initTopic.resources)) {
-              cachedTopic.resources = initTopic.resources;
-              changed = true;
-            }
-          }
-        }
         // Sync section-level properties (like isComingSoon) from initial data
         if (existing.isComingSoon !== initSec.isComingSoon) {
           existing.isComingSoon = initSec.isComingSoon;
@@ -142,15 +129,16 @@ export class StorageService {
               if (!curTopic) {
                 existing.topics?.push(initTopic);
                 changed = true;
-              } else if (initTopic.note) {
-                // Refresh curated notes while preserving user's custom images and status
-                const hasCustomUserEdits = curTopic.note?.lastUpdated && curTopic.note.id.startsWith('note-');
-                curTopic.note = {
-                  ...initTopic.note,
-                  images: curTopic.note?.images && curTopic.note.images.length > 0 ? curTopic.note.images : initTopic.note.images,
-                  keyTakeaways: initTopic.note.keyTakeaways || curTopic.note?.keyTakeaways || [],
-                  relatedTopics: initTopic.note.relatedTopics || curTopic.note?.relatedTopics || [],
-                };
+              } else if (initTopic.note && !curTopic.note) {
+                // Add newly registered notes to existing topic records without
+                // replacing any notes already saved by the visitor.
+                curTopic.note = initTopic.note;
+                changed = true;
+              }
+              if (curTopic && !curTopic.resources?.length && initTopic.resources?.length) {
+                // Seed resources on legacy topics that predate the resource catalog,
+                // but retain any saved resource edits or additions.
+                curTopic.resources = initTopic.resources;
                 changed = true;
               }
             });
@@ -392,25 +380,6 @@ export class StorageService {
     }
   }
 
-  static logActivity(entry: Omit<DailyActivity, 'id' | 'createdAt'>): DailyActivity {
-    const activities = this.getActivities();
-    const newActivity: DailyActivity = {
-      ...entry,
-      id: 'act-' + Date.now(),
-      createdAt: new Date().toISOString(),
-    };
-    activities.unshift(newActivity);
-    localStorage.setItem(STORAGE_KEYS.ACTIVITIES, JSON.stringify(activities));
-    notifyDataChanged();
-    return newActivity;
-  }
-
-  static deleteActivity(activityId: string): void {
-    const activities = this.getActivities().filter(a => a.id !== activityId);
-    localStorage.setItem(STORAGE_KEYS.ACTIVITIES, JSON.stringify(activities));
-    notifyDataChanged();
-  }
-
   // Daily Goal
   static getGoal(dateStr: string): DailyGoal {
     try {
@@ -430,14 +399,6 @@ export class StorageService {
         isCompleted: false,
       };
     }
-  }
-
-  static setGoal(goal: DailyGoal): void {
-    const raw = localStorage.getItem(STORAGE_KEYS.GOALS);
-    const goals: Record<string, DailyGoal> = raw ? JSON.parse(raw) : {};
-    goals[goal.date] = goal;
-    localStorage.setItem(STORAGE_KEYS.GOALS, JSON.stringify(goals));
-    notifyDataChanged();
   }
 
   // Statistics Computations

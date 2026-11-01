@@ -1,0 +1,42 @@
+export const genAIDays4to6Notes = {
+  id: "generative-ai-genaidays4-6-data-preprocessing-basics",
+  day: 4,
+  dayStart: 4,
+  dayEnd: 6,
+  dayRange: "Days 4–6",
+  title: "Data Preprocessing Basics",
+  track: "AI / ML",
+  section: "Generative AI",
+  contentFile: "genaiDays4-6Content.md",
+  status: "not-started",
+  overview: "Missing values, feature scaling, data encoding methods.",
+  resources: [
+    { title: "scikit-learn Preprocessing", url: "https://scikit-learn.org/stable/modules/preprocessing.html", type: "documentation" },
+    { title: "Google AI for Developers — Gemini API", url: "https://ai.google.dev/gemini-api/docs", type: "documentation" },
+    { title: "Google AI Studio", url: "https://aistudio.google.com/", type: "tool" },
+    { title: "scikit-learn Imputation", url: "https://scikit-learn.org/stable/modules/impute.html", type: "documentation" }
+  ],
+  flowchart: [
+    { id: "1-overview", title: "Overview", sectionId: "1-overview" },
+    { id: "2-why-preprocessing-matters", title: "Why Preprocessing Matters", sectionId: "2-why-preprocessing-matters" },
+    { id: "3-inspect-the-dataset-first", title: "Inspect the Dataset First", sectionId: "3-inspect-the-dataset-first" },
+    { id: "4-missing-values", title: "Missing Values", sectionId: "4-missing-values" },
+    { id: "5-missing-value-handling", title: "Missing-Value Handling", sectionId: "5-missing-value-handling" },
+    { id: "6-imputation-with-scikit-learn", title: "Imputation with scikit-learn", sectionId: "6-imputation-with-scikit-learn" },
+    { id: "7-feature-scaling", title: "Feature Scaling", sectionId: "7-feature-scaling" },
+    { id: "8-standardisation", title: "Standardisation", sectionId: "8-standardisation" },
+    { id: "9-min-max-scaling", title: "Min-Max Scaling", sectionId: "9-min-max-scaling" },
+    { id: "10-robust-scaling-and-normalisation", title: "Robust Scaling and Normalisation", sectionId: "10-robust-scaling-and-normalisation" },
+    { id: "11-categorical-encoding", title: "Categorical Encoding", sectionId: "11-categorical-encoding" },
+    { id: "12-encoding-with-scikit-learn", title: "Encoding with scikit-learn", sectionId: "12-encoding-with-scikit-learn" },
+    { id: "13-preprocessing-in-a-pipeline", title: "Preprocessing in a Pipeline", sectionId: "13-preprocessing-in-a-pipeline" },
+    { id: "14-data-leakage-during-preprocessing", title: "Data Leakage During Preprocessing", sectionId: "14-data-leakage-during-preprocessing" },
+    { id: "15-preprocessing-choices-by-model", title: "Preprocessing Choices by Model", sectionId: "15-preprocessing-choices-by-model" },
+    { id: "16-common-mistakes", title: "Common Mistakes", sectionId: "16-common-mistakes" },
+    { id: "17-placement-and-interview-questions", title: "Placement and Interview Questions", sectionId: "17-placement-and-interview-questions" },
+    { id: "18-practice", title: "Practice", sectionId: "18-practice" },
+    { id: "19-quick-revision", title: "Quick Revision", sectionId: "19-quick-revision" },
+    { id: "20-final-checklist", title: "Final Checklist", sectionId: "20-final-checklist" },
+    { id: "21-recommended-resources", title: "Recommended Resources", sectionId: "21-recommended-resources" }
+  ]
+};

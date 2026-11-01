@@ -5,8 +5,6 @@ import { DashboardPage } from './pages/dashboard/DashboardPage';
 import { AllTracksPage } from './pages/tracks/AllTracksPage';
 import { TrackDetailPage } from './pages/tracks/TrackDetailPage';
 import { TopicNotesPage } from './pages/notes/TopicNotesPage';
-import { LearningActivityPage } from './pages/activity/LearningActivityPage';
-import { CalendarPage } from './pages/calendar/CalendarPage';
 import { MLFoundationsPage } from './pages/tracks/aiml/MLFoundationsPage';
 import { DeepLearningPage } from './pages/tracks/aiml/DeepLearningPage';
 import { GenerativeAIPage } from './pages/tracks/aiml/GenerativeAIPage';
@@ -28,8 +26,6 @@ export function App() {
           <Route path="tracks/devops/:phaseId" element={<DevOpsPhaseDetailPage />} />
           <Route path="tracks/system-design/:phaseId" element={<SystemDesignPhaseDetailPage />} />
           <Route path="topics/:topicId" element={<TopicNotesPage />} />
-          <Route path="activity" element={<LearningActivityPage />} />
-          <Route path="calendar" element={<CalendarPage />} />
           <Route path="*" element={<Navigate to="/dashboard" replace />} />
         </Route>
       </Routes>

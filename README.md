@@ -27,8 +27,7 @@ PrepToPlace is a personal learning management and placement preparation platform
 
 4. **Personal Learning & Streak Tracker**:
    - Topic statuses: `Not Started`, `In Progress`, `Completed`, `Needs Revision`.
-   - Day-wise activity log: track, topic, duration, topics cleared, personal remarks.
-   - Learning Calendar: heatmap with visual indicators for targets met and partial study days.
+   - Read-only day-wise activity history with track, topic, duration, topics cleared, and personal remarks.
 
 5. **Dynamic Dashboard**:
    - Dynamic mastery percentage calculated across database records.

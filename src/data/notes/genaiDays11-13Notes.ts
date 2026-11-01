@@ -1,0 +1,42 @@
+export const genAIDays11to13Notes = {
+  id: "generative-ai-genaidays11-13-model-evaluation",
+  day: 11,
+  dayStart: 11,
+  dayEnd: 13,
+  dayRange: "Days 11–13",
+  title: "Model Evaluation",
+  track: "AI / ML",
+  section: "Generative AI",
+  contentFile: "genaiDays11-13Content.md",
+  status: "not-started",
+  overview: "Confusion matrix, precision, recall, F1, MAE, MSE, RMSE, R-squared, adjusted R-squared.",
+  resources: [
+    { title: "scikit-learn Model Evaluation", url: "https://scikit-learn.org/stable/modules/model_evaluation.html", type: "documentation" },
+    { title: "Microsoft Generative AI for Beginners", url: "https://github.com/microsoft/generative-ai-for-beginners", type: "course" },
+    { title: "scikit-learn Metrics API", url: "https://scikit-learn.org/stable/api/sklearn.metrics.html", type: "documentation" }
+  ],
+  flowchart: [
+    { id: "1-overview", title: "Overview", sectionId: "1-overview" },
+    { id: "2-why-evaluation-matters", title: "Why Evaluation Matters", sectionId: "2-why-evaluation-matters" },
+    { id: "3-confusion-matrix", title: "Confusion Matrix", sectionId: "3-confusion-matrix" },
+    { id: "4-accuracy", title: "Accuracy", sectionId: "4-accuracy" },
+    { id: "5-precision", title: "Precision", sectionId: "5-precision" },
+    { id: "6-recall-sensitivity", title: "Recall / Sensitivity", sectionId: "6-recall-sensitivity" },
+    { id: "7-specificity", title: "Specificity", sectionId: "7-specificity" },
+    { id: "8-f1-score", title: "F1 Score", sectionId: "8-f1-score" },
+    { id: "9-worked-classification-example", title: "Worked Classification Example", sectionId: "9-worked-classification-example" },
+    { id: "10-threshold-and-precisionrecall-trade-off", title: "Threshold and Precision–Recall Trade-off", sectionId: "10-threshold-and-precisionrecall-trade-off" },
+    { id: "11-regression-evaluation", title: "Regression Evaluation", sectionId: "11-regression-evaluation" },
+    { id: "12-r-squared", title: "R-Squared", sectionId: "12-r-squared" },
+    { id: "13-adjusted-r-squared", title: "Adjusted R-Squared", sectionId: "13-adjusted-r-squared" },
+    { id: "14-comparing-regression-metrics", title: "Comparing Regression Metrics", sectionId: "14-comparing-regression-metrics" },
+    { id: "15-metric-selection-by-use-case", title: "Metric Selection by Use Case", sectionId: "15-metric-selection-by-use-case" },
+    { id: "16-scikit-learn-evaluation-example", title: "scikit-learn Evaluation Example", sectionId: "16-scikit-learn-evaluation-example" },
+    { id: "17-common-evaluation-pitfalls", title: "Common Evaluation Pitfalls", sectionId: "17-common-evaluation-pitfalls" },
+    { id: "18-placement-and-interview-questions", title: "Placement and Interview Questions", sectionId: "18-placement-and-interview-questions" },
+    { id: "19-practice", title: "Practice", sectionId: "19-practice" },
+    { id: "20-quick-revision", title: "Quick Revision", sectionId: "20-quick-revision" },
+    { id: "21-final-checklist", title: "Final Checklist", sectionId: "21-final-checklist" },
+    { id: "22-recommended-resources", title: "Recommended Resources", sectionId: "22-recommended-resources" }
+  ]
+};

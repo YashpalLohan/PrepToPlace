@@ -115,15 +115,15 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
 
   return (
     <div
-      className={`my-6 rounded-xl overflow-hidden border border-slate-800/90 shadow-2xl transition-all duration-200 ${
+      className={`my-6 rounded-xl overflow-hidden border border-[#1E293B]/90 shadow-2xl transition-all duration-200 ${
         isFullscreen
-          ? 'fixed inset-4 z-50 flex flex-col bg-[#0D1117] my-0 rounded-2xl ring-1 ring-slate-700/80 shadow-[0_20px_70px_rgba(0,0,0,0.85)]'
+          ? 'fixed inset-4 z-50 flex flex-col bg-[#0D1117] my-0 rounded-2xl ring-1 ring-[#334155]/80 shadow-[0_20px_70px_rgba(0,0,0,0.85)]'
           : 'bg-[#0D1117]'
       }`}
       style={{ fontFamily: "'JetBrains Mono', 'Fira Code', 'Consolas', monospace" }}
     >
       {/* IDE Window Title Bar */}
-      <div className="flex items-center justify-between px-3.5 py-2.5 bg-[#161B22] border-b border-slate-800/80 select-none text-xs">
+      <div className="flex items-center justify-between px-3.5 py-2.5 bg-[#161B22] border-b border-[#1E293B]/80 select-none text-xs">
         {/* Left: Window Controls + File / Language Tab */}
         <div className="flex items-center gap-3">
           {/* Mac/IDE dots */}
@@ -134,18 +134,18 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
           </div>
 
           {/* Active Language Badge */}
-          <div className="flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#0D1117] border border-slate-800 text-slate-300 shadow-xs">
+          <div className="flex items-center gap-2 px-2.5 py-1 rounded-md bg-[#0D1117] border border-[#1E293B] text-[#CBD5E1] shadow-xs">
             <span
               className="w-2 h-2 rounded-full"
               style={{ backgroundColor: meta.color }}
             />
-            <span className="font-semibold text-[11px] text-slate-200">
+            <span className="font-semibold text-[11px] text-[#E2E8F0]">
               {meta.name}
             </span>
           </div>
 
           {/* Line Count */}
-          <span className="text-[11px] text-slate-500 font-sans hidden sm:inline">
+          <span className="text-[11px] text-[#64748B] font-sans hidden sm:inline">
             {lineCount} {lineCount === 1 ? 'line' : 'lines'}
           </span>
         </div>
@@ -221,7 +221,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
           }`}
         >
           <pre
-            className="p-0 m-0 text-[13px] leading-[1.65] bg-[#0D1117] text-slate-200 select-text"
+            className="p-0 m-0 text-[13px] leading-[1.65] bg-[#0D1117] text-[#E2E8F0] select-text"
             style={{ tabSize: 4 }}
           >
             <table className="w-full border-collapse">
@@ -233,19 +233,19 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
                     <tr
                       key={lineNum}
                       className={`group hover:bg-[#161B22]/70 transition-colors ${
-                        isHighlighted ? 'bg-sky-950/40 border-l-2 border-sky-400' : ''
+                        isHighlighted ? 'bg-[#082F49]/40 border-l-2 border-[#38BDF8]' : ''
                       }`}
                     >
                       {/* Line Number */}
                       <td
-                        className="py-0 px-3 select-none text-right text-[11.5px] text-slate-600 group-hover:text-slate-400 font-mono tracking-tighter w-[1%] whitespace-nowrap align-top border-r border-slate-800/60 bg-[#0D1117]"
+                        className="py-0 px-3 select-none text-right text-[11.5px] text-[#475569] group-hover:text-[#94A3B8] font-mono tracking-tighter w-[1%] whitespace-nowrap align-top border-r border-[#1E293B]/60 bg-[#0D1117]"
                         style={{ userSelect: 'none' }}
                       >
                         {lineNum}
                       </td>
 
                       {/* Code Content */}
-                      <td className="py-0 px-4 whitespace-pre font-mono overflow-x-auto text-slate-200">
+                      <td className="py-0 px-4 whitespace-pre font-mono overflow-x-auto text-[#E2E8F0]">
                         <span
                           dangerouslySetInnerHTML={{
                             __html: lineHtml || '&nbsp;',
@@ -263,15 +263,15 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({
         /* Collapsed Preview */
         <div
           onClick={() => setIsExpanded(true)}
-          className="px-4 py-3 bg-[#0D1117] hover:bg-[#161B22] cursor-pointer text-xs text-slate-400 flex items-center justify-between border-t border-slate-800/40 transition-colors"
+          className="px-4 py-3 bg-[#0D1117] hover:bg-[#161B22] cursor-pointer text-xs text-[#94A3B8] flex items-center justify-between border-t border-[#1E293B]/40 transition-colors"
         >
           <span className="flex items-center gap-2">
-            <Terminal className="w-3.5 h-3.5 text-sky-400" />
+            <Terminal className="w-3.5 h-3.5 text-[#38BDF8]" />
             <span>
               Code collapsed ({lineCount} lines) — click to expand full implementation
             </span>
           </span>
-          <span className="text-[11px] text-sky-400 font-medium">Expand ↓</span>
+          <span className="text-[11px] text-[#38BDF8] font-medium">Expand ↓</span>
         </div>
       )}
     </div>

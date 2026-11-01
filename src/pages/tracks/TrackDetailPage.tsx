@@ -134,11 +134,11 @@ export const TrackDetailPage: React.FC = () => {
       </div>
 
       {/* Track Header Card */}
-      <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-xs">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <div className="grid grid-cols-1 gap-6 rounded-[1.75rem] border border-slate-200 bg-beige p-6 shadow-sm md:grid-cols-[1.2fr_0.8fr] md:items-center md:p-8">
+        <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
           <div>
             <div className="flex items-center gap-3">
-              <h1 className="text-2xl font-bold text-slate-900 tracking-tight">{track.name}</h1>
+              <h1 className="font-serif text-4xl font-semibold leading-none tracking-tight text-slate-900 md:text-5xl">{track.name}</h1>
               <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-sky-50 text-sky-700 border border-sky-100">
                 {stats.progressPercentage}% Completed
               </span>
@@ -147,27 +147,27 @@ export const TrackDetailPage: React.FC = () => {
           </div>
 
           {/* Quick Metrics */}
-          <div className="flex items-center gap-6 text-xs text-slate-600 bg-slate-50 border border-slate-100 rounded-lg p-3">
-            <div>
-              <div className="text-slate-400 font-medium">Est. Learning Time</div>
+          <div className="flex w-full shrink-0 flex-col gap-3 rounded-2xl border border-slate-200 bg-white/75 p-4 text-xs text-slate-600 xl:w-auto xl:flex-row xl:items-center xl:gap-6">
+            <div className="min-w-0 xl:flex-none">
+              <div className="whitespace-nowrap font-medium text-slate-400">Est. Learning Time</div>
               <div className="font-semibold text-slate-800 flex items-center gap-1 mt-0.5">
                 <Clock className="w-3.5 h-3.5 text-slate-400" />
-                <span>{track.estimatedHours} Hours</span>
+                <span className="whitespace-nowrap">{track.estimatedHours} Hours</span>
               </div>
             </div>
-            <div className="h-6 w-px bg-slate-200" />
-            <div>
-              <div className="text-slate-400 font-medium">Last Studied</div>
+            <div className="h-px w-full shrink-0 bg-slate-200 xl:h-8 xl:w-px" />
+            <div className="min-w-0 xl:flex-none">
+              <div className="whitespace-nowrap font-medium text-slate-400">Last Studied</div>
               <div className="font-semibold text-slate-800 flex items-center gap-1 mt-0.5">
                 <Calendar className="w-3.5 h-3.5 text-slate-400" />
-                <span>{stats.lastStudiedDate || 'Not started'}</span>
+                <span className="whitespace-nowrap">{stats.lastStudiedDate || 'Not started'}</span>
               </div>
             </div>
           </div>
         </div>
 
         {/* Progress Bar */}
-        <div className="mt-6">
+        <div className="md:col-span-2">
           <div className="flex items-center justify-between text-xs font-medium text-slate-500 mb-1.5">
             <span>Overall Track Progress</span>
             <span>{stats.completedTopics} of {stats.totalTopics} Topics Completed</span>
@@ -209,7 +209,7 @@ export const TrackDetailPage: React.FC = () => {
       {track.slug === 'ai-ml' && (
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-base font-bold text-slate-800">Specialized Curriculum Tracks</h2>
+            <h2 className="font-serif text-2xl font-semibold text-slate-900">Specialized Curriculum Tracks</h2>
             <span className="text-xs text-slate-400">3 Core Modules</span>
           </div>
 
@@ -297,7 +297,7 @@ export const TrackDetailPage: React.FC = () => {
       {track.slug === 'devops' && (
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-base font-bold text-slate-800">DevOps Roadmap Phases</h2>
+            <h2 className="font-serif text-2xl font-semibold text-slate-900">DevOps Roadmap Phases</h2>
             <span className="text-xs text-slate-400">9 Phases</span>
           </div>
 
@@ -356,7 +356,7 @@ export const TrackDetailPage: React.FC = () => {
       {track.slug === 'system-design' && (
         <div className="space-y-4">
           <div className="flex items-center justify-between">
-            <h2 className="text-base font-bold text-slate-800">System Design Roadmap Phases</h2>
+            <h2 className="font-serif text-2xl font-semibold text-slate-900">System Design Roadmap Phases</h2>
             <span className="text-xs text-slate-400">5 Phases</span>
           </div>
 

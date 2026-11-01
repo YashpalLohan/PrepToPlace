@@ -1,0 +1,41 @@
+export const dlDays45Notes = {
+  id: "deep-learning-dldays-4-5-probability-information-theory",
+  day: 4,
+  dayStart: 4,
+  dayEnd: 5,
+  dayRange: "Days 4–5",
+  title: "Probability + Information Theory",
+  track: "AI / ML",
+  section: "Deep Learning",
+  contentFile: "dlDays4-5Content.md",
+  status: "not-started",
+  overview: "Probability, probability distributions, chain rule, Bayes theorem, entropy, cross-entropy, information theory.",
+  resources: [
+    { title: "Probability + Statistics — MIT OpenCourseWare", url: "https://ocw.mit.edu/courses/18-05-introduction-to-probability-and-statistics-spring-2022/", type: "course" },
+    { title: "MIT 6.S191 — Introduction to Deep Learning", url: "https://introtodeeplearning.com/2025/index.html", type: "course" },
+    { title: "IIT Madras CS7015 / CS6910 — Deep Learning", url: "https://cse.iitm.ac.in/~miteshk/CS6910.html", type: "course" },
+    { title: "NPTEL — Deep Learning, IIT Madras", url: "https://www.nptel.ac.in/courses/106106201", type: "course" }
+  ],
+  flowchart: [
+    { id: "1-overview", title: "Overview", sectionId: "1-overview" },
+    { id: "2-probability-basics", title: "Probability Basics", sectionId: "2-probability-basics" },
+    { id: "3-random-variables-and-distributions", title: "Random Variables and Distributions", sectionId: "3-random-variables-and-distributions" },
+    { id: "4-expectation-and-variance", title: "Expectation and Variance", sectionId: "4-expectation-and-variance" },
+    { id: "5-common-distributions", title: "Common Distributions", sectionId: "5-common-distributions" },
+    { id: "6-conditional-probability", title: "Conditional Probability", sectionId: "6-conditional-probability" },
+    { id: "7-probability-chain-rule", title: "Probability Chain Rule", sectionId: "7-probability-chain-rule" },
+    { id: "8-bayes-theorem", title: "Bayes' Theorem", sectionId: "8-bayes-theorem" },
+    { id: "9-entropy-measuring-uncertainty", title: "Entropy: Measuring Uncertainty", sectionId: "9-entropy-measuring-uncertainty" },
+    { id: "10-information-content", title: "Information Content", sectionId: "10-information-content" },
+    { id: "11-cross-entropy", title: "Cross-Entropy", sectionId: "11-cross-entropy" },
+    { id: "12-kl-divergence", title: "KL Divergence", sectionId: "12-kl-divergence" },
+    { id: "13-softmax-and-multiclass-probabilities", title: "Softmax and Multiclass Probabilities", sectionId: "13-softmax-and-multiclass-probabilities" },
+    { id: "14-why-these-concepts-matter-in-deep-learning", title: "Why These Concepts Matter in Deep Learning", sectionId: "14-why-these-concepts-matter-in-deep-learning" },
+    { id: "15-common-mistakes", title: "Common Mistakes", sectionId: "15-common-mistakes" },
+    { id: "16-placement-and-interview-questions", title: "Placement and Interview Questions", sectionId: "16-placement-and-interview-questions" },
+    { id: "17-practice", title: "Practice", sectionId: "17-practice" },
+    { id: "18-quick-revision", title: "Quick Revision", sectionId: "18-quick-revision" },
+    { id: "19-final-checklist", title: "Final Checklist", sectionId: "19-final-checklist" },
+    { id: "20-recommended-resources", title: "Recommended Resources", sectionId: "20-recommended-resources" }
+  ]
+};

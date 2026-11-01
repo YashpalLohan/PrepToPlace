@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { createPortal } from 'react-dom';
 import {
-  Activity, Binary, BookMarked, Calendar,
+  Binary, BookMarked,
   CodeXml, Cpu, ExternalLink, FolderGit2, GraduationCap, LayoutDashboard,
   Layers, Terminal,
 } from 'lucide-react';
@@ -18,8 +18,6 @@ interface SidebarProps {
 const mainItems = [
   { label: 'Dashboard', path: '/dashboard', icon: LayoutDashboard },
   { label: 'Tracks', path: '/tracks', icon: Layers, end: true },
-  { label: 'Analytics', path: '/activity', icon: Activity },
-  { label: 'Calendar', path: '/calendar', icon: Calendar },
 ];
 
 const trackItems = [

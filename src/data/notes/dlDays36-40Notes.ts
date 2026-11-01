@@ -1,0 +1,43 @@
+export const dlDays3640Notes = {
+  id: "deep-learning-dldays36-40-sequence-modeling",
+  day: 36,
+  dayStart: 36,
+  dayEnd: 40,
+  dayRange: "Days 36–40",
+  title: "Sequence Modeling",
+  track: "AI / ML",
+  section: "Deep Learning",
+  contentFile: "dlDays36-40Content.md",
+  status: "not-started",
+  overview: "Unfolding computational graphs, RNN, BPTT, bidirectional RNN, long-term dependency, LSTM, GRU/gated RNNs.",
+  resources: [
+    { title: "CampusX 100 Days of Deep Learning — Days 55–66", url: "https://learnwith.campusx.in/s/preview/courses/100-Days-of-Deep-Learning-YouTube", type: "course" },
+    { title: "Colah — Understanding LSTM Networks", url: "https://colah.github.io/posts/2015-08-Understanding-LSTMs/", type: "article" },
+    { title: "MIT 6.S191 — Introduction to Deep Learning", url: "https://introtodeeplearning.com/2025/index.html", type: "course" },
+    { title: "PyTorch RNN documentation", url: "https://docs.pytorch.org/docs/stable/generated/torch.nn.RNN.html", type: "documentation" },
+    { title: "PyTorch LSTM documentation", url: "https://docs.pytorch.org/docs/stable/generated/torch.nn.LSTM.html", type: "documentation" },
+    { title: "PyTorch GRU documentation", url: "https://docs.pytorch.org/docs/stable/generated/torch.nn.GRU.html", type: "documentation" }
+  ],
+  flowchart: [
+    { id: "1-overview", title: "Overview", sectionId: "1-overview" },
+    { id: "2-why-sequence-modeling", title: "Why Sequence Modeling?", sectionId: "2-why-sequence-modeling" },
+    { id: "3-vanilla-rnn-equations", title: "Vanilla RNN Equations", sectionId: "3-vanilla-rnn-equations" },
+    { id: "4-unfolding-the-computational-graph", title: "Unfolding the Computational Graph", sectionId: "4-unfolding-the-computational-graph" },
+    { id: "5-sequence-inputoutput-patterns", title: "Sequence Input/Output Patterns", sectionId: "5-sequence-inputoutput-patterns" },
+    { id: "6-backpropagation-through-time-bptt", title: "Backpropagation Through Time (BPTT)", sectionId: "6-backpropagation-through-time-bptt" },
+    { id: "7-vanishing-and-exploding-gradients-in-rnns", title: "Vanishing and Exploding Gradients in RNNs", sectionId: "7-vanishing-and-exploding-gradients-in-rnns" },
+    { id: "8-long-term-dependencies", title: "Long-Term Dependencies", sectionId: "8-long-term-dependencies" },
+    { id: "9-bidirectional-rnns", title: "Bidirectional RNNs", sectionId: "9-bidirectional-rnns" },
+    { id: "10-lstm-long-short-term-memory", title: "LSTM: Long Short-Term Memory", sectionId: "10-lstm-long-short-term-memory" },
+    { id: "11-lstm-gate-intuition", title: "LSTM Gate Intuition", sectionId: "11-lstm-gate-intuition" },
+    { id: "12-gru-gated-recurrent-unit", title: "GRU: Gated Recurrent Unit", sectionId: "12-gru-gated-recurrent-unit" },
+    { id: "13-lstm-vs-gru-vs-vanilla-rnn", title: "LSTM vs GRU vs Vanilla RNN", sectionId: "13-lstm-vs-gru-vs-vanilla-rnn" },
+    { id: "14-pytorch-sequence-shapes", title: "PyTorch Sequence Shapes", sectionId: "14-pytorch-sequence-shapes" },
+    { id: "15-common-mistakes", title: "Common Mistakes", sectionId: "15-common-mistakes" },
+    { id: "16-placement-and-interview-questions", title: "Placement and Interview Questions", sectionId: "16-placement-and-interview-questions" },
+    { id: "17-practice", title: "Practice", sectionId: "17-practice" },
+    { id: "18-quick-revision", title: "Quick Revision", sectionId: "18-quick-revision" },
+    { id: "19-final-checklist", title: "Final Checklist", sectionId: "19-final-checklist" },
+    { id: "20-recommended-resources", title: "Recommended Resources", sectionId: "20-recommended-resources" }
+  ]
+};

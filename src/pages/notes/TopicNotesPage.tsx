@@ -9,7 +9,6 @@ import {
   Trash2,
   Calendar,
   CheckCircle2,
-  Clock,
   FileText,
   Plus,
   X,
@@ -27,6 +26,7 @@ import { MarkdownRenderer, formatMath } from '../../components/notes/MarkdownRen
 import { LearningFlowchart } from '../../components/notes/LearningFlowchart';
 import { BackToTop } from '../../components/BackToTop';
 import { hasNotesAvailable } from '../../services/notesAvailability';
+import { TopicStatusDropdown } from '../../components/tracks/TopicStatusDropdown';
 
 export const TopicNotesPage: React.FC = () => {
   const { topicId } = useParams<{ topicId: string }>();
@@ -42,8 +42,6 @@ export const TopicNotesPage: React.FC = () => {
   const [relatedTopics, setRelatedTopics] = useState<string[]>(() => topicData?.topic.note?.relatedTopics || []);
   const [newRelated, setNewRelated] = useState('');
   const [images, setImages] = useState<NoteImage[]>(() => topicData?.topic.note?.images || []);
-  const [studyMinutes, setStudyMinutes] = useState(30);
-  const [showLogModal, setShowLogModal] = useState(false);
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -80,6 +78,12 @@ export const TopicNotesPage: React.FC = () => {
   }
 
   const { topic, track, sectionTitle } = topicData;
+  const sectionRoutes: Record<string, string> = {
+    'ML Foundations': '/tracks/ai-ml/ml-foundations',
+    'Deep Learning': '/tracks/ai-ml/deep-learning',
+    'Generative AI': '/tracks/ai-ml/generative-ai',
+  };
+  const sectionRoute = track.slug === 'ai-ml' ? sectionRoutes[sectionTitle] : undefined;
 
   if (!hasNotesAvailable(topic)) {
     return (
@@ -188,23 +192,6 @@ export const TopicNotesPage: React.FC = () => {
     );
   };
 
-  const handleLogActivity = (e: React.FormEvent) => {
-    e.preventDefault();
-    const todayStr = new Date().toISOString().split('T')[0];
-    StorageService.logActivity({
-      date: todayStr,
-      trackSlug: track.slug,
-      trackName: track.name,
-      topicId: topic.id,
-      topicTitle: topic.title,
-      minutesSpent: Number(studyMinutes),
-      topicsCompleted: topic.status === 'COMPLETED' ? 1 : 0,
-      remarks: `Studied notes for ${topic.title}`,
-    });
-    setShowLogModal(false);
-    alert('Activity logged successfully!');
-  };
-
   // Quick markdown insert helpers
   const insertText = (before: string, after: string = '') => {
     setMarkdown((prev) => prev + `\n${before}text${after}\n`);
@@ -219,11 +206,8 @@ export const TopicNotesPage: React.FC = () => {
             {track.name}
           </Link>
           <span>/</span>
-          {track.slug === 'ai-ml' && (sectionTitle === 'ML Foundations' || sectionTitle === 'Deep Learning') ? (
-            <Link
-              to={sectionTitle === 'ML Foundations' ? '/tracks/ai-ml/ml-foundations' : '/tracks/ai-ml/deep-learning'}
-              className="text-slate-600 hover:text-slate-900 transition-colors font-medium"
-            >
+          {sectionRoute ? (
+            <Link to={sectionRoute} className="text-slate-600 hover:text-slate-900 transition-colors font-medium">
               {sectionTitle}
             </Link>
           ) : (
@@ -233,18 +217,6 @@ export const TopicNotesPage: React.FC = () => {
           <span className="font-semibold text-slate-900">{topic.title}</span>
         </div>
 
-        {/* View Mode Switcher and Actions */}
-        <div className="flex items-center gap-2">
-          <button
-            onClick={() => setShowLogModal(true)}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-medium text-slate-700 bg-white border border-slate-200 hover:bg-slate-50 rounded-lg shadow-xs"
-          >
-            <Clock className="w-3.5 h-3.5 text-slate-500" />
-            <span>Log Study Time</span>
-          </button>
-
-
-        </div>
       </div>
 
       {/* Topic Title Card */}
@@ -272,16 +244,11 @@ export const TopicNotesPage: React.FC = () => {
           {/* Status selector */}
           <div className="flex items-center gap-3">
             <span className="text-xs font-medium text-slate-400">Status:</span>
-            <select
-              value={topic.status}
-              onChange={(e) => handleStatusChange(e.target.value as TopicStatus)}
-              className="text-xs font-semibold px-3 py-1.5 rounded-lg border border-slate-200 bg-slate-50 focus:outline-none focus:ring-2 focus:ring-sky-500/20"
-            >
-              <option value="NOT_STARTED">Not Started</option>
-              <option value="IN_PROGRESS">In Progress</option>
-              <option value="COMPLETED">Completed</option>
-              <option value="NEEDS_REVISION">Needs Revision</option>
-            </select>
+            <TopicStatusDropdown
+              status={topic.status}
+              onChange={handleStatusChange}
+              ariaLabel={`Update status for ${topic.title}`}
+            />
           </div>
         </div>
 
@@ -641,52 +608,6 @@ export const TopicNotesPage: React.FC = () => {
                 )}
               </div>
             )}
-          </div>
-        </div>
-      )}
-
-      {/* Log Activity Modal */}
-      {showLogModal && (
-        <div className="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-xs flex items-center justify-center p-4">
-          <div className="bg-white rounded-xl shadow-2xl border border-slate-200 max-w-sm w-full p-6 animate-in fade-in zoom-in-95 duration-150">
-            <div className="flex items-center justify-between pb-3 border-b border-slate-100">
-              <h3 className="text-sm font-bold text-slate-800">Log Study Session</h3>
-              <button onClick={() => setShowLogModal(false)} className="text-slate-400 hover:text-slate-600">
-                <X className="w-4 h-4" />
-              </button>
-            </div>
-
-            <form onSubmit={handleLogActivity} className="mt-4 space-y-4">
-              <div>
-                <label className="block text-xs font-semibold text-slate-600 mb-1">
-                  Time Spent (Minutes)
-                </label>
-                <input
-                  type="number"
-                  min="5"
-                  max="720"
-                  value={studyMinutes}
-                  onChange={(e) => setStudyMinutes(Number(e.target.value))}
-                  className="w-full px-3 py-2 text-sm bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500/20"
-                />
-              </div>
-
-              <div className="flex justify-end gap-2 pt-2">
-                <button
-                  type="button"
-                  onClick={() => setShowLogModal(false)}
-                  className="px-3.5 py-1.5 text-xs font-medium text-slate-600 bg-slate-100 rounded-lg"
-                >
-                  Cancel
-                </button>
-                <button
-                  type="submit"
-                  className="px-4 py-1.5 text-xs font-semibold text-white bg-sky-600 rounded-lg hover:bg-sky-700"
-                >
-                  Record
-                </button>
-              </div>
-            </form>
           </div>
         </div>
       )}

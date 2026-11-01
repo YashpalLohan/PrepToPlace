@@ -6,14 +6,11 @@ import {
   Plus,
   Trash2,
   BookOpen,
-  CheckCircle2,
-  Clock,
-  AlertCircle,
-  HelpCircle,
   Lock,
 } from 'lucide-react';
 import { Section, Topic, TopicStatus } from '../../types';
 import { cn } from '../../lib/utils';
+import { TopicStatusDropdown } from './TopicStatusDropdown';
 
 interface SectionTreeProps {
   section: Section;
@@ -38,36 +35,6 @@ export const SectionTree: React.FC<SectionTreeProps> = ({
 }) => {
   const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(true);
-
-  const getStatusBadge = (status: TopicStatus) => {
-    switch (status) {
-      case 'COMPLETED':
-        return (
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-medium bg-emerald-50 text-emerald-700 border border-emerald-200">
-            <CheckCircle2 className="w-3 h-3 text-emerald-600" /> Completed
-          </span>
-        );
-      case 'IN_PROGRESS':
-        return (
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-medium bg-sky-50 text-sky-700 border border-sky-200">
-            <Clock className="w-3 h-3 text-sky-600" /> In Progress
-          </span>
-        );
-      case 'NEEDS_REVISION':
-        return (
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-medium bg-amber-50 text-amber-700 border border-amber-200">
-            <AlertCircle className="w-3 h-3 text-amber-600" /> Needs Revision
-          </span>
-        );
-      default:
-        return (
-          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[11px] font-medium bg-slate-100 text-slate-600 border border-slate-200">
-            <HelpCircle className="w-3 h-3 text-slate-400" /> Not Started
-          </span>
-        );
-    }
-  };
-
   const isComingSoon = section.isComingSoon;
 
   return (
@@ -138,24 +105,12 @@ export const SectionTree: React.FC<SectionTreeProps> = ({
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-3">
-                    {/* Status dropdown */}
-                    <div className="relative">
-                      <select
-                        value={topic.status}
-                        onChange={(e) =>
-                          onUpdateTopicStatus(topic.id, e.target.value as TopicStatus)
-                        }
-                        className="text-xs font-medium bg-transparent border-0 focus:ring-0 cursor-pointer pr-1"
-                      >
-                        <option value="NOT_STARTED">Not Started</option>
-                        <option value="IN_PROGRESS">In Progress</option>
-                        <option value="COMPLETED">Completed</option>
-                        <option value="NEEDS_REVISION">Needs Revision</option>
-                      </select>
-                    </div>
-
-                    {getStatusBadge(topic.status)}
+                  <div className="flex shrink-0 items-center">
+                    <TopicStatusDropdown
+                      status={topic.status}
+                      onChange={status => onUpdateTopicStatus(topic.id, status)}
+                      ariaLabel={`Update status for ${topic.title}`}
+                    />
                   </div>
                 </div>
               ))}

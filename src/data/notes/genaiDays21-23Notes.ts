@@ -1,0 +1,43 @@
+export const genAIDays21to23Notes = {
+  id: "generative-ai-genaidays21-23-generative-ai-overview",
+  day: 21,
+  dayStart: 21,
+  dayEnd: 23,
+  dayRange: "Days 21–23",
+  title: "Generative AI Overview",
+  track: "AI / ML",
+  section: "Generative AI",
+  contentFile: "genaiDays21-23Content.md",
+  status: "not-started",
+  overview: "Text generation, summarization, code generation, image generation, audio generation, common business use cases.",
+  resources: [
+    { title: "Microsoft Generative AI for Beginners", url: "https://github.com/microsoft/generative-ai-for-beginners", type: "course" },
+    { title: "Google AI for Developers — Gemini API", url: "https://ai.google.dev/gemini-api/docs", type: "documentation" },
+    { title: "Google AI for Developers — Prompting strategies", url: "https://ai.google.dev/gemini-api/docs/prompting-strategies", type: "documentation" },
+    { title: "Google AI Studio", url: "https://aistudio.google.com/", type: "tool" },
+    { title: "OpenAI — Introduction to Generative AI", url: "https://platform.openai.com/docs/introduction", type: "documentation" }
+  ],
+  flowchart: [
+    { id: "1-overview", title: "Overview", sectionId: "1-overview" },
+    { id: "2-what-makes-ai-generative", title: "What Makes AI Generative?", sectionId: "2-what-makes-ai-generative" },
+    { id: "3-text-generation", title: "Text Generation", sectionId: "3-text-generation" },
+    { id: "4-tokens-and-context-window", title: "Tokens and Context Window", sectionId: "4-tokens-and-context-window" },
+    { id: "5-summarisation", title: "Summarisation", sectionId: "5-summarisation" },
+    { id: "6-code-generation", title: "Code Generation", sectionId: "6-code-generation" },
+    { id: "7-image-generation", title: "Image Generation", sectionId: "7-image-generation" },
+    { id: "8-audio-generation-and-processing", title: "Audio Generation and Processing", sectionId: "8-audio-generation-and-processing" },
+    { id: "9-common-business-use-cases", title: "Common Business Use Cases", sectionId: "9-common-business-use-cases" },
+    { id: "10-components-of-a-genai-application", title: "Components of a GenAI Application", sectionId: "10-components-of-a-genai-application" },
+    { id: "11-prompting-at-a-basic-level", title: "Prompting at a Basic Level", sectionId: "11-prompting-at-a-basic-level" },
+    { id: "12-hallucinations-and-reliability", title: "Hallucinations and Reliability", sectionId: "12-hallucinations-and-reliability" },
+    { id: "13-evaluation-of-generative-ai-outputs", title: "Evaluation of Generative AI Outputs", sectionId: "13-evaluation-of-generative-ai-outputs" },
+    { id: "14-risks-and-responsible-use", title: "Risks and Responsible Use", sectionId: "14-risks-and-responsible-use" },
+    { id: "15-choosing-a-model-or-approach", title: "Choosing a Model or Approach", sectionId: "15-choosing-a-model-or-approach" },
+    { id: "16-common-mistakes", title: "Common Mistakes", sectionId: "16-common-mistakes" },
+    { id: "17-placement-and-interview-questions", title: "Placement and Interview Questions", sectionId: "17-placement-and-interview-questions" },
+    { id: "18-practice", title: "Practice", sectionId: "18-practice" },
+    { id: "19-quick-revision", title: "Quick Revision", sectionId: "19-quick-revision" },
+    { id: "20-final-checklist", title: "Final Checklist", sectionId: "20-final-checklist" },
+    { id: "21-recommended-resources", title: "Recommended Resources", sectionId: "21-recommended-resources" }
+  ]
+};

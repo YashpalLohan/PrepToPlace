@@ -1,0 +1,42 @@
+export const genAIDays32to35Notes = {
+  id: "generative-ai-days-32-35-prompt-engineering",
+  day: 32,
+  dayStart: 32,
+  dayEnd: 35,
+  dayRange: "Days 32–35",
+  title: "Prompt Engineering",
+  track: "AI / ML",
+  section: "Generative AI",
+  contentFile: "genaiDays32-35Content.md",
+  status: "not-started",
+  overview: "Prompt design principles, zero-shot prompting, one-shot prompting, few-shot prompting, chain-of-thought, prompt refinement, output evaluation.",
+  resources: [
+    { title: "OpenAI Prompting", url: "https://developers.openai.com/api/docs/guides/prompting", type: "documentation" },
+    { title: "OpenAI Prompt Engineering", url: "https://developers.openai.com/api/docs/guides/prompt-engineering", type: "documentation" },
+    { title: "Prompt Engineering Guide", url: "https://www.promptingguide.ai/", type: "guide" },
+    { title: "OpenAI Prompt Engineering Best Practices", url: "https://help.openai.com/en/articles/6654000-best-practices-for-prompt-engineering-with-the-openai-api", type: "guide" },
+    { title: "OpenAI Reasoning Best Practices", url: "https://developers.openai.com/api/docs/guides/reasoning-best-practices", type: "documentation" }
+  ],
+  flowchart: [
+    { id: "1-overview", title: "Overview", sectionId: "1-overview" },
+    { id: "2-anatomy-of-a-good-prompt", title: "Anatomy of a Good Prompt", sectionId: "2-anatomy-of-a-good-prompt" },
+    { id: "3-be-specific-and-testable", title: "Be Specific and Testable", sectionId: "3-be-specific-and-testable" },
+    { id: "4-zero-shot-prompting", title: "Zero-Shot Prompting", sectionId: "4-zero-shot-prompting" },
+    { id: "5-one-shot-prompting", title: "One-Shot Prompting", sectionId: "5-one-shot-prompting" },
+    { id: "6-few-shot-prompting", title: "Few-Shot Prompting", sectionId: "6-few-shot-prompting" },
+    { id: "7-compare-prompting-modes", title: "Compare Prompting Modes", sectionId: "7-compare-prompting-modes" },
+    { id: "8-instructions-context-and-roles", title: "Instructions, Context, and Roles", sectionId: "8-instructions-context-and-roles" },
+    { id: "9-output-formatting", title: "Output Formatting", sectionId: "9-output-formatting" },
+    { id: "10-chain-of-thought-concept", title: "Chain-of-Thought Concept", sectionId: "10-chain-of-thought-concept" },
+    { id: "11-reusable-prompt-templates", title: "Reusable Prompt Templates", sectionId: "11-reusable-prompt-templates" },
+    { id: "12-prompt-refinement-workflow", title: "Prompt Refinement Workflow", sectionId: "12-prompt-refinement-workflow" },
+    { id: "13-output-evaluation", title: "Output Evaluation", sectionId: "13-output-evaluation" },
+    { id: "14-prompt-injection", title: "Prompt Injection", sectionId: "14-prompt-injection" },
+    { id: "15-common-mistakes", title: "Common Mistakes", sectionId: "15-common-mistakes" },
+    { id: "16-placement-and-interview-questions", title: "Placement and Interview Questions", sectionId: "16-placement-and-interview-questions" },
+    { id: "17-practice", title: "Practice", sectionId: "17-practice" },
+    { id: "18-quick-revision", title: "Quick Revision", sectionId: "18-quick-revision" },
+    { id: "19-final-checklist", title: "Final Checklist", sectionId: "19-final-checklist" },
+    { id: "20-recommended-resources", title: "Recommended Resources", sectionId: "20-recommended-resources" }
+  ]
+};

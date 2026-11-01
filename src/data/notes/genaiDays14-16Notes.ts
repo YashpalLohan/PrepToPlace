@@ -1,0 +1,43 @@
+export const genAIDays14to16Notes = {
+  id: "generative-ai-genaidays14-16-bias-variance-decision-trees",
+  day: 14,
+  dayStart: 14,
+  dayEnd: 16,
+  dayRange: "Days 14–16",
+  title: "Bias, Variance & Decision Trees",
+  track: "AI / ML",
+  section: "Generative AI",
+  contentFile: "genaiDays14-16Content.md",
+  status: "not-started",
+  overview: "Bias, variance, bias-variance tradeoff, decision trees, impurity, information gain, regression trees.",
+  resources: [
+    { title: "Microsoft Generative AI for Beginners", url: "https://github.com/microsoft/generative-ai-for-beginners", type: "course" },
+    { title: "scikit-learn Model Evaluation", url: "https://scikit-learn.org/stable/modules/model_evaluation.html", type: "documentation" },
+    { title: "scikit-learn Decision Trees", url: "https://scikit-learn.org/stable/modules/tree.html", type: "documentation" },
+    { title: "StatQuest — Decision Trees", url: "https://www.youtube.com/watch?v=_L39rN6gz7Y", type: "video" },
+    { title: "StatQuest — Bias and Variance", url: "https://www.youtube.com/watch?v=EuBBz3bI-aA", type: "video" }
+  ],
+  flowchart: [
+    { id: "1-overview", title: "Overview", sectionId: "1-overview" },
+    { id: "2-bias-and-variance", title: "Bias and Variance", sectionId: "2-bias-and-variance" },
+    { id: "3-biasvariance-trade-off", title: "Bias–Variance Trade-Off", sectionId: "3-biasvariance-trade-off" },
+    { id: "4-underfitting-vs-overfitting", title: "Underfitting vs Overfitting", sectionId: "4-underfitting-vs-overfitting" },
+    { id: "5-decision-tree-basics", title: "Decision Tree Basics", sectionId: "5-decision-tree-basics" },
+    { id: "6-how-a-classification-tree-learns", title: "How a Classification Tree Learns", sectionId: "6-how-a-classification-tree-learns" },
+    { id: "7-gini-impurity", title: "Gini Impurity", sectionId: "7-gini-impurity" },
+    { id: "8-entropy", title: "Entropy", sectionId: "8-entropy" },
+    { id: "9-information-gain", title: "Information Gain", sectionId: "9-information-gain" },
+    { id: "10-gini-vs-entropy", title: "Gini vs Entropy", sectionId: "10-gini-vs-entropy" },
+    { id: "11-numerical-features-and-thresholds", title: "Numerical Features and Thresholds", sectionId: "11-numerical-features-and-thresholds" },
+    { id: "12-regression-trees", title: "Regression Trees", sectionId: "12-regression-trees" },
+    { id: "13-controlling-tree-complexity", title: "Controlling Tree Complexity", sectionId: "13-controlling-tree-complexity" },
+    { id: "14-scikit-learn-example", title: "scikit-learn Example", sectionId: "14-scikit-learn-example" },
+    { id: "15-strengths-and-limitations", title: "Strengths and Limitations", sectionId: "15-strengths-and-limitations" },
+    { id: "16-common-mistakes", title: "Common Mistakes", sectionId: "16-common-mistakes" },
+    { id: "17-placement-and-interview-questions", title: "Placement and Interview Questions", sectionId: "17-placement-and-interview-questions" },
+    { id: "18-practice", title: "Practice", sectionId: "18-practice" },
+    { id: "19-quick-revision", title: "Quick Revision", sectionId: "19-quick-revision" },
+    { id: "20-final-checklist", title: "Final Checklist", sectionId: "20-final-checklist" },
+    { id: "21-recommended-resources", title: "Recommended Resources", sectionId: "21-recommended-resources" }
+  ]
+};

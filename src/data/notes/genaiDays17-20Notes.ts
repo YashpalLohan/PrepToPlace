@@ -1,0 +1,41 @@
+export const genAIDays17to20Notes = {
+  id: "generative-ai-genaidays17-20-neural-network-foundation",
+  day: 17,
+  dayStart: 17,
+  dayEnd: 20,
+  dayRange: "Days 17–20",
+  title: "Neural Network Foundation",
+  track: "AI / ML",
+  section: "Generative AI",
+  contentFile: "genaiDays17-20Content.md",
+  status: "not-started",
+  overview: "Perceptron, activation functions, feed-forward networks, MLP, backpropagation intuition.",
+  resources: [
+    { title: "DeepLearning.AI — Neural Networks and Deep Learning", url: "https://www.deeplearning.ai/courses/neural-networks-and-deep-learning/", type: "course" },
+    { title: "Hugging Face LLM Course", url: "https://huggingface.co/learn/llm-course/chapter1/1", type: "course" },
+    { title: "PyTorch — Build the Neural Network", url: "https://docs.pytorch.org/tutorials/beginner/basics/buildmodel_tutorial.html", type: "documentation" },
+    { title: "PyTorch — Autograd", url: "https://docs.pytorch.org/docs/stable/notes/autograd.html", type: "documentation" }
+  ],
+  flowchart: [
+    { id: "1-overview", title: "Overview", sectionId: "1-overview" },
+    { id: "2-perceptron", title: "Perceptron", sectionId: "2-perceptron" },
+    { id: "3-why-one-perceptron-is-limited", title: "Why One Perceptron Is Limited", sectionId: "3-why-one-perceptron-is-limited" },
+    { id: "4-feed-forward-neural-network", title: "Feed-Forward Neural Network", sectionId: "4-feed-forward-neural-network" },
+    { id: "5-multi-layer-perceptron-mlp", title: "Multi-Layer Perceptron (MLP)", sectionId: "5-multi-layer-perceptron-mlp" },
+    { id: "6-activation-functions", title: "Activation Functions", sectionId: "6-activation-functions" },
+    { id: "7-activation-selection", title: "Activation Selection", sectionId: "7-activation-selection" },
+    { id: "8-forward-propagation", title: "Forward Propagation", sectionId: "8-forward-propagation" },
+    { id: "9-backpropagation-intuition", title: "Backpropagation Intuition", sectionId: "9-backpropagation-intuition" },
+    { id: "10-simple-neuron-gradient", title: "Simple Neuron Gradient", sectionId: "10-simple-neuron-gradient" },
+    { id: "11-gradient-descent", title: "Gradient Descent", sectionId: "11-gradient-descent" },
+    { id: "12-pytorch-mlp-example", title: "PyTorch MLP Example", sectionId: "12-pytorch-mlp-example" },
+    { id: "13-loss-and-training-step", title: "Loss and Training Step", sectionId: "13-loss-and-training-step" },
+    { id: "14-why-neural-networks-matter-for-genai", title: "Why Neural Networks Matter for GenAI", sectionId: "14-why-neural-networks-matter-for-genai" },
+    { id: "15-common-mistakes", title: "Common Mistakes", sectionId: "15-common-mistakes" },
+    { id: "16-placement-and-interview-questions", title: "Placement and Interview Questions", sectionId: "16-placement-and-interview-questions" },
+    { id: "17-practice", title: "Practice", sectionId: "17-practice" },
+    { id: "18-quick-revision", title: "Quick Revision", sectionId: "18-quick-revision" },
+    { id: "19-final-checklist", title: "Final Checklist", sectionId: "19-final-checklist" },
+    { id: "20-recommended-resources", title: "Recommended Resources", sectionId: "20-recommended-resources" }
+  ]
+};

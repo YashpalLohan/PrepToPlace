@@ -1,0 +1,42 @@
+export const dlDays5859Notes = {
+  id: "deep-learning-dldays58-59-autoencoders-vae",
+  day: 58,
+  dayStart: 58,
+  dayEnd: 59,
+  dayRange: "Days 58–59",
+  title: "Autoencoders + VAE",
+  track: "AI / ML",
+  section: "Deep Learning",
+  contentFile: "dlDays58-59Content.md",
+  status: "not-started",
+  overview: "Autoencoders, undercomplete autoencoders, regularized autoencoders, denoising autoencoders, representational power, variational autoencoders, applications.",
+  resources: [
+    { title: "Sachin Soni — VAE in simple language", url: "https://medium.com/@sachinsoni600517/variational-autoencoders-in-simple-language-vae-explained-8a2c8b9f0e3b", type: "article" },
+    { title: "TensorFlow — Autoencoder tutorial", url: "https://www.tensorflow.org/tutorials/generative/autoencoder", type: "documentation" },
+    { title: "Understanding Deep Learning — Simon Prince", url: "https://udlbook.github.io/udlbook/", type: "book" }
+  ],
+  flowchart: [
+    { id: "1-overview", title: "Overview", sectionId: "1-overview" },
+    { id: "2-autoencoder-architecture", title: "Autoencoder Architecture", sectionId: "2-autoencoder-architecture" },
+    { id: "3-reconstruction-loss", title: "Reconstruction Loss", sectionId: "3-reconstruction-loss" },
+    { id: "4-undercomplete-autoencoders", title: "Undercomplete Autoencoders", sectionId: "4-undercomplete-autoencoders" },
+    { id: "5-representational-power", title: "Representational Power", sectionId: "5-representational-power" },
+    { id: "6-regularised-autoencoders", title: "Regularised Autoencoders", sectionId: "6-regularised-autoencoders" },
+    { id: "7-denoising-autoencoders", title: "Denoising Autoencoders", sectionId: "7-denoising-autoencoders" },
+    { id: "8-autoencoder-applications", title: "Autoencoder Applications", sectionId: "8-autoencoder-applications" },
+    { id: "9-why-a-basic-autoencoder-is-not-automatically-generative", title: "Why a Basic Autoencoder Is Not Automatically Generative", sectionId: "9-why-a-basic-autoencoder-is-not-automatically-generative" },
+    { id: "10-variational-autoencoder-vae", title: "Variational Autoencoder (VAE)", sectionId: "10-variational-autoencoder-vae" },
+    { id: "11-reparameterisation-trick", title: "Reparameterisation Trick", sectionId: "11-reparameterisation-trick" },
+    { id: "12-vae-objective-elbo", title: "VAE Objective: ELBO", sectionId: "12-vae-objective-elbo" },
+    { id: "13-why-the-kl-term-matters", title: "Why the KL Term Matters", sectionId: "13-why-the-kl-term-matters" },
+    { id: "14-basic-pytorch-vae-components", title: "Basic PyTorch VAE Components", sectionId: "14-basic-pytorch-vae-components" },
+    { id: "15-vae-loss-example", title: "VAE Loss Example", sectionId: "15-vae-loss-example" },
+    { id: "16-autoencoder-vs-vae", title: "Autoencoder vs VAE", sectionId: "16-autoencoder-vs-vae" },
+    { id: "17-common-mistakes", title: "Common Mistakes", sectionId: "17-common-mistakes" },
+    { id: "18-placement-and-interview-questions", title: "Placement and Interview Questions", sectionId: "18-placement-and-interview-questions" },
+    { id: "19-practice", title: "Practice", sectionId: "19-practice" },
+    { id: "20-quick-revision", title: "Quick Revision", sectionId: "20-quick-revision" },
+    { id: "21-final-checklist", title: "Final Checklist", sectionId: "21-final-checklist" },
+    { id: "22-recommended-resources", title: "Recommended Resources", sectionId: "22-recommended-resources" }
+  ]
+};

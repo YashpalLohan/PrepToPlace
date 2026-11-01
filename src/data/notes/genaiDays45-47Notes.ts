@@ -1,0 +1,41 @@
+export const genAIDays45to47Notes = {
+  id: "generative-ai-days-45-47-managing-state-in-chatbots",
+  day: 45,
+  dayStart: 45,
+  dayEnd: 47,
+  dayRange: "Days 45–47",
+  title: "Managing State in Chatbots",
+  track: "AI / ML",
+  section: "Generative AI",
+  contentFile: "genaiDays45-47Content.md",
+  status: "not-started",
+  overview: "Memory challenge, multi-turn conversation, context management, passing conversation history.",
+  resources: [
+    { title: "MS GenAI Beginners", url: "https://github.com/microsoft/generative-ai-for-beginners", type: "course" },
+    { title: "OpenAI API Quickstart", url: "https://developers.openai.com/api/docs/quickstart", type: "documentation" },
+    { title: "OpenAI Conversation State", url: "https://developers.openai.com/api/docs/guides/conversation-state", type: "documentation" },
+    { title: "OpenAI Prompting Guide", url: "https://developers.openai.com/api/docs/guides/prompting", type: "documentation" }
+  ],
+  flowchart: [
+    { id: "1-overview", title: "Overview", sectionId: "1-overview" },
+    { id: "2-stateless-request-vs-stateful-experience", title: "Stateless Request vs Stateful Experience", sectionId: "2-stateless-request-vs-stateful-experience" },
+    { id: "3-basic-conversation-format", title: "Basic Conversation Format", sectionId: "3-basic-conversation-format" },
+    { id: "4-passing-history", title: "Passing History", sectionId: "4-passing-history" },
+    { id: "5-why-memory-is-difficult", title: "Why Memory Is Difficult", sectionId: "5-why-memory-is-difficult" },
+    { id: "6-types-of-chatbot-memory", title: "Types of Chatbot Memory", sectionId: "6-types-of-chatbot-memory" },
+    { id: "7-sliding-window", title: "Sliding Window", sectionId: "7-sliding-window" },
+    { id: "8-conversation-summarisation", title: "Conversation Summarisation", sectionId: "8-conversation-summarisation" },
+    { id: "9-structured-state-vs-free-text-summary", title: "Structured State vs Free-Text Summary", sectionId: "9-structured-state-vs-free-text-summary" },
+    { id: "10-persistence-schema", title: "Persistence Schema", sectionId: "10-persistence-schema" },
+    { id: "11-context-budgeting", title: "Context Budgeting", sectionId: "11-context-budgeting" },
+    { id: "12-tool-calls-and-results", title: "Tool Calls and Results", sectionId: "12-tool-calls-and-results" },
+    { id: "13-provider-conversation-state", title: "Provider Conversation State", sectionId: "13-provider-conversation-state" },
+    { id: "14-privacy-and-user-controls", title: "Privacy and User Controls", sectionId: "14-privacy-and-user-controls" },
+    { id: "15-common-mistakes", title: "Common Mistakes", sectionId: "15-common-mistakes" },
+    { id: "16-placement-and-interview-questions", title: "Placement and Interview Questions", sectionId: "16-placement-and-interview-questions" },
+    { id: "17-practice", title: "Practice", sectionId: "17-practice" },
+    { id: "18-quick-revision", title: "Quick Revision", sectionId: "18-quick-revision" },
+    { id: "19-final-checklist", title: "Final Checklist", sectionId: "19-final-checklist" },
+    { id: "20-recommended-resources", title: "Recommended Resources", sectionId: "20-recommended-resources" }
+  ]
+};

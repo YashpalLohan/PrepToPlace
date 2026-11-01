@@ -1,0 +1,43 @@
+export const dlDays5657Notes = {
+  id: "deep-learning-dldays56-57-vision-transformers-multimodal-ai",
+  day: 56,
+  dayStart: 56,
+  dayEnd: 57,
+  dayRange: "Days 56–57",
+  title: "Vision Transformers + Multimodal AI",
+  track: "AI / ML",
+  section: "Deep Learning",
+  contentFile: "dlDays56-57Content.md",
+  status: "not-started",
+  overview: "Image patching, linear projection, CLS token mechanics, ViT architecture, image-to-sequence conversion, CLIP architecture, cross-modal embeddings, attention map mimicking, text-to-image synthesis basics.",
+  resources: [
+    { title: "Pinecone — Vision Transformers explained", url: "https://www.pinecone.io/learn/series/image-search/vision-transformers/", type: "article" },
+    { title: "OpenAI — CLIP", url: "https://openai.com/index/clip/", type: "article" },
+    { title: "D2L — Vision Transformer", url: "https://d2l.ai/chapter_attention-mechanisms/vision-transformer.html", type: "book" },
+    { title: "Stanford CS231n", url: "https://cs231n.stanford.edu/", type: "course" },
+    { title: "Vision Transformer paper", url: "https://arxiv.org/abs/2010.11929", type: "paper" },
+    { title: "CLIP paper", url: "https://arxiv.org/abs/2103.00020", type: "paper" }
+  ],
+  flowchart: [
+    { id: "1-overview", title: "Overview", sectionId: "1-overview" },
+    { id: "2-why-transformers-for-vision", title: "Why Transformers for Vision?", sectionId: "2-why-transformers-for-vision" },
+    { id: "3-image-patching", title: "Image Patching", sectionId: "3-image-patching" },
+    { id: "4-linear-projection-to-patch-embeddings", title: "Linear Projection to Patch Embeddings", sectionId: "4-linear-projection-to-patch-embeddings" },
+    { id: "5-cls-token-mechanics", title: "CLS Token Mechanics", sectionId: "5-cls-token-mechanics" },
+    { id: "6-positional-embeddings-in-vit", title: "Positional Embeddings in ViT", sectionId: "6-positional-embeddings-in-vit" },
+    { id: "7-vit-architecture", title: "ViT Architecture", sectionId: "7-vit-architecture" },
+    { id: "8-attention-complexity-in-vit", title: "Attention Complexity in ViT", sectionId: "8-attention-complexity-in-vit" },
+    { id: "9-clip-connecting-images-and-text", title: "CLIP: Connecting Images and Text", sectionId: "9-clip-connecting-images-and-text" },
+    { id: "10-contrastive-learning-intuition", title: "Contrastive Learning Intuition", sectionId: "10-contrastive-learning-intuition" },
+    { id: "11-cross-modal-embeddings", title: "Cross-Modal Embeddings", sectionId: "11-cross-modal-embeddings" },
+    { id: "12-attention-maps-and-attention-map-mimicking", title: "Attention Maps and Attention-Map Mimicking", sectionId: "12-attention-maps-and-attention-map-mimicking" },
+    { id: "13-text-to-image-synthesis-basics", title: "Text-to-Image Synthesis Basics", sectionId: "13-text-to-image-synthesis-basics" },
+    { id: "14-vit-vs-cnn-vs-clip", title: "ViT vs CNN vs CLIP", sectionId: "14-vit-vs-cnn-vs-clip" },
+    { id: "15-common-mistakes", title: "Common Mistakes", sectionId: "15-common-mistakes" },
+    { id: "16-placement-and-interview-questions", title: "Placement and Interview Questions", sectionId: "16-placement-and-interview-questions" },
+    { id: "17-practice", title: "Practice", sectionId: "17-practice" },
+    { id: "18-quick-revision", title: "Quick Revision", sectionId: "18-quick-revision" },
+    { id: "19-final-checklist", title: "Final Checklist", sectionId: "19-final-checklist" },
+    { id: "20-recommended-resources", title: "Recommended Resources", sectionId: "20-recommended-resources" }
+  ]
+};

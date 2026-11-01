@@ -93,14 +93,14 @@ export const DeepLearningPage: React.FC = () => {
       </div>
 
       {/* Header Card */}
-      <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-xs">
+      <div className="rounded-[1.75rem] border border-slate-200 bg-beige p-6 shadow-sm md:p-8">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-xs font-semibold bg-violet-50 text-violet-700 border border-violet-100 mb-2">
               <Cpu className="w-3.5 h-3.5" />
               <span>Section 2 of 3</span>
             </div>
-            <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Deep Learning Roadmap</h1>
+            <h1 className="font-serif text-4xl font-semibold leading-none tracking-tight text-slate-900 md:text-5xl">Deep Learning Roadmap</h1>
             <p className="text-xs text-slate-500 mt-1 max-w-2xl leading-relaxed">
               60-day deep learning curriculum organized into 15 grouped learning milestones: Neural Networks, Backprop, Optimizers, CNNs, Sequence Modeling, Transformers, LoRA, and Multimodal AI.
             </p>

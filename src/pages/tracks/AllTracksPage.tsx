@@ -39,17 +39,19 @@ export const AllTracksPage: React.FC = () => {
   };
 
   return (
-    <div className="space-y-6">
-      <div>
-        <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Primary Learning Tracks</h1>
-        <p className="text-sm text-slate-500 mt-1">
+    <div className="space-y-8">
+      <div className="border-b border-slate-200 pb-5">
+        <p className="editorial-eyebrow mb-2">Choose your next chapter</p>
+        <h1 className="font-serif text-4xl font-semibold leading-none tracking-tight text-slate-900 md:text-5xl">Primary Learning Tracks</h1>
+        <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600">
           Structured preparation roadmaps designed for tech placement excellence.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-        {tracks.map((track) => {
+      <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+        {tracks.map((track, trackIndex) => {
           const isExternal = isExternalTrack(track.slug, track.isExternal);
+          const featureCard = trackIndex === 0 && !isExternal;
           const externalUrl =
             track.externalUrl ||
             (track.slug === 'dsa'
@@ -63,12 +65,12 @@ export const AllTracksPage: React.FC = () => {
             return (
               <div
                 key={track.id}
-                className="bg-white rounded-xl border border-slate-200 p-5 shadow-xs flex flex-col justify-between hover:border-sky-300 hover:shadow-sm transition-all"
+                className={`bg-white rounded-2xl border border-slate-200 p-5 shadow-sm flex flex-col justify-between hover:border-sky-300 hover:shadow-sm transition-all ${featureCard ? 'md:col-span-2 md:grid md:grid-cols-[1.2fr_0.8fr] md:gap-x-8 md:p-7' : ''}`}
               >
                 <div>
                   {/* Header Icon + Name */}
                   <div className="flex items-start justify-between gap-3 mb-3">
-                    <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700">
+                    <div className="w-11 h-11 rounded-2xl bg-sky-50 flex items-center justify-center text-sky-700">
                       {getTrackIcon(track.iconName)}
                     </div>
                     <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-sky-50 text-sky-700 border border-sky-100 flex items-center gap-1">
@@ -77,7 +79,7 @@ export const AllTracksPage: React.FC = () => {
                     </span>
                   </div>
 
-                  <h3 className="text-base font-bold text-slate-800">{track.name}</h3>
+                  <h3 className="font-serif text-xl font-semibold text-slate-900">{track.name}</h3>
                   <p className="text-xs text-slate-500 mt-1 line-clamp-2 leading-relaxed">
                     {track.description}
                   </p>
@@ -121,12 +123,12 @@ export const AllTracksPage: React.FC = () => {
           return (
             <div
               key={track.id}
-              className="bg-white rounded-xl border border-slate-200 p-5 shadow-xs flex flex-col justify-between hover:border-sky-300 hover:shadow-sm transition-all"
+              className={`bg-white rounded-2xl border border-slate-200 p-5 shadow-sm flex flex-col justify-between hover:border-sky-300 hover:shadow-sm transition-all ${featureCard ? 'md:col-span-2 md:grid md:grid-cols-[1.2fr_0.8fr] md:gap-x-8 md:p-7' : ''}`}
             >
               <div>
                 {/* Header Icon + Name */}
                 <div className="flex items-start justify-between gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-xl bg-slate-100 flex items-center justify-center text-slate-700">
+                  <div className="w-11 h-11 rounded-2xl bg-sky-50 flex items-center justify-center text-sky-700">
                     {getTrackIcon(track.iconName)}
                   </div>
                   <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-slate-100 text-slate-600">
@@ -134,7 +136,7 @@ export const AllTracksPage: React.FC = () => {
                   </span>
                 </div>
 
-                <h3 className="text-base font-bold text-slate-800">{track.name}</h3>
+                <h3 className="font-serif text-xl font-semibold text-slate-900">{track.name}</h3>
                 <p className="text-xs text-slate-500 mt-1 line-clamp-2 leading-relaxed">
                   {track.description}
                 </p>

@@ -1,0 +1,40 @@
+export const dlDays13Notes = {
+  id: "deep-learning-dldays-1-3-math-for-deep-learning",
+  day: 1,
+  dayStart: 1,
+  dayEnd: 3,
+  dayRange: "Days 1–3",
+  title: "Math for Deep Learning",
+  track: "AI / ML",
+  section: "Deep Learning",
+  contentFile: "dlDays1-3Content.md",
+  status: "not-started",
+  overview: "Linear algebra basics, vectors, tensors, matrix operations, norms, eigenvalues, eigen decomposition, SVD.",
+  resources: [
+    { title: "3Blue1Brown – Linear Algebra", url: "https://www.youtube.com/playlist?list=PLZHQObOWTQDMsr9K-rj53DwVRMYO3t5Yr", type: "video" },
+    { title: "Understanding Deep Learning – Simon Prince", url: "https://udlbook.github.io/udlbook/", type: "book" },
+    { title: "IIT Madras CS7015 / CS6910 – Deep Learning", url: "https://cse.iitm.ac.in/~miteshk/CS6910.html", type: "course" },
+    { title: "IIT Madras – Deep Learning course page", url: "https://study.iitm.ac.in/ds/course_pages/BSCS3004.html", type: "course" }
+  ],
+  flowchart: [
+    { id: "1-overview", title: "Overview", sectionId: "1-overview" },
+    { id: "2-scalars-vectors-matrices-and-tensors", title: "Scalars, Vectors, Matrices, and Tensors", sectionId: "2-scalars-vectors-matrices-and-tensors" },
+    { id: "3-vectors-and-vector-operations", title: "Vectors and Vector Operations", sectionId: "3-vectors-and-vector-operations" },
+    { id: "4-matrices-and-matrix-operations", title: "Matrices and Matrix Operations", sectionId: "4-matrices-and-matrix-operations" },
+    { id: "5-linear-transformations", title: "Linear Transformations", sectionId: "5-linear-transformations" },
+    { id: "6-linear-independence-span-basis-and-rank", title: "Linear Independence, Span, Basis, and Rank", sectionId: "6-linear-independence-span-basis-and-rank" },
+    { id: "7-norms-and-distances", title: "Norms and Distances", sectionId: "7-norms-and-distances" },
+    { id: "8-eigenvalues-and-eigenvectors", title: "Eigenvalues and Eigenvectors", sectionId: "8-eigenvalues-and-eigenvectors" },
+    { id: "9-eigendecomposition", title: "Eigendecomposition", sectionId: "9-eigendecomposition" },
+    { id: "10-singular-value-decomposition-svd", title: "Singular Value Decomposition (SVD)", sectionId: "10-singular-value-decomposition-svd" },
+    { id: "11-eigen-decomposition-vs-svd", title: "Eigen Decomposition vs SVD", sectionId: "11-eigen-decomposition-vs-svd" },
+    { id: "12-numpy-practice", title: "NumPy Practice", sectionId: "12-numpy-practice" },
+    { id: "13-tensor-shapes-in-deep-learning", title: "Tensor Shapes in Deep Learning", sectionId: "13-tensor-shapes-in-deep-learning" },
+    { id: "14-common-mistakes", title: "Common Mistakes", sectionId: "14-common-mistakes" },
+    { id: "15-placement-and-interview-questions", title: "Placement and Interview Questions", sectionId: "15-placement-and-interview-questions" },
+    { id: "16-practice", title: "Practice", sectionId: "16-practice" },
+    { id: "17-quick-revision", title: "Quick Revision", sectionId: "17-quick-revision" },
+    { id: "18-final-checklist", title: "Final Checklist", sectionId: "18-final-checklist" },
+    { id: "19-recommended-resources", title: "Recommended Resources", sectionId: "19-recommended-resources" }
+  ]
+};

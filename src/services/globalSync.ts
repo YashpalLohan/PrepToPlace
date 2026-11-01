@@ -30,10 +30,95 @@ function applyProgressOverrides(tracks: Track[]): Track[] {
   return tracks;
 }
 
+function mergeMissingRegisteredNotes(remoteTrack: Track, localTrack?: Track): { track: Track; changed: boolean } {
+  if (!localTrack) return { track: remoteTrack, changed: false };
+  const merged = JSON.parse(JSON.stringify(remoteTrack)) as Track;
+  let changed = false;
+
+  const mergeSections = (remoteSections: Track['sections'], localSections: Track['sections']) => {
+    remoteSections.forEach(remoteSection => {
+      const localSection = localSections.find(section => section.id === remoteSection.id || section.title === remoteSection.title);
+      if (!localSection) return;
+
+      (remoteSection.topics || []).forEach(remoteTopic => {
+        const localTopic = (localSection.topics || []).find(topic => topic.id === remoteTopic.id);
+        if (!remoteTopic.note && localTopic?.note?.markdown?.trim()) {
+          remoteTopic.note = localTopic.note;
+          changed = true;
+        }
+      });
+
+      if (remoteSection.subsections?.length && localSection.subsections?.length) {
+        mergeSections(remoteSection.subsections, localSection.subsections);
+      }
+    });
+  };
+
+  mergeSections(merged.sections || [], localTrack.sections || []);
+  return { track: merged, changed };
+}
+
+async function syncRegisteredNotes(trackSlug: string, localTrack: Track): Promise<void> {
+  const ref = doc(tracksRef, trackSlug);
+  await runTransaction(db, async transaction => {
+    const snapshot = await transaction.get(ref);
+    if (!snapshot.exists()) return;
+
+    const remote = snapshot.data() as Track & { updatedAt?: unknown; migratedAt?: unknown };
+    delete remote.updatedAt;
+    delete remote.migratedAt;
+    const merged = mergeMissingRegisteredNotes(remote, localTrack);
+    if (merged.changed) {
+      transaction.set(ref, { ...merged.track, updatedAt: serverTimestamp() });
+    }
+  });
+}
+
 function same(a: unknown, b: unknown) { return JSON.stringify(a) === JSON.stringify(b); }
 function mergeConcurrent(base: any, local: any, remote: any, path = 'track'): any {
+  // Notes are registered from bundled markdown and may be present in local cache
+  // and Firestore with identical content but independently generated metadata.
+  // Merge that safe case instead of treating metadata timestamps as a conflict.
+  if (path.endsWith('.note') && local && remote &&
+      local.id === remote.id && local.topicId === remote.topicId &&
+      local.markdown === remote.markdown) {
+    const mergeItems = (left: any[] = [], right: any[] = []) => {
+      const items = new Map<string, any>();
+      [...left, ...right].forEach(item => {
+        const key = item?.id ?? JSON.stringify(item);
+        items.set(String(key), { ...items.get(String(key)), ...item });
+      });
+      return [...items.values()];
+    };
+    const localUpdated = Date.parse(local.lastUpdated || '');
+    const remoteUpdated = Date.parse(remote.lastUpdated || '');
+    const latestUpdate = Number.isFinite(localUpdated) && localUpdated > remoteUpdated
+      ? local.lastUpdated
+      : remote.lastUpdated ?? local.lastUpdated;
+    return {
+      ...local,
+      ...remote,
+      keyTakeaways: [...new Set([...(local.keyTakeaways || []), ...(remote.keyTakeaways || [])])],
+      relatedTopics: [...new Set([...(local.relatedTopics || []), ...(remote.relatedTopics || [])])],
+      images: mergeItems(local.images, remote.images),
+      lastUpdated: latestUpdate,
+    };
+  }
   if (same(local, base)) return remote;
   if (same(remote, base) || same(local, remote)) return local;
+  if (path.endsWith('.resources') && Array.isArray(local) && Array.isArray(remote)) {
+    // Resource lists can be edited independently in multiple visitors' caches.
+    // Preserve both sides' entries on a true concurrent change; dedupe identical
+    // links without allowing one visitor's catalog snapshot to erase another's.
+    const resources = new Map<string, any>();
+    [...local, ...remote].forEach(resource => {
+      const key = resource && typeof resource === 'object'
+        ? `${resource.title || ''}\u0000${resource.url || ''}`
+        : JSON.stringify(resource);
+      resources.set(key, resource);
+    });
+    return [...resources.values()];
+  }
   if (Array.isArray(base) && Array.isArray(local) && Array.isArray(remote) && [...base, ...local, ...remote].every(v => v && typeof v === 'object' && 'id' in v)) {
     const maps = [base, local, remote].map(values => new Map(values.map((v: any) => [v.id, v])));
     const ids = new Set([...maps[0].keys(), ...maps[1].keys(), ...maps[2].keys()]);
@@ -149,6 +234,7 @@ export function startGlobalSync(onStatus: (status: { loading: boolean; error: st
       return;
     }
     const localTracks = new Map(StorageService.getTracks().map(track => [track.slug, track]));
+    const registeredNotesToSync = new Map<string, Track>();
     const tracks = snapshot.docs.map(item => {
       const data = item.data() as Track & { updatedAt?: unknown; migratedAt?: unknown };
       delete data.updatedAt; delete data.migratedAt;
@@ -162,11 +248,18 @@ export function startGlobalSync(onStatus: (status: { loading: boolean; error: st
           visible = local;
         }
       }
+      const notesMerge = mergeMissingRegisteredNotes(visible, local);
+      visible = notesMerge.track;
+      if (notesMerge.changed && local) registeredNotesToSync.set(data.slug, local);
       trackBaseline.set(data.slug, JSON.parse(JSON.stringify(data)) as Track);
       return visible;
     });
     if (tracks.length) StorageService.applyCloudSnapshot({ tracks: applyProgressOverrides(tracks) });
     globalProgressStore.publish({ ready: true });
+    if (registeredNotesToSync.size) {
+      void Promise.all([...registeredNotesToSync].map(([slug, track]) => syncRegisteredNotes(slug, track)))
+        .catch(error => reportError(error instanceof Error ? error : new Error('Registered notes sync failed')));
+    }
     if (!ready) {
       ready = true;
       onStatus({ loading: false, error: null });

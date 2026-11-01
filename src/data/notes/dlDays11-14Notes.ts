@@ -1,0 +1,40 @@
+export const dlDays1114Notes = {
+  id: "deep-learning-dldays-11-14-loss-backpropagation-gradient-descent",
+  day: 11,
+  dayStart: 11,
+  dayEnd: 14,
+  dayRange: "Days 11–14",
+  title: "Loss, Backpropagation + Gradient Descent",
+  track: "AI / ML",
+  section: "Deep Learning",
+  contentFile: "dlDays11-14Content.md",
+  status: "not-started",
+  overview: "Loss functions, backpropagation, chain rule in networks, gradient descent, stochastic/mini-batch GD, autograd.",
+  resources: [
+    { title: "CampusX 100 Days of Deep Learning — Days 14–19", url: "https://www.youtube.com/playlist?list=PLKnIA16_RmvYuZauWaPlRTC54KxSNLtNn", type: "video" },
+    { title: "Sachin Soni — PyTorch Autograd", url: "https://www.youtube.com/results?search_query=Sachin+Soni+PyTorch+Autograd", type: "video" },
+    { title: "DeepLearning.AI — Deep Learning Specialization", url: "https://www.deeplearning.ai/specializations/deep-learning/", type: "course" },
+    { title: "PyTorch — Autograd mechanics", url: "https://docs.pytorch.org/docs/stable/notes/autograd.html", type: "documentation" }
+  ],
+  flowchart: [
+    { id: "1-overview", title: "Overview", sectionId: "1-overview" },
+    { id: "2-what-is-a-loss-function", title: "What Is a Loss Function?", sectionId: "2-what-is-a-loss-function" },
+    { id: "3-common-loss-functions", title: "Common Loss Functions", sectionId: "3-common-loss-functions" },
+    { id: "4-computation-graph", title: "Computation Graph", sectionId: "4-computation-graph" },
+    { id: "5-the-chain-rule", title: "The Chain Rule", sectionId: "5-the-chain-rule" },
+    { id: "6-worked-backpropagation-example-one-linear-neuron", title: "Worked Backpropagation Example: One Linear Neuron", sectionId: "6-worked-backpropagation-example-one-linear-neuron" },
+    { id: "7-backpropagation-through-a-multi-layer-network", title: "Backpropagation Through a Multi-Layer Network", sectionId: "7-backpropagation-through-a-multi-layer-network" },
+    { id: "8-gradient-descent", title: "Gradient Descent", sectionId: "8-gradient-descent" },
+    { id: "9-batch-stochastic-and-mini-batch-gradient-descent", title: "Batch, Stochastic, and Mini-Batch Gradient Descent", sectionId: "9-batch-stochastic-and-mini-batch-gradient-descent" },
+    { id: "10-pytorch-autograd", title: "PyTorch Autograd", sectionId: "10-pytorch-autograd" },
+    { id: "11-why-clear-gradients", title: "Why Clear Gradients?", sectionId: "11-why-clear-gradients" },
+    { id: "12-complete-mini-batch-training-loop", title: "Complete Mini-Batch Training Loop", sectionId: "12-complete-mini-batch-training-loop" },
+    { id: "13-training-vs-evaluation-mode", title: "Training vs Evaluation Mode", sectionId: "13-training-vs-evaluation-mode" },
+    { id: "14-common-mistakes", title: "Common Mistakes", sectionId: "14-common-mistakes" },
+    { id: "15-placement-and-interview-questions", title: "Placement and Interview Questions", sectionId: "15-placement-and-interview-questions" },
+    { id: "16-practice", title: "Practice", sectionId: "16-practice" },
+    { id: "17-quick-revision", title: "Quick Revision", sectionId: "17-quick-revision" },
+    { id: "18-final-checklist", title: "Final Checklist", sectionId: "18-final-checklist" },
+    { id: "19-recommended-resources", title: "Recommended Resources", sectionId: "19-recommended-resources" }
+  ]
+};

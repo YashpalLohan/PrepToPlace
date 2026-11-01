@@ -1,0 +1,42 @@
+export const genAIDays29to31Notes = {
+  id: "generative-ai-days-29-31-responsible-ai",
+  day: 29,
+  dayStart: 29,
+  dayEnd: 31,
+  dayRange: "Days 29–31",
+  title: "Responsible AI",
+  track: "AI / ML",
+  section: "Generative AI",
+  contentFile: "genaiDays29-31Content.md",
+  status: "not-started",
+  overview: "Ethical considerations, bias mitigation, misinformation prevention, fairness principles, hallucination risk.",
+  resources: [
+    { title: "Google GenAI Developers — Responsible AI", url: "https://ai.google.dev/responsible", type: "documentation" },
+    { title: "Google Gemini API — Safety and factuality", url: "https://ai.google.dev/gemini-api/docs/safety-guidance", type: "documentation" },
+    { title: "MS GenAI Beginners", url: "https://github.com/microsoft/generative-ai-for-beginners", type: "course" },
+    { title: "Microsoft Responsible AI Principles", url: "https://www.microsoft.com/en-in/ai/principles-and-approach", type: "documentation" },
+    { title: "NIST AI Risk Management Framework", url: "https://www.nist.gov/itl/ai-risk-management-framework", type: "framework" }
+  ],
+  flowchart: [
+    { id: "1-overview", title: "Overview", sectionId: "1-overview" },
+    { id: "2-responsible-ai-principles", title: "Responsible AI Principles", sectionId: "2-responsible-ai-principles" },
+    { id: "3-ethics-across-the-lifecycle", title: "Ethics Across the Lifecycle", sectionId: "3-ethics-across-the-lifecycle" },
+    { id: "4-sources-of-bias", title: "Sources of Bias", sectionId: "4-sources-of-bias" },
+    { id: "5-bias-mitigation-workflow", title: "Bias Mitigation Workflow", sectionId: "5-bias-mitigation-workflow" },
+    { id: "6-fairness-metrics", title: "Fairness Metrics", sectionId: "6-fairness-metrics" },
+    { id: "7-privacy-and-data-protection", title: "Privacy and Data Protection", sectionId: "7-privacy-and-data-protection" },
+    { id: "8-genai-security-risks", title: "GenAI Security Risks", sectionId: "8-genai-security-risks" },
+    { id: "9-hallucination-risk", title: "Hallucination Risk", sectionId: "9-hallucination-risk" },
+    { id: "10-misinformation-prevention", title: "Misinformation Prevention", sectionId: "10-misinformation-prevention" },
+    { id: "11-human-oversight", title: "Human Oversight", sectionId: "11-human-oversight" },
+    { id: "12-transparency", title: "Transparency", sectionId: "12-transparency" },
+    { id: "13-safety-and-fairness-evaluation", title: "Safety and Fairness Evaluation", sectionId: "13-safety-and-fairness-evaluation" },
+    { id: "14-example-responsible-support-assistant", title: "Example: Responsible Support Assistant", sectionId: "14-example-responsible-support-assistant" },
+    { id: "15-common-mistakes", title: "Common Mistakes", sectionId: "15-common-mistakes" },
+    { id: "16-placement-and-interview-questions", title: "Placement and Interview Questions", sectionId: "16-placement-and-interview-questions" },
+    { id: "17-practice", title: "Practice", sectionId: "17-practice" },
+    { id: "18-quick-revision", title: "Quick Revision", sectionId: "18-quick-revision" },
+    { id: "19-final-checklist", title: "Final Checklist", sectionId: "19-final-checklist" },
+    { id: "20-recommended-resources", title: "Recommended Resources", sectionId: "20-recommended-resources" }
+  ]
+};

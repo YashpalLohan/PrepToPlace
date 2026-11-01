@@ -2,6 +2,78 @@ import { Section, Topic } from '../types';
 import { ML_DAY_1_NOTE_MARKDOWN } from './notes/mlDay1Notes';
 import { mlDay2Content } from './notes/mlDay2Notes';
 import { mlDay3Content } from './notes/mlDay3Notes';
+import mlDay4Content from './notes/mlDay4Content.md?raw';
+import mlDay5Content from './notes/mlDay5Content.md?raw';
+import mlDay6Content from './notes/mlDay6Content.md?raw';
+import mlDay7Content from './notes/mlDay7Content.md?raw';
+import mlDay8Content from './notes/mlDay8Content.md?raw';
+import mlDay9Content from './notes/mlDay9Content.md?raw';
+import mlDay10Content from './notes/mlDay10Content.md?raw';
+import mlDay11Content from './notes/mlDay11Content.md?raw';
+import mlDay12Content from './notes/mlDay12Content.md?raw';
+import mlDay13Content from './notes/mlDay13Content.md?raw';
+import mlDay14Content from './notes/mlDay14Content.md?raw';
+import mlDay15Content from './notes/mlDay15Content.md?raw';
+import mlDay16Content from './notes/mlDay16Content.md?raw';
+import mlDay17Content from './notes/mlDay17Content.md?raw';
+import mlDay18Content from './notes/mlDay18Content.md?raw';
+import mlDay19Content from './notes/mlDay19Content.md?raw';
+import mlDay20Content from './notes/mlDay20Content.md?raw';
+import mlDay21Content from './notes/mlDay21Content.md?raw';
+import dlDays13Content from './notes/dlDays1-3Content.md?raw';
+import dlDays45Content from './notes/dlDays4-5Content.md?raw';
+import dlDays610Content from './notes/dlDays6-10Content.md?raw';
+import dlDays1114Content from './notes/dlDays11-14Content.md?raw';
+import dlDays1518Content from './notes/dlDays15-18Content.md?raw';
+import dlDays1922Content from './notes/dlDays19-22Content.md?raw';
+import dlDays2330Content from './notes/dlDays23-30Content.md?raw';
+import dlDays3135Content from './notes/dlDays31-35Content.md?raw';
+import dlDays3640Content from './notes/dlDays36-40Content.md?raw';
+import dlDays4144Content from './notes/dlDays41-44Content.md?raw';
+import dlDays4551Content from './notes/dlDays45-51Content.md?raw';
+import dlDays5255Content from './notes/dlDays52-55Content.md?raw';
+import dlDays5657Content from './notes/dlDays56-57Content.md?raw';
+import dlDays5859Content from './notes/dlDays58-59Content.md?raw';
+import dlDay60Content from './notes/dlDay60Content.md?raw';
+import genaiDays13Content from './notes/genaiDays1-3Content.md?raw';
+import genaiDays46Content from './notes/genaiDays4-6Content.md?raw';
+import genaiDays710Content from './notes/genaiDays7-10Content.md?raw';
+import genaiDays1113Content from './notes/genaiDays11-13Content.md?raw';
+import genaiDays1416Content from './notes/genaiDays14-16Content.md?raw';
+import genaiDays1720Content from './notes/genaiDays17-20Content.md?raw';
+import genaiDays2123Content from './notes/genaiDays21-23Content.md?raw';
+import genaiDays2428Content from './notes/genaiDays24-28Content.md?raw';
+import genaiDays2931Content from './notes/genaiDays29-31Content.md?raw';
+import genaiDays3235Content from './notes/genaiDays32-35Content.md?raw';
+import genaiDays3638Content from './notes/genaiDays36-38Content.md?raw';
+import genaiDays3941Content from './notes/genaiDays39-41Content.md?raw';
+import genaiDays4244Content from './notes/genaiDays42-44Content.md?raw';
+import genaiDays4547Content from './notes/genaiDays45-47Content.md?raw';
+import genaiDays4852Content from './notes/genaiDays48-52Content.md?raw';
+import genaiDays5355Content from './notes/genaiDays53-55Content.md?raw';
+import genaiDays5657Content from './notes/genaiDays56-57Content.md?raw';
+import genaiDays5859Content from './notes/genaiDays58-59Content.md?raw';
+import genaiDay60Content from './notes/genaiDay60Content.md?raw';
+
+const deepLearningNote = (id: string, topicId: string, markdown: string) => ({
+  id,
+  topicId,
+  markdown,
+  keyTakeaways: [] as string[],
+  relatedTopics: [] as string[],
+  images: [],
+  lastUpdated: new Date().toISOString(),
+});
+
+const generativeAINote = (id: string, topicId: string, markdown: string) => ({
+  id,
+  topicId,
+  markdown,
+  keyTakeaways: [] as string[],
+  relatedTopics: [] as string[],
+  images: [],
+  lastUpdated: new Date().toISOString(),
+});
 
 export const ML_FOUNDATIONS_TOPICS: Topic[] = [
   {
@@ -120,7 +192,8 @@ export const ML_FOUNDATIONS_TOPICS: Topic[] = [
       { title: 'Andrew Ng: Supervised ML Course 1, Week 1–2', url: 'https://www.coursera.org/learn/machine-learning' },
       { title: 'Krish Naik: Linear Regression from scratch', url: 'https://www.youtube.com/watch?v=1-OGRohmH2s' },
       { title: 'sklearn LinearRegression docs', url: 'https://scikit-learn.org/stable/modules/linear_model.html' }
-    ]
+    ],
+    note: { id: 'note-ml-day-4', topicId: 'ml-day-4', markdown: mlDay4Content, keyTakeaways: [], relatedTopics: [], images: [], lastUpdated: new Date().toISOString() }
   },
   {
     id: 'ml-day-5',
@@ -135,7 +208,8 @@ export const ML_FOUNDATIONS_TOPICS: Topic[] = [
       { title: 'StatQuest: Logistic Regression', url: 'https://www.youtube.com/watch?v=yIYKR4sgzI8' },
       { title: '3Blue1Brown: Gradient Descent', url: 'https://www.youtube.com/watch?v=IHZwWFHWa-w' },
       { title: 'Andrew Ng: Supervised ML Course 1, Week 3', url: 'https://www.coursera.org/learn/machine-learning' }
-    ]
+    ],
+    note: { id: 'note-ml-day-5', topicId: 'ml-day-5', markdown: mlDay5Content, keyTakeaways: [], relatedTopics: [], images: [], lastUpdated: new Date().toISOString() }
   },
   {
     id: 'ml-day-6',
@@ -151,7 +225,8 @@ export const ML_FOUNDATIONS_TOPICS: Topic[] = [
       { title: 'StatQuest: Confusion Matrix', url: 'https://www.youtube.com/watch?v=Kdsp6soqA7o' },
       { title: 'sklearn model evaluation', url: 'https://scikit-learn.org/stable/modules/model_evaluation.html' },
       { title: 'Krish Naik: Cross Validation', url: 'https://www.youtube.com/watch?v=fSytzGwwBVw' }
-    ]
+    ],
+    note: { id: 'note-ml-day-6', topicId: 'ml-day-6', markdown: mlDay6Content, keyTakeaways: [], relatedTopics: [], images: [], lastUpdated: new Date().toISOString() }
   },
   {
     id: 'ml-day-7',
@@ -165,7 +240,8 @@ export const ML_FOUNDATIONS_TOPICS: Topic[] = [
     resources: [
       { title: 'Hands-on ML GitHub notebooks', url: 'https://github.com/ageron/handson-ml3' },
       { title: 'Kaggle: Intro to ML', url: 'https://www.kaggle.com/learn/intro-to-machine-learning' }
-    ]
+    ],
+    note: { id: 'note-ml-day-7', topicId: 'ml-day-7', markdown: mlDay7Content, keyTakeaways: [], relatedTopics: [], images: [], lastUpdated: new Date().toISOString() }
   },
   {
     id: 'ml-day-8',
@@ -180,7 +256,8 @@ export const ML_FOUNDATIONS_TOPICS: Topic[] = [
       { title: 'StatQuest: K-Nearest Neighbours', url: 'https://www.youtube.com/watch?v=HVXime0nQeI' },
       { title: 'StatQuest: Naive Bayes', url: 'https://www.youtube.com/watch?v=O2L2Uv9pdDA' },
       { title: 'sklearn Neighbours guide', url: 'https://scikit-learn.org/stable/modules/neighbors.html' }
-    ]
+    ],
+    note: { id: 'note-ml-day-8', topicId: 'ml-day-8', markdown: mlDay8Content, keyTakeaways: [], relatedTopics: [], images: [], lastUpdated: new Date().toISOString() }
   },
   {
     id: 'ml-day-9',
@@ -195,7 +272,8 @@ export const ML_FOUNDATIONS_TOPICS: Topic[] = [
       { title: 'StatQuest: Decision Trees', url: 'https://www.youtube.com/watch?v=_L39rN6gz7Y' },
       { title: 'StatQuest: Regression Trees', url: 'https://www.youtube.com/watch?v=g9c66TUylZ4' },
       { title: 'Krish Naik: Decision Tree', url: 'https://www.youtube.com/watch?v=PHxYNGo8NcI' }
-    ]
+    ],
+    note: { id: 'note-ml-day-9', topicId: 'ml-day-9', markdown: mlDay9Content, keyTakeaways: [], relatedTopics: [], images: [], lastUpdated: new Date().toISOString() }
   },
   {
     id: 'ml-day-10',
@@ -210,7 +288,8 @@ export const ML_FOUNDATIONS_TOPICS: Topic[] = [
       { title: 'StatQuest: Random Forests', url: 'https://www.youtube.com/watch?v=J4Wdy0Wc_xQ' },
       { title: 'StatQuest: Bagging and Random Forests', url: 'https://www.youtube.com/watch?v=sQ870aTKqiM' },
       { title: 'sklearn Ensemble docs', url: 'https://scikit-learn.org/stable/modules/ensemble.html' }
-    ]
+    ],
+    note: { id: 'note-ml-day-10', topicId: 'ml-day-10', markdown: mlDay10Content, keyTakeaways: [], relatedTopics: [], images: [], lastUpdated: new Date().toISOString() }
   },
   {
     id: 'ml-day-11',
@@ -226,7 +305,8 @@ export const ML_FOUNDATIONS_TOPICS: Topic[] = [
       { title: 'XGBoost official tutorial', url: 'https://xgboost.readthedocs.io/en/stable/tutorials/model.html' },
       { title: 'Krish Naik: XGBoost', url: 'https://www.youtube.com/watch?v=gPciUPwWJQQ' },
       { title: 'LightGBM docs', url: 'https://lightgbm.readthedocs.io/en/stable/Quick-Start.html' }
-    ]
+    ],
+    note: { id: 'note-ml-day-11', topicId: 'ml-day-11', markdown: mlDay11Content, keyTakeaways: [], relatedTopics: [], images: [], lastUpdated: new Date().toISOString() }
   },
   {
     id: 'ml-day-12',
@@ -241,7 +321,8 @@ export const ML_FOUNDATIONS_TOPICS: Topic[] = [
       { title: 'StatQuest: SVM', url: 'https://www.youtube.com/watch?v=efR1C6CvhmE' },
       { title: 'MIT 6.034 SVM lecture', url: 'https://www.youtube.com/watch?v=_PwhiWxHK8o' },
       { title: 'sklearn SVM guide', url: 'https://scikit-learn.org/stable/modules/svm.html' }
-    ]
+    ],
+    note: { id: 'note-ml-day-12', topicId: 'ml-day-12', markdown: mlDay12Content, keyTakeaways: [], relatedTopics: [], images: [], lastUpdated: new Date().toISOString() }
   },
   {
     id: 'ml-day-13',
@@ -257,7 +338,8 @@ export const ML_FOUNDATIONS_TOPICS: Topic[] = [
       { title: 'StatQuest: Ridge Regression', url: 'https://www.youtube.com/watch?v=Q81RR3yKn30' },
       { title: 'StatQuest: Lasso Regression', url: 'https://www.youtube.com/watch?v=NGf0voTMlcs' },
       { title: 'Optuna quickstart', url: 'https://optuna.org/#code_examples' }
-    ]
+    ],
+    note: { id: 'note-ml-day-13', topicId: 'ml-day-13', markdown: mlDay13Content, keyTakeaways: [], relatedTopics: [], images: [], lastUpdated: new Date().toISOString() }
   },
   {
     id: 'ml-day-14',
@@ -271,7 +353,8 @@ export const ML_FOUNDATIONS_TOPICS: Topic[] = [
     resources: [
       { title: 'Chip Huyen: ML Interviews Book', url: 'https://huyenchip.com/ml-interviews-book/' },
       { title: 'Krish Naik: ML Interview Questions', url: 'https://www.youtube.com/playlist?list=PLZoTAELRMXVPkl7oRvzyNnyj1HS4wt2K-' }
-    ]
+    ],
+    note: { id: 'note-ml-day-14', topicId: 'ml-day-14', markdown: mlDay14Content, keyTakeaways: [], relatedTopics: [], images: [], lastUpdated: new Date().toISOString() }
   },
   {
     id: 'ml-day-15',
@@ -286,7 +369,8 @@ export const ML_FOUNDATIONS_TOPICS: Topic[] = [
       { title: 'StatQuest: K-Means', url: 'https://www.youtube.com/watch?v=4b5d3muPQmA' },
       { title: 'sklearn Clustering guide', url: 'https://scikit-learn.org/stable/modules/clustering.html' },
       { title: 'Krish Naik: K-Means', url: 'https://www.youtube.com/watch?v=4b5d3muPQmA' }
-    ]
+    ],
+    note: { id: 'note-ml-day-15', topicId: 'ml-day-15', markdown: mlDay15Content, keyTakeaways: [], relatedTopics: [], images: [], lastUpdated: new Date().toISOString() }
   },
   {
     id: 'ml-day-16',
@@ -300,7 +384,8 @@ export const ML_FOUNDATIONS_TOPICS: Topic[] = [
     resources: [
       { title: 'StatQuest: Hierarchical Clustering', url: 'https://www.youtube.com/watch?v=7xHsRkOdVwo' },
       { title: 'StatQuest: DBSCAN', url: 'https://www.youtube.com/watch?v=RDZUdRSDOok' }
-    ]
+    ],
+    note: { id: 'note-ml-day-16', topicId: 'ml-day-16', markdown: mlDay16Content, keyTakeaways: [], relatedTopics: [], images: [], lastUpdated: new Date().toISOString() }
   },
   {
     id: 'ml-day-17',
@@ -315,7 +400,8 @@ export const ML_FOUNDATIONS_TOPICS: Topic[] = [
       { title: 'StatQuest: PCA', url: 'https://www.youtube.com/watch?v=FgakZw6K1QQ' },
       { title: 'StatQuest: t-SNE', url: 'https://www.youtube.com/watch?v=NEaUSP4YerM' },
       { title: 'sklearn Decomposition', url: 'https://scikit-learn.org/stable/modules/decomposition.html' }
-    ]
+    ],
+    note: { id: 'note-ml-day-17', topicId: 'ml-day-17', markdown: mlDay17Content, keyTakeaways: [], relatedTopics: [], images: [], lastUpdated: new Date().toISOString() }
   },
   {
     id: 'ml-day-18',
@@ -330,7 +416,8 @@ export const ML_FOUNDATIONS_TOPICS: Topic[] = [
       { title: 'Kaggle: Feature Engineering', url: 'https://www.kaggle.com/learn/feature-engineering' },
       { title: 'Krish Naik: Feature Engineering', url: 'https://www.youtube.com/playlist?list=PLZoTAELRMXVPwYGE2PXD3x0bfKnR0cJjN' },
       { title: 'sklearn Pipelines + ColumnTransformer', url: 'https://scikit-learn.org/stable/modules/compose.html' }
-    ]
+    ],
+    note: { id: 'note-ml-day-18', topicId: 'ml-day-18', markdown: mlDay18Content, keyTakeaways: [], relatedTopics: [], images: [], lastUpdated: new Date().toISOString() }
   },
   {
     id: 'ml-day-19',
@@ -345,7 +432,8 @@ export const ML_FOUNDATIONS_TOPICS: Topic[] = [
       { title: 'sklearn Pipeline tutorial', url: 'https://scikit-learn.org/stable/auto_examples/compose/plot_column_transformer_mixed_types.html' },
       { title: 'Krish Naik: sklearn Pipelines', url: 'https://www.youtube.com/watch?v=h1BnRBzYjYY' },
       { title: 'Imbalanced-learn pipelines', url: 'https://imbalanced-learn.org/stable/common_pitfalls.html' }
-    ]
+    ],
+    note: { id: 'note-ml-day-19', topicId: 'ml-day-19', markdown: mlDay19Content, keyTakeaways: [], relatedTopics: [], images: [], lastUpdated: new Date().toISOString() }
   },
   {
     id: 'ml-day-20',
@@ -360,7 +448,8 @@ export const ML_FOUNDATIONS_TOPICS: Topic[] = [
       { title: 'FastAPI official tutorial', url: 'https://fastapi.tiangolo.com/tutorial/' },
       { title: 'Krish Naik: Deploy ML model with FastAPI', url: 'https://www.youtube.com/watch?v=NWyx7s9FrUE' },
       { title: 'Made With ML', url: 'https://madewithml.com/' }
-    ]
+    ],
+    note: { id: 'note-ml-day-20', topicId: 'ml-day-20', markdown: mlDay20Content, keyTakeaways: [], relatedTopics: [], images: [], lastUpdated: new Date().toISOString() }
   },
   {
     id: 'ml-day-21',
@@ -375,7 +464,8 @@ export const ML_FOUNDATIONS_TOPICS: Topic[] = [
       { title: 'Chip Huyen: ML System Design', url: 'https://huyenchip.com/machine-learning-systems-design/toc.html' },
       { title: 'Stanford CS329S', url: 'https://stanford-cs329s.github.io/' },
       { title: 'Krish Naik: End-to-end ML lifecycle', url: 'https://www.youtube.com/playlist?list=PLZoTAELRMXVOAvUbePMxYJ4cF60E_a4w-' }
-    ]
+    ],
+    note: { id: 'note-ml-day-21', topicId: 'ml-day-21', markdown: mlDay21Content, keyTakeaways: [], relatedTopics: [], images: [], lastUpdated: new Date().toISOString() }
   }
 ];
 
@@ -393,7 +483,8 @@ export const DEEP_LEARNING_TOPICS: Topic[] = [
       { title: '3Blue1Brown – Linear Algebra' },
       { title: 'Understanding Deep Learning – Simon Prince' },
       { title: 'CS7015 / IIT Madras course page' }
-    ]
+    ],
+    note: deepLearningNote('deep-learning-dldays-1-3-math-for-deep-learning', 'dl-m-1', dlDays13Content),
   },
   {
     id: 'dl-m-2',
@@ -408,7 +499,8 @@ export const DEEP_LEARNING_TOPICS: Topic[] = [
       { title: 'Probability + Statistics' },
       { title: 'MIT 6.S191 course' },
       { title: 'CS7015 / Mitesh Khapra NPTEL' }
-    ]
+    ],
+    note: deepLearningNote('deep-learning-dldays-4-5-probability-information-theory', 'dl-m-2', dlDays45Content),
   },
   {
     id: 'dl-m-3',
@@ -424,7 +516,8 @@ export const DEEP_LEARNING_TOPICS: Topic[] = [
       { title: 'CampusX course page' },
       { title: 'Sachin Soni – PyTorch Neural Networks' },
       { title: 'MIT 6.S191 YouTube playlist' }
-    ]
+    ],
+    note: deepLearningNote('deep-learning-dldays-6-10-neural-network-basics', 'dl-m-3', dlDays610Content),
   },
   {
     id: 'dl-m-4',
@@ -439,7 +532,8 @@ export const DEEP_LEARNING_TOPICS: Topic[] = [
       { title: 'CampusX 100 Days DL – Days 14–19' },
       { title: 'Sachin Soni – PyTorch Autograd' },
       { title: 'DeepLearning.AI Deep Learning Specialization' }
-    ]
+    ],
+    note: deepLearningNote('deep-learning-dldays-11-14-loss-backpropagation-gradient-descent', 'dl-m-4', dlDays1114Content),
   },
   {
     id: 'dl-m-5',
@@ -454,7 +548,8 @@ export const DEEP_LEARNING_TOPICS: Topic[] = [
       { title: 'CampusX 100 Days DL – Days 20–26' },
       { title: 'CampusX notes' },
       { title: 'CS7015 / IIT Madras course page' }
-    ]
+    ],
+    note: deepLearningNote('deep-learning-dldays-15-18-regularization-generalization', 'dl-m-5', dlDays1518Content),
   },
   {
     id: 'dl-m-6',
@@ -469,7 +564,8 @@ export const DEEP_LEARNING_TOPICS: Topic[] = [
       { title: 'CampusX 100 Days DL – Days 27–39' },
       { title: 'Understanding Deep Learning book' },
       { title: 'CS7015 / Mitesh Khapra NPTEL' }
-    ]
+    ],
+    note: deepLearningNote('deep-learning-dldays-19-22-initialization-normalization-optimization', 'dl-m-6', dlDays1922Content),
   },
   {
     id: 'dl-m-7',
@@ -485,7 +581,8 @@ export const DEEP_LEARNING_TOPICS: Topic[] = [
       { title: 'Stanford CS231n course' },
       { title: 'Stanford CS231n notes' },
       { title: 'CS231n YouTube playlist' }
-    ]
+    ],
+    note: deepLearningNote('deep-learning-dldays-23-30-cnn-fundamentals-project', 'dl-m-7', dlDays2330Content),
   },
   {
     id: 'dl-m-8',
@@ -499,7 +596,8 @@ export const DEEP_LEARNING_TOPICS: Topic[] = [
     resources: [
       { title: 'CS231n YouTube playlist' },
       { title: 'CampusX CNN foundation videos' }
-    ]
+    ],
+    note: deepLearningNote('deep-learning-dldays31-35-advanced-cnn-architectures', 'dl-m-8', dlDays3135Content),
   },
   {
     id: 'dl-m-9',
@@ -514,7 +612,8 @@ export const DEEP_LEARNING_TOPICS: Topic[] = [
       { title: 'CampusX 100 Days DL – Days 55–66' },
       { title: 'Colah – Understanding LSTM Networks' },
       { title: 'MIT 6.S191 YouTube playlist' }
-    ]
+    ],
+    note: deepLearningNote('deep-learning-dldays36-40-sequence-modeling', 'dl-m-9', dlDays3640Content),
   },
   {
     id: 'dl-m-10',
@@ -529,7 +628,8 @@ export const DEEP_LEARNING_TOPICS: Topic[] = [
       { title: 'Jay Alammar – Illustrated Word2Vec' },
       { title: 'Stanford CME295 syllabus – NLP + embeddings' },
       { title: 'DeepLearning.AI courses' }
-    ]
+    ],
+    note: deepLearningNote('deep-learning-dldays41-44-nlp-fundamentals', 'dl-m-10', dlDays4144Content),
   },
   {
     id: 'dl-m-11',
@@ -545,7 +645,8 @@ export const DEEP_LEARNING_TOPICS: Topic[] = [
       { title: 'Jay Alammar – Illustrated Transformer' },
       { title: 'Stanford CME295 Transformers & LLMs' },
       { title: 'Stanford CME295 YouTube playlist' }
-    ]
+    ],
+    note: deepLearningNote('deep-learning-dldays45-51-transformers-attention', 'dl-m-11', dlDays4551Content),
   },
   {
     id: 'dl-m-12',
@@ -563,7 +664,8 @@ export const DEEP_LEARNING_TOPICS: Topic[] = [
       { title: 'Sachin Soni – Instruction Fine-Tuning' },
       { title: 'LoRA paper' },
       { title: 'QLoRA paper' }
-    ]
+    ],
+    note: deepLearningNote('deep-learning-dldays52-55-fine-tuning-lora-distillation', 'dl-m-12', dlDays5255Content),
   },
   {
     id: 'dl-m-13',
@@ -579,7 +681,8 @@ export const DEEP_LEARNING_TOPICS: Topic[] = [
       { title: 'OpenAI – CLIP' },
       { title: 'D2L – Vision Transformer' },
       { title: 'Stanford CS231n' }
-    ]
+    ],
+    note: deepLearningNote('deep-learning-dldays56-57-vision-transformers-multimodal-ai', 'dl-m-13', dlDays5657Content),
   },
   {
     id: 'dl-m-14',
@@ -594,7 +697,8 @@ export const DEEP_LEARNING_TOPICS: Topic[] = [
       { title: 'Sachin Soni – VAE in simple language' },
       { title: 'TensorFlow – Autoencoder tutorial' },
       { title: 'Understanding Deep Learning book' }
-    ]
+    ],
+    note: deepLearningNote('deep-learning-dldays58-59-autoencoders-vae', 'dl-m-14', dlDays5859Content),
   },
   {
     id: 'dl-m-15',
@@ -605,7 +709,8 @@ export const DEEP_LEARNING_TOPICS: Topic[] = [
     order: 15,
     status: 'NOT_STARTED',
     createdAt: new Date().toISOString(),
-    resources: []
+    resources: [],
+    note: deepLearningNote('deep-learning-dlday60-placement-readiness-portfolio-packaging', 'dl-m-15', dlDay60Content),
   }
 ];
 
@@ -622,7 +727,8 @@ export const INTEGRATED_ROADMAP_TOPICS: Topic[] = [
     resources: [
       { title: 'MS GenAI Beginners', url: 'https://github.com/microsoft/generative-ai-for-beginners' },
       { title: 'Microsoft AI Beginners', url: 'https://github.com/microsoft/AI-For-Beginners' }
-    ]
+    ],
+    note: generativeAINote('generative-ai-genaidays1-3-aimldlgenai-orientation', 'int-m-1', genaiDays13Content),
   },
   {
     id: 'int-m-2',
@@ -636,7 +742,8 @@ export const INTEGRATED_ROADMAP_TOPICS: Topic[] = [
     resources: [
       { title: 'Scikit-learn Preprocessing', url: 'https://scikit-learn.org/stable/modules/preprocessing.html' },
       { title: 'Google GenAI Developers', url: 'https://ai.google.dev/gemini-api/docs' }
-    ]
+    ],
+    note: generativeAINote('generative-ai-genaidays4-6-data-preprocessing-basics', 'int-m-2', genaiDays46Content),
   },
   {
     id: 'int-m-3',
@@ -650,7 +757,8 @@ export const INTEGRATED_ROADMAP_TOPICS: Topic[] = [
     resources: [
       { title: 'Microsoft AI Beginners', url: 'https://github.com/microsoft/AI-For-Beginners' },
       { title: 'Scikit-learn Model Evaluation', url: 'https://scikit-learn.org/stable/modules/model_evaluation.html' }
-    ]
+    ],
+    note: generativeAINote('generative-ai-genaidays7-10-classical-ml-foundation', 'int-m-3', genaiDays710Content),
   },
   {
     id: 'int-m-4',
@@ -664,7 +772,8 @@ export const INTEGRATED_ROADMAP_TOPICS: Topic[] = [
     resources: [
       { title: 'Scikit-learn Model Evaluation', url: 'https://scikit-learn.org/stable/modules/model_evaluation.html' },
       { title: 'Microsoft AI Beginners', url: 'https://github.com/microsoft/AI-For-Beginners' }
-    ]
+    ],
+    note: generativeAINote('generative-ai-genaidays11-13-model-evaluation', 'int-m-4', genaiDays1113Content),
   },
   {
     id: 'int-m-5',
@@ -678,7 +787,8 @@ export const INTEGRATED_ROADMAP_TOPICS: Topic[] = [
     resources: [
       { title: 'Microsoft AI Beginners', url: 'https://github.com/microsoft/AI-For-Beginners' },
       { title: 'Scikit-learn Model Evaluation', url: 'https://scikit-learn.org/stable/modules/model_evaluation.html' }
-    ]
+    ],
+    note: generativeAINote('generative-ai-genaidays14-16-bias-variance-decision-trees', 'int-m-5', genaiDays1416Content),
   },
   {
     id: 'int-m-6',
@@ -692,7 +802,8 @@ export const INTEGRATED_ROADMAP_TOPICS: Topic[] = [
     resources: [
       { title: 'DeepLearning.AI Neural Networks', url: 'https://www.coursera.org/specializations/deep-learning' },
       { title: 'HF LLM Course', url: 'https://huggingface.co/learn/llm-course' }
-    ]
+    ],
+    note: generativeAINote('generative-ai-genaidays17-20-neural-network-foundation', 'int-m-6', genaiDays1720Content),
   },
   {
     id: 'int-m-7',
@@ -706,7 +817,8 @@ export const INTEGRATED_ROADMAP_TOPICS: Topic[] = [
     resources: [
       { title: 'MS GenAI Beginners', url: 'https://github.com/microsoft/generative-ai-for-beginners' },
       { title: 'Google GenAI Developers', url: 'https://ai.google.dev/gemini-api/docs' }
-    ]
+    ],
+    note: generativeAINote('generative-ai-genaidays21-23-generative-ai-overview', 'int-m-7', genaiDays2123Content),
   },
   {
     id: 'int-m-8',
@@ -720,7 +832,8 @@ export const INTEGRATED_ROADMAP_TOPICS: Topic[] = [
     resources: [
       { title: 'HF LLM Course', url: 'https://huggingface.co/learn/llm-course' },
       { title: 'MS GenAI Beginners', url: 'https://github.com/microsoft/generative-ai-for-beginners' }
-    ]
+    ],
+    note: generativeAINote('generative-ai-days-24-28-llm-architecture', 'int-m-8', genaiDays2428Content),
   },
   {
     id: 'int-m-9',
@@ -734,7 +847,8 @@ export const INTEGRATED_ROADMAP_TOPICS: Topic[] = [
     resources: [
       { title: 'Google GenAI Developers', url: 'https://ai.google.dev/gemini-api/docs' },
       { title: 'MS GenAI Beginners', url: 'https://github.com/microsoft/generative-ai-for-beginners' }
-    ]
+    ],
+    note: generativeAINote('generative-ai-days-29-31-responsible-ai', 'int-m-9', genaiDays2931Content),
   },
   {
     id: 'int-m-10',
@@ -748,7 +862,8 @@ export const INTEGRATED_ROADMAP_TOPICS: Topic[] = [
     resources: [
       { title: 'OpenAI Prompting', url: 'https://platform.openai.com/docs/guides/prompt-engineering' },
       { title: 'Prompt Engineering Guide', url: 'https://www.promptingguide.ai/' }
-    ]
+    ],
+    note: generativeAINote('generative-ai-days-32-35-prompt-engineering', 'int-m-10', genaiDays3235Content),
   },
   {
     id: 'int-m-11',
@@ -762,7 +877,8 @@ export const INTEGRATED_ROADMAP_TOPICS: Topic[] = [
     resources: [
       { title: 'MS GenAI Beginners', url: 'https://github.com/microsoft/generative-ai-for-beginners' },
       { title: 'HF LLM Course', url: 'https://huggingface.co/learn/llm-course' }
-    ]
+    ],
+    note: generativeAINote('generative-ai-days-36-38-fine-tuning-concepts', 'int-m-11', genaiDays3638Content),
   },
   {
     id: 'int-m-12',
@@ -776,7 +892,8 @@ export const INTEGRATED_ROADMAP_TOPICS: Topic[] = [
     resources: [
       { title: 'HF Pipelines Docs', url: 'https://huggingface.co/docs/transformers/main_classes/pipelines' },
       { title: 'HF LLM Course', url: 'https://huggingface.co/learn/llm-course' }
-    ]
+    ],
+    note: generativeAINote('generative-ai-days-39-41-llm-tooling-ecosystem', 'int-m-12', genaiDays3941Content),
   },
   {
     id: 'int-m-13',
@@ -790,7 +907,8 @@ export const INTEGRATED_ROADMAP_TOPICS: Topic[] = [
     resources: [
       { title: 'OpenAI API Quickstart', url: 'https://platform.openai.com/docs/quickstart' },
       { title: 'Gemini API Quickstart', url: 'https://ai.google.dev/gemini-api/docs/quickstart' }
-    ]
+    ],
+    note: generativeAINote('generative-ai-days-42-44-commercial-apis', 'int-m-13', genaiDays4244Content),
   },
   {
     id: 'int-m-14',
@@ -804,7 +922,8 @@ export const INTEGRATED_ROADMAP_TOPICS: Topic[] = [
     resources: [
       { title: 'MS GenAI Beginners', url: 'https://github.com/microsoft/generative-ai-for-beginners' },
       { title: 'OpenAI API Quickstart', url: 'https://platform.openai.com/docs/quickstart' }
-    ]
+    ],
+    note: generativeAINote('generative-ai-days-45-47-managing-state-in-chatbots', 'int-m-14', genaiDays4547Content),
   },
   {
     id: 'int-m-15',
@@ -818,7 +937,8 @@ export const INTEGRATED_ROADMAP_TOPICS: Topic[] = [
     resources: [
       { title: 'LangChain RAG Tutorial', url: 'https://docs.langchain.com/oss/python/langchain/rag' },
       { title: 'LangChain Retrieval Tutorial', url: 'https://docs.langchain.com/oss/python/langchain/retrieval' }
-    ]
+    ],
+    note: generativeAINote('generative-ai-days-48-52-rag-introduction', 'int-m-15', genaiDays4852Content),
   },
   {
     id: 'int-m-16',
@@ -832,7 +952,8 @@ export const INTEGRATED_ROADMAP_TOPICS: Topic[] = [
     resources: [
       { title: 'Chroma Docs', url: 'https://docs.trychroma.com/' },
       { title: 'FAISS Docs', url: 'https://faiss.ai/' }
-    ]
+    ],
+    note: generativeAINote('generative-ai-days-53-55-vector-databases-and-embeddings', 'int-m-16', genaiDays5355Content),
   },
   {
     id: 'int-m-17',
@@ -846,7 +967,8 @@ export const INTEGRATED_ROADMAP_TOPICS: Topic[] = [
     resources: [
       { title: 'Streamlit Get Started', url: 'https://docs.streamlit.io/get-started' },
       { title: 'Gradio Quickstart', url: 'https://www.gradio.app/guides/quickstart' }
-    ]
+    ],
+    note: generativeAINote('generative-ai-days-56-57-rapid-prototyping-tools', 'int-m-17', genaiDays5657Content),
   },
   {
     id: 'int-m-18',
@@ -860,7 +982,8 @@ export const INTEGRATED_ROADMAP_TOPICS: Topic[] = [
     resources: [
       { title: 'OpenAI Agents Quickstart', url: 'https://platform.openai.com/docs/guides/agents' },
       { title: 'LangGraph Agentic RAG', url: 'https://docs.langchain.com/oss/python/langgraph/agentic-rag' }
-    ]
+    ],
+    note: generativeAINote('generative-ai-days-58-59-agentic-ai', 'int-m-18', genaiDays5859Content),
   },
   {
     id: 'int-m-19',
@@ -874,7 +997,8 @@ export const INTEGRATED_ROADMAP_TOPICS: Topic[] = [
     resources: [
       { title: 'LangGraph Overview', url: 'https://docs.langchain.com/oss/python/langgraph/overview' },
       { title: 'n8n AI Agent Node', url: 'https://docs.n8n.io/integrations/builtin/cluster-nodes/root-nodes/n8n-nodes-langchain.agent/' }
-    ]
+    ],
+    note: generativeAINote('generative-ai-days-60-60-langgraph-n8n-portfolio-wrap', 'int-m-19', genaiDay60Content),
   }
 ];
 

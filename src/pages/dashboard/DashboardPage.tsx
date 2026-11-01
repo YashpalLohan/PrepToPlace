@@ -85,46 +85,46 @@ export const DashboardPage: React.FC = () => {
   if (!stats) return null;
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-9">
       {/* Page Title & Status */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-        <div>
-          <h1 className="text-2xl font-bold text-slate-900 tracking-tight">Placement Overview</h1>
-          <p className="text-sm text-slate-500 mt-1">
-            Dynamic preparation metrics, learning streaks, and syllabus mastery.
+      <section className="grid grid-cols-1 gap-6 rounded-[1.75rem] border border-slate-200 bg-beige p-6 shadow-sm md:grid-cols-[1.2fr_0.8fr] md:items-center md:p-8">
+        <div className="max-w-2xl">
+          <p className="editorial-eyebrow mb-3">PrepToPlace · Learning journal</p>
+          <h1 className="font-serif text-4xl font-semibold leading-[0.98] tracking-tight text-slate-900 md:text-5xl">Placement Overview</h1>
+          <p className="mt-3 max-w-xl text-sm leading-6 text-slate-600">
+            A clear view of your preparation, the skills you are building, and the next step in your learning.
           </p>
-        </div>
-
-        <div className="flex items-center gap-3">
           <Link
             to="/tracks"
-            className="inline-flex items-center gap-1.5 px-3.5 py-2 text-xs font-semibold text-white bg-sky-600 hover:bg-sky-700 rounded-lg shadow-sm transition-colors"
+            className="mt-5 inline-flex items-center gap-2 rounded-lg bg-sky-700 px-4 py-2.5 text-xs font-semibold text-white transition-colors hover:bg-sky-800"
           >
             <span>Browse Tracks</span>
             <ArrowRight className="w-4 h-4" />
           </Link>
         </div>
-      </div>
 
-      {/* 1. Overall Statistics Grid */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-xs">
-          <div className="flex items-center justify-between text-slate-400 mb-2">
-            <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">Overall Mastery</span>
-            <TrendingUp className="w-4 h-4 text-sky-600" />
-          </div>
-          <div className="text-2xl font-bold text-slate-900">{stats.overallPercentage}%</div>
-          <div className="text-xs text-slate-500 mt-1">
-            {stats.completedTopics} of {stats.totalTopics} topics completed
-          </div>
-          <div className="w-full bg-slate-100 h-1.5 rounded-full overflow-hidden mt-3">
-            <div
-              className="bg-sky-600 h-full rounded-full"
-              style={{ width: `${stats.overallPercentage}%` }}
-            />
+        <div className="relative overflow-hidden rounded-2xl border border-slate-200 bg-bluegray p-5 md:p-6">
+          <div className="absolute -right-8 -top-10 h-36 w-36 rounded-full border border-sky-200/70" />
+          <div className="absolute -right-1 -top-3 h-24 w-24 rounded-full border border-sky-200/70" />
+          <div className="relative">
+            <div className="flex items-center justify-between gap-3">
+              <span className="editorial-eyebrow">Learning progress</span>
+              <TrendingUp className="h-4 w-4 text-sky-700" />
+            </div>
+            <div className="mt-3 flex items-baseline gap-2">
+              <span className="font-serif text-5xl font-semibold leading-none text-slate-900">{stats.overallPercentage}%</span>
+              <span className="text-xs font-medium text-slate-600">overall mastery</span>
+            </div>
+            <div className="mt-4 h-2 overflow-hidden rounded-full bg-white/80">
+              <div className="h-full rounded-full bg-sky-600 transition-all" style={{ width: `${stats.overallPercentage}%` }} />
+            </div>
+            <p className="mt-2 text-xs text-slate-600">{stats.completedTopics} of {stats.totalTopics} topics completed</p>
           </div>
         </div>
+      </section>
 
+      {/* 1. Overall Statistics Grid */}
+      <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
         <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-xs">
           <div className="flex items-center justify-between text-slate-400 mb-2">
             <span className="text-xs font-semibold uppercase tracking-wider text-slate-500">Learning Streak</span>
@@ -207,15 +207,6 @@ export const DashboardPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="pt-4 mt-4 border-t border-slate-100">
-            <Link
-              to="/activity"
-              className="text-xs font-semibold text-sky-600 hover:text-sky-700 flex items-center justify-between group"
-            >
-              <span>Log and inspect daily hours</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-            </Link>
-          </div>
         </div>
 
         {/* Weekly Activity Bar Chart */}
@@ -228,14 +219,14 @@ export const DashboardPage: React.FC = () => {
           <div className="h-52 w-full">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={weeklyChartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#F1F5F9" />
-                <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#64748B' }} />
-                <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#64748B' }} />
+                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#D9D0C6" />
+                <XAxis dataKey="day" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#657568' }} />
+                <YAxis axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#657568' }} />
                 <Tooltip
                   formatter={(val: number) => [`${val} minutes`, 'Time Spent']}
-                  contentStyle={{ backgroundColor: '#0F172A', borderRadius: '8px', color: '#FFF', fontSize: '12px' }}
+                  contentStyle={{ backgroundColor: '#1A3A21', borderRadius: '8px', color: '#FFF', fontSize: '12px' }}
                 />
-                <Bar dataKey="minutes" fill="#0284C7" radius={[4, 4, 0, 0]} />
+                <Bar dataKey="minutes" fill="#2F844A" radius={[4, 4, 0, 0]} />
               </BarChart>
             </ResponsiveContainer>
           </div>
@@ -245,7 +236,7 @@ export const DashboardPage: React.FC = () => {
       {/* 3. Primary 6 Tracks Progress Cards */}
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <h2 className="text-base font-bold text-slate-800">Track Progress</h2>
+          <h2 className="font-serif text-2xl font-semibold leading-tight text-slate-900">Featured learning tracks</h2>
           <Link to="/tracks" className="text-xs font-medium text-sky-600 hover:text-sky-700">
             View all tracks →
           </Link>
@@ -340,7 +331,7 @@ export const DashboardPage: React.FC = () => {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Recently Studied Topics */}
         <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-xs">
-          <h2 className="text-sm font-bold text-slate-800 mb-4">Recently Studied Topics</h2>
+          <h2 className="mb-4 font-serif text-2xl font-semibold leading-tight text-slate-900">Continue learning</h2>
           {recentTopics.length === 0 ? (
             <div className="text-center py-8 text-xs text-slate-400">
               No topics studied yet. Choose a track to start learning!
@@ -371,15 +362,12 @@ export const DashboardPage: React.FC = () => {
         {/* Recent Activity Feed */}
         <div className="bg-white rounded-xl border border-slate-200 p-5 shadow-xs">
           <div className="flex items-center justify-between mb-4">
-            <h2 className="text-sm font-bold text-slate-800">Recent Activity Logs</h2>
-            <Link to="/activity" className="text-xs font-medium text-sky-600 hover:text-sky-700">
-              Full log →
-            </Link>
+            <h2 className="text-sm font-bold text-slate-800">Recent Learning Activity</h2>
           </div>
 
           {recentActivities.length === 0 ? (
             <div className="text-center py-8 text-xs text-slate-400">
-              No learning activities logged yet.
+              No learning activity yet.
             </div>
           ) : (
             <div className="space-y-3">

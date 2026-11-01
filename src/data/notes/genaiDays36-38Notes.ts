@@ -1,0 +1,40 @@
+export const genAIDays36to38Notes = {
+  id: "generative-ai-days-36-38-fine-tuning-concepts",
+  day: 36,
+  dayStart: 36,
+  dayEnd: 38,
+  dayRange: "Days 36–38",
+  title: "Fine-Tuning Concepts",
+  track: "AI / ML",
+  section: "Generative AI",
+  contentFile: "genaiDays36-38Content.md",
+  status: "not-started",
+  overview: "Fine-tuning vs prompting, when to fine-tune, instruction tuning, knowledge source selection.",
+  resources: [
+    { title: "MS GenAI Beginners", url: "https://github.com/microsoft/generative-ai-for-beginners", type: "course" },
+    { title: "HF LLM Course", url: "https://huggingface.co/learn/llm-course/chapter1/1", type: "course" },
+    { title: "HF LLM Course — Fine-tuning", url: "https://huggingface.co/learn/llm-course/chapter3/1", type: "course" },
+    { title: "Hugging Face PEFT Docs", url: "https://huggingface.co/docs/peft/index", type: "documentation" }
+  ],
+  flowchart: [
+    { id: "1-overview", title: "Overview", sectionId: "1-overview" },
+    { id: "2-pretraining-prompting-fine-tuning", title: "Pretraining, Prompting, Fine-Tuning", sectionId: "2-pretraining-prompting-fine-tuning" },
+    { id: "3-fine-tuning-vs-prompting", title: "Fine-Tuning vs Prompting", sectionId: "3-fine-tuning-vs-prompting" },
+    { id: "4-what-fine-tuning-does-not-guarantee", title: "What Fine-Tuning Does Not Guarantee", sectionId: "4-what-fine-tuning-does-not-guarantee" },
+    { id: "5-instruction-tuning", title: "Instruction Tuning", sectionId: "5-instruction-tuning" },
+    { id: "6-instruction-data-quality", title: "Instruction Data Quality", sectionId: "6-instruction-data-quality" },
+    { id: "7-conversation-style-training-data", title: "Conversation-Style Training Data", sectionId: "7-conversation-style-training-data" },
+    { id: "8-fine-tuning-workflow", title: "Fine-Tuning Workflow", sectionId: "8-fine-tuning-workflow" },
+    { id: "9-when-to-use-rag-instead", title: "When to Use RAG Instead", sectionId: "9-when-to-use-rag-instead" },
+    { id: "10-knowledge-source-selection", title: "Knowledge Source Selection", sectionId: "10-knowledge-source-selection" },
+    { id: "11-overfitting-and-catastrophic-forgetting", title: "Overfitting and Catastrophic Forgetting", sectionId: "11-overfitting-and-catastrophic-forgetting" },
+    { id: "12-privacy-and-data-rights", title: "Privacy and Data Rights", sectionId: "12-privacy-and-data-rights" },
+    { id: "13-evaluation", title: "Evaluation", sectionId: "13-evaluation" },
+    { id: "14-common-mistakes", title: "Common Mistakes", sectionId: "14-common-mistakes" },
+    { id: "15-placement-and-interview-questions", title: "Placement and Interview Questions", sectionId: "15-placement-and-interview-questions" },
+    { id: "16-practice", title: "Practice", sectionId: "16-practice" },
+    { id: "17-quick-revision", title: "Quick Revision", sectionId: "17-quick-revision" },
+    { id: "18-final-checklist", title: "Final Checklist", sectionId: "18-final-checklist" },
+    { id: "19-recommended-resources", title: "Recommended Resources", sectionId: "19-recommended-resources" }
+  ]
+};

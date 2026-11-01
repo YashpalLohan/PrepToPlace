@@ -1,0 +1,41 @@
+export const genAIDays39to41Notes = {
+  id: "generative-ai-days-39-41-llm-tooling-ecosystem",
+  day: 39,
+  dayStart: 39,
+  dayEnd: 41,
+  dayRange: "Days 39–41",
+  title: "LLM Tooling Ecosystem",
+  track: "AI / ML",
+  section: "Generative AI",
+  contentFile: "genaiDays39-41Content.md",
+  status: "not-started",
+  overview: "Hugging Face Hub, Transformers library, pipeline function, model cards, inference basics.",
+  resources: [
+    { title: "HF Pipelines Docs", url: "https://huggingface.co/docs/transformers/main_classes/pipelines", type: "documentation" },
+    { title: "HF LLM Course", url: "https://huggingface.co/learn/llm-course/chapter1/1", type: "course" },
+    { title: "HF Hub Docs", url: "https://huggingface.co/docs/hub/index", type: "documentation" },
+    { title: "HF Model Cards", url: "https://huggingface.co/docs/hub/model-cards", type: "documentation" },
+    { title: "Transformers Quicktour", url: "https://huggingface.co/docs/transformers/quicktour", type: "documentation" }
+  ],
+  flowchart: [
+    { id: "1-overview", title: "Overview", sectionId: "1-overview" },
+    { id: "2-hugging-face-hub", title: "Hugging Face Hub", sectionId: "2-hugging-face-hub" },
+    { id: "3-model-ids-and-revisions", title: "Model IDs and Revisions", sectionId: "3-model-ids-and-revisions" },
+    { id: "4-model-cards", title: "Model Cards", sectionId: "4-model-cards" },
+    { id: "5-transformers-library", title: "Transformers Library", sectionId: "5-transformers-library" },
+    { id: "6-what-is-a-pipeline", title: "What Is a Pipeline?", sectionId: "6-what-is-a-pipeline" },
+    { id: "7-sentiment-pipeline", title: "Sentiment Pipeline", sectionId: "7-sentiment-pipeline" },
+    { id: "8-text-generation-pipeline", title: "Text Generation Pipeline", sectionId: "8-text-generation-pipeline" },
+    { id: "9-load-tokenizer-and-model-directly", title: "Load Tokenizer and Model Directly", sectionId: "9-load-tokenizer-and-model-directly" },
+    { id: "10-inference-and-device-placement", title: "Inference and Device Placement", sectionId: "10-inference-and-device-placement" },
+    { id: "11-generation-parameters", title: "Generation Parameters", sectionId: "11-generation-parameters" },
+    { id: "12-licence-and-safe-model-use", title: "Licence and Safe Model Use", sectionId: "12-licence-and-safe-model-use" },
+    { id: "13-model-selection", title: "Model Selection", sectionId: "13-model-selection" },
+    { id: "14-common-mistakes", title: "Common Mistakes", sectionId: "14-common-mistakes" },
+    { id: "15-placement-and-interview-questions", title: "Placement and Interview Questions", sectionId: "15-placement-and-interview-questions" },
+    { id: "16-practice", title: "Practice", sectionId: "16-practice" },
+    { id: "17-quick-revision", title: "Quick Revision", sectionId: "17-quick-revision" },
+    { id: "18-final-checklist", title: "Final Checklist", sectionId: "18-final-checklist" },
+    { id: "19-recommended-resources", title: "Recommended Resources", sectionId: "19-recommended-resources" }
+  ]
+};

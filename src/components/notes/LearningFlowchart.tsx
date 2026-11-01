@@ -35,14 +35,14 @@ interface LearningFlowchartProps {
   onSelectNode?: (anchor: string) => void;
 }
 
-// Hand-drawn pastel palette from reference
+// Coordinated green and cream palette for flowchart milestones.
 const PASTEL_PALETTE = [
-  { fill: '#B6C94B', name: 'Lime Green', light: '#f4f7e6' },
-  { fill: '#35C5C1', name: 'Turquoise', light: '#e6faf9' },
-  { fill: '#68B7E8', name: 'Sky Blue', light: '#eaf4fc' },
-  { fill: '#D77AB8', name: 'Pink', light: '#faeef6' },
-  { fill: '#FFA33D', name: 'Orange', light: '#fff4e6' },
-  { fill: '#F5D547', name: 'Yellow', light: '#fefbe8' },
+  { fill: '#DDE9DC', name: 'Mint', light: '#F5E8E1' },
+  { fill: '#EEE6DE', name: 'Cream', light: '#DDE9DC' },
+  { fill: '#BFD3C1', name: 'Sage', light: '#F5E8E1' },
+  { fill: '#DDE9DC', name: 'Mint', light: '#EEE6DE' },
+  { fill: '#F5E8E1', name: 'Beige', light: '#DDE9DC' },
+  { fill: '#BFD3C1', name: 'Sage', light: '#EEE6DE' },
 ];
 
 export function slugify(text: string): string {
@@ -342,31 +342,31 @@ export const LearningFlowchart: React.FC<LearningFlowchartProps> = ({
   }
 
   return (
-    <div className="my-8 rounded-3xl bg-[#FAF9F5] border-[2.5px] border-[#171717] p-4 sm:p-8 shadow-[6px_6px_0px_#171717] relative overflow-hidden font-sans select-none">
+    <div className="my-8 rounded-3xl bg-[#EEE6DE] border-[2.5px] border-[#1A3A21] p-4 sm:p-8 shadow-[6px_6px_0px_#1A3A21] relative overflow-hidden font-sans select-none">
       {/* Background sketch grid / paper feel */}
       <div
         className="absolute inset-0 opacity-[0.035] pointer-events-none"
         style={{
           backgroundImage:
-            'radial-gradient(#171717 1px, transparent 1px), radial-gradient(#171717 1px, #FAF9F5 1px)',
+            'radial-gradient(#1A3A21 1px, transparent 1px), radial-gradient(#1A3A21 1px, #EEE6DE 1px)',
           backgroundSize: '24px 24px',
         }}
       />
 
       {/* Header Bar */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between pb-6 mb-6 border-b-2 border-dashed border-[#171717]/20 relative z-10 gap-4 flex-wrap">
+      <div className="flex flex-col md:flex-row md:items-center justify-between pb-6 mb-6 border-b-2 border-dashed border-[#1A3A21]/20 relative z-10 gap-4 flex-wrap">
         <div className="flex-1 min-w-0 pr-2">
           <div className="flex items-center gap-2">
             {/* Desktop label */}
             <span
-              className="hidden lg:inline-block text-xs uppercase font-extrabold tracking-widest px-2.5 py-0.5 rounded-full border-2 border-[#171717] bg-[#F5D547] text-[#171717]"
+              className="hidden lg:inline-block text-xs uppercase font-extrabold tracking-widest px-2.5 py-0.5 rounded-full border-2 border-[#1A3A21] bg-[#DDE9DC] text-[#1A3A21]"
               style={{ fontFamily: "'Caveat', cursive, sans-serif", fontSize: '15px' }}
             >
               VISUAL ROADMAP
             </span>
             {/* Mobile/Tablet label */}
             <span
-              className="lg:hidden text-xs uppercase font-extrabold tracking-widest px-2.5 py-0.5 rounded-full border-2 border-[#171717] bg-[#F5D547] text-[#171717]"
+              className="lg:hidden text-xs uppercase font-extrabold tracking-widest px-2.5 py-0.5 rounded-full border-2 border-[#1A3A21] bg-[#DDE9DC] text-[#1A3A21]"
               style={{ fontFamily: "'Caveat', cursive, sans-serif", fontSize: '15px' }}
             >
               TOPIC ROADMAP
@@ -377,14 +377,14 @@ export const LearningFlowchart: React.FC<LearningFlowchartProps> = ({
           </div>
           {/* Desktop heading */}
           <h2
-            className="hidden lg:block text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#171717] tracking-tight mt-1 break-words max-w-xl"
+            className="hidden lg:block text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#1A3A21] tracking-tight mt-1 break-words max-w-xl"
             style={{ fontFamily: "'Caveat', cursive, sans-serif" }}
           >
             Infographic Curriculum: Click any circle to jump
           </h2>
           {/* Mobile/Tablet heading */}
           <h2
-            className="lg:hidden text-lg font-extrabold text-[#171717] tracking-tight mt-1 break-words"
+            className="lg:hidden text-lg font-extrabold text-[#1A3A21] tracking-tight mt-1 break-words"
             style={{ fontFamily: "'Caveat', cursive, sans-serif" }}
           >
             Connected Learning Stages
@@ -392,23 +392,23 @@ export const LearningFlowchart: React.FC<LearningFlowchartProps> = ({
         </div>
 
         {/* Progress Pill */}
-        <div className="flex items-center gap-3 bg-white px-4 py-2 rounded-2xl border-2 border-[#171717] shadow-[2px_2px_0px_#171717] shrink-0 self-start md:self-auto">
+        <div className="flex items-center gap-3 bg-white px-4 py-2 rounded-2xl border-2 border-[#1A3A21] shadow-[2px_2px_0px_#1A3A21] shrink-0 self-start md:self-auto">
           <div className="text-right">
             <span
-              className="text-sm font-bold text-[#171717] block leading-none"
+              className="text-sm font-bold text-[#1A3A21] block leading-none"
               style={{ fontFamily: "'Caveat', cursive, sans-serif" }}
             >
               {completedCount} of {total} Done
             </span>
-            <div className="w-24 h-2 bg-slate-100 rounded-full border border-[#171717] overflow-hidden mt-1">
+            <div className="w-24 h-2 bg-slate-100 rounded-full border border-[#1A3A21] overflow-hidden mt-1">
               <div
-                className="h-full bg-[#B6C94B] transition-all duration-300"
+                className="h-full bg-[#2F844A] transition-all duration-300"
                 style={{ width: `${progressPercent}%` }}
               />
             </div>
           </div>
           <span
-            className="text-xl font-bold text-[#171717]"
+            className="text-xl font-bold text-[#1A3A21]"
             style={{ fontFamily: "'Caveat', cursive, sans-serif" }}
           >
             {progressPercent}%
@@ -436,7 +436,7 @@ export const LearningFlowchart: React.FC<LearningFlowchartProps> = ({
               <path
                 d={cp.d}
                 fill="none"
-                stroke="#171717"
+                stroke="#1A3A21"
                 strokeWidth="2.5"
                 strokeDasharray="6 4"
                 strokeLinecap="round"
@@ -448,7 +448,7 @@ export const LearningFlowchart: React.FC<LearningFlowchartProps> = ({
                 cy={cp.startY}
                 r="4.5"
                 fill={cp.color}
-                stroke="#171717"
+                stroke="#1A3A21"
                 strokeWidth="1.75"
               />
               {/* Connector anchor dot at central circle */}
@@ -456,7 +456,7 @@ export const LearningFlowchart: React.FC<LearningFlowchartProps> = ({
                 cx={cp.endX}
                 cy={cp.endY}
                 r="3.5"
-                fill="#171717"
+                fill="#1A3A21"
               />
             </g>
           ))}
@@ -496,14 +496,14 @@ export const LearningFlowchart: React.FC<LearningFlowchartProps> = ({
           <div className="col-span-4 flex items-center justify-center p-2">
             <div
               ref={centerCircleRef}
-              className="relative w-64 h-64 rounded-full flex flex-col items-center justify-center text-center p-6 bg-[#FAF9F5] border-[3.5px] border-[#171717] shadow-[5px_5px_0px_#171717] transition-transform duration-300 hover:scale-[1.02]"
+              className="relative w-64 h-64 rounded-full flex flex-col items-center justify-center text-center p-6 bg-[#EEE6DE] border-[3.5px] border-[#1A3A21] shadow-[5px_5px_0px_#1A3A21] transition-transform duration-300 hover:scale-[1.02]"
               style={{
                 borderRadius: '50% 48% 52% 49% / 49% 51% 48% 52%',
               }}
             >
               {/* Double outline hand-drawn effect */}
               <div
-                className="absolute inset-1.5 rounded-full border-2 border-dashed border-[#F5D547] pointer-events-none"
+                className="absolute inset-1.5 rounded-full border-2 border-dashed border-[#DDE9DC] pointer-events-none"
                 style={{
                   borderRadius: '48% 52% 49% 51% / 51% 48% 52% 49%',
                 }}
@@ -511,21 +511,21 @@ export const LearningFlowchart: React.FC<LearningFlowchartProps> = ({
 
               {/* Central topic banner */}
               <span
-                className="text-xs uppercase font-extrabold tracking-widest px-3 py-0.5 rounded-full bg-[#F5D547] text-[#171717] border border-[#171717] mb-2"
+                className="text-xs uppercase font-extrabold tracking-widest px-3 py-0.5 rounded-full bg-[#DDE9DC] text-[#1A3A21] border border-[#1A3A21] mb-2"
                 style={{ fontFamily: "'Caveat', cursive, sans-serif", fontSize: '16px' }}
               >
                 LEARNING ROADMAP
               </span>
 
               <h1
-                className="text-xl sm:text-2xl font-extrabold text-[#171717] leading-snug px-2"
+                className="text-xl sm:text-2xl font-extrabold text-[#1A3A21] leading-snug px-2"
                 style={{ fontFamily: "'Caveat', cursive, sans-serif" }}
               >
                 {topicTitle}
               </h1>
 
               <div className="mt-3 flex items-center gap-1.5 text-[11px] font-mono text-slate-500 font-semibold">
-                <span className="w-2 h-2 rounded-full bg-[#35C5C1] border border-[#171717]" />
+                <span className="w-2 h-2 rounded-full bg-[#5E9B6D] border border-[#1A3A21]" />
                 <span>Beginner to Placement</span>
               </div>
             </div>
@@ -570,11 +570,11 @@ export const LearningFlowchart: React.FC<LearningFlowchartProps> = ({
         {/* Top Central Topic Circle */}
         <div className="flex justify-center mb-6">
           <div
-            className="w-56 h-56 rounded-full flex flex-col items-center justify-center text-center p-5 bg-[#FAF9F5] border-[3px] border-[#171717] shadow-[4px_4px_0px_#171717]"
+            className="w-56 h-56 rounded-full flex flex-col items-center justify-center text-center p-5 bg-[#EEE6DE] border-[3px] border-[#1A3A21] shadow-[4px_4px_0px_#1A3A21]"
             style={{ borderRadius: '50% 48% 52% 49% / 49% 51% 48% 52%' }}
           >
             <h1
-              className="text-lg font-extrabold text-[#171717] leading-tight"
+              className="text-lg font-extrabold text-[#1A3A21] leading-tight"
               style={{ fontFamily: "'Caveat', cursive, sans-serif" }}
             >
               {topicTitle}
@@ -587,13 +587,13 @@ export const LearningFlowchart: React.FC<LearningFlowchartProps> = ({
 
         {/* Vertical Nodes Connected by hand-drawn line */}
         <div className="space-y-4 relative">
-          <div className="absolute left-6 top-8 bottom-8 w-[2.5px] border-l-2 border-dashed border-[#171717]/40 pointer-events-none" />
+          <div className="absolute left-6 top-8 bottom-8 w-[2.5px] border-l-2 border-dashed border-[#1A3A21]/40 pointer-events-none" />
 
           {flowchartNodes.map((node, idx) => (
             <div key={node.id} className="relative pl-12">
               {/* Connector dot */}
               <div
-                className="absolute left-[17px] top-6 w-4 h-4 rounded-full border-2 border-[#171717] z-10"
+                className="absolute left-[17px] top-6 w-4 h-4 rounded-full border-2 border-[#1A3A21] z-10"
                 style={{ backgroundColor: PASTEL_PALETTE[idx % PASTEL_PALETTE.length].fill }}
               />
 
@@ -648,9 +648,9 @@ const InfographicNodeCard: React.FC<InfographicNodeCardProps> = ({
   return (
     <div
       onClick={onNodeClick}
-      className={`rounded-2xl border-[2.5px] border-[#171717] p-4 bg-white transition-all duration-200 cursor-pointer shadow-[3px_3px_0px_#171717] hover:shadow-[5px_5px_0px_#171717] hover:-translate-y-0.5 ${
+      className={`rounded-2xl border-[2.5px] border-[#1A3A21] p-4 bg-white transition-all duration-200 cursor-pointer shadow-[3px_3px_0px_#1A3A21] hover:shadow-[5px_5px_0px_#1A3A21] hover:-translate-y-0.5 ${
         isActive
-          ? 'ring-4 ring-[#171717]/20 border-[#171717] scale-[1.01]'
+          ? 'ring-4 ring-[#1A3A21]/20 border-[#1A3A21] scale-[1.01]'
           : ''
       }`}
       style={{
@@ -661,7 +661,7 @@ const InfographicNodeCard: React.FC<InfographicNodeCardProps> = ({
       <div className="flex items-start gap-3">
         {/* Hand-drawn Circular Number Badge with Double Outline */}
         <div
-          className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0 border-2 border-[#171717] shadow-[2px_2px_0px_#171717] mt-0.5"
+          className="relative w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center shrink-0 border-2 border-[#1A3A21] shadow-[2px_2px_0px_#1A3A21] mt-0.5"
           style={{
             backgroundColor: color.fill,
             borderRadius: '50% 48% 52% 49% / 49% 51% 48% 52%',
@@ -673,7 +673,7 @@ const InfographicNodeCard: React.FC<InfographicNodeCardProps> = ({
             style={{ borderRadius: '48% 52% 49% 51% / 51% 48% 52% 49%' }}
           />
           <span
-            className="text-lg font-black text-[#171717] select-none"
+            className="text-lg font-black text-[#1A3A21] select-none"
             style={{ fontFamily: "'Caveat', cursive, sans-serif", fontSize: '24px', lineHeight: 1 }}
           >
             {formattedNum}
@@ -684,7 +684,7 @@ const InfographicNodeCard: React.FC<InfographicNodeCardProps> = ({
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between gap-1">
             <span
-              className="text-[11px] font-extrabold uppercase tracking-wider px-2 py-0.2 rounded-full border border-[#171717]"
+              className="text-[11px] font-extrabold uppercase tracking-wider px-2 py-0.2 rounded-full border border-[#1A3A21]"
               style={{
                 backgroundColor: color.light,
                 fontFamily: "'Caveat', cursive, sans-serif",
@@ -700,10 +700,10 @@ const InfographicNodeCard: React.FC<InfographicNodeCardProps> = ({
                 type="button"
                 onClick={onToggleComplete}
                 title={isCompleted ? 'Mark as incomplete' : 'Mark stage as completed'}
-                className="p-1 rounded-md text-[#171717] hover:bg-slate-100 transition-colors"
+                className="p-1 rounded-md text-[#1A3A21] hover:bg-slate-100 transition-colors"
               >
                 {isCompleted ? (
-                  <CheckCircle2 className="w-4 h-4 text-[#B6C94B]" />
+                  <CheckCircle2 className="w-4 h-4 text-[#2F844A]" />
                 ) : (
                   <Circle className="w-4 h-4 text-slate-400" />
                 )}
@@ -713,7 +713,7 @@ const InfographicNodeCard: React.FC<InfographicNodeCardProps> = ({
               <button
                 type="button"
                 onClick={onToggleExpand}
-                className="p-1 rounded-md text-slate-600 hover:text-[#171717] hover:bg-slate-100 transition-colors"
+                className="p-1 rounded-md text-slate-600 hover:text-[#1A3A21] hover:bg-slate-100 transition-colors"
                 title={isExpanded ? 'Collapse description' : 'Expand description & topics'}
               >
                 {isExpanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
@@ -723,7 +723,7 @@ const InfographicNodeCard: React.FC<InfographicNodeCardProps> = ({
 
           {/* Full title without truncate */}
           <h3
-            className="text-base sm:text-lg font-extrabold text-[#171717] mt-0.5 leading-snug break-words hover:text-sky-700"
+            className="text-base sm:text-lg font-extrabold text-[#1A3A21] mt-0.5 leading-snug break-words hover:text-sky-700"
             style={{ fontFamily: "'Caveat', cursive, sans-serif" }}
           >
             {node.title}
@@ -731,7 +731,7 @@ const InfographicNodeCard: React.FC<InfographicNodeCardProps> = ({
 
           {/* Current Section indicator (shown even when collapsed) */}
           {isActive && (
-            <span className="inline-block mt-1 text-[9.5px] font-bold uppercase tracking-wider text-[#171717] bg-[#F5D547] px-2 py-0.2 rounded-md border border-[#171717]">
+            <span className="inline-block mt-1 text-[9.5px] font-bold uppercase tracking-wider text-[#1A3A21] bg-[#DDE9DC] px-2 py-0.2 rounded-md border border-[#1A3A21]">
               Current Section
             </span>
           )}
@@ -769,7 +769,7 @@ const InfographicNodeCard: React.FC<InfographicNodeCardProps> = ({
                               el.classList.add('heading-highlight-flash');
                             }
                           }}
-                          className="text-[11px] text-slate-700 hover:text-[#171717] hover:bg-[#FAF9F5] px-2 py-1 rounded-md transition-colors flex items-center gap-1.5 truncate border border-transparent hover:border-[#171717]/20"
+                          className="text-[11px] text-slate-700 hover:text-[#1A3A21] hover:bg-[#EEE6DE] px-2 py-1 rounded-md transition-colors flex items-center gap-1.5 truncate border border-transparent hover:border-[#1A3A21]/20"
                         >
                           <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ backgroundColor: color.fill }} />
                           <span className="truncate">{st}</span>

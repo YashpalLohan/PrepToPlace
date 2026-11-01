@@ -1,0 +1,43 @@
+export const dlDays4144Notes = {
+  id: "deep-learning-dldays41-44-nlp-fundamentals",
+  day: 41,
+  dayStart: 41,
+  dayEnd: 44,
+  dayRange: "Days 41–44",
+  title: "NLP Fundamentals",
+  track: "AI / ML",
+  section: "Deep Learning",
+  contentFile: "dlDays41-44Content.md",
+  status: "not-started",
+  overview: "Tokenization, BoW, TF-IDF, CBOW, Word2Vec, GloVe, word embeddings, embedding applications.",
+  resources: [
+    { title: "Jay Alammar — The Illustrated Word2Vec", url: "https://jalammar.github.io/illustrated-word2vec/", type: "article" },
+    { title: "Stanford CME295 syllabus — NLP and embeddings", url: "https://cme295.stanford.edu/syllabus/", type: "course" },
+    { title: "DeepLearning.AI courses", url: "https://www.deeplearning.ai/courses/", type: "course" },
+    { title: "Stanford GloVe project", url: "https://nlp.stanford.edu/projects/glove/", type: "documentation" },
+    { title: "scikit-learn text feature extraction", url: "https://scikit-learn.org/stable/modules/feature_extraction.html#text-feature-extraction", type: "documentation" }
+  ],
+  flowchart: [
+    { id: "1-overview", title: "Overview", sectionId: "1-overview" },
+    { id: "2-nlp-pipeline", title: "NLP Pipeline", sectionId: "2-nlp-pipeline" },
+    { id: "3-text-preprocessing", title: "Text Preprocessing", sectionId: "3-text-preprocessing" },
+    { id: "4-tokenization", title: "Tokenization", sectionId: "4-tokenization" },
+    { id: "5-bag-of-words-bow", title: "Bag of Words (BoW)", sectionId: "5-bag-of-words-bow" },
+    { id: "6-tf-idf", title: "TF-IDF", sectionId: "6-tf-idf" },
+    { id: "7-bow-vs-tf-idf", title: "BoW vs TF-IDF", sectionId: "7-bow-vs-tf-idf" },
+    { id: "8-word-embeddings", title: "Word Embeddings", sectionId: "8-word-embeddings" },
+    { id: "9-word2vec", title: "Word2Vec", sectionId: "9-word2vec" },
+    { id: "10-negative-sampling", title: "Negative Sampling", sectionId: "10-negative-sampling" },
+    { id: "11-glove", title: "GloVe", sectionId: "11-glove" },
+    { id: "12-static-vs-contextual-embeddings", title: "Static vs Contextual Embeddings", sectionId: "12-static-vs-contextual-embeddings" },
+    { id: "13-embedding-similarity", title: "Embedding Similarity", sectionId: "13-embedding-similarity" },
+    { id: "14-practical-text-vectorisation-with-scikit-learn", title: "Practical Text Vectorisation with scikit-learn", sectionId: "14-practical-text-vectorisation-with-scikit-learn" },
+    { id: "15-applications-and-limitations", title: "Applications and Limitations", sectionId: "15-applications-and-limitations" },
+    { id: "16-common-mistakes", title: "Common Mistakes", sectionId: "16-common-mistakes" },
+    { id: "17-placement-and-interview-questions", title: "Placement and Interview Questions", sectionId: "17-placement-and-interview-questions" },
+    { id: "18-practice", title: "Practice", sectionId: "18-practice" },
+    { id: "19-quick-revision", title: "Quick Revision", sectionId: "19-quick-revision" },
+    { id: "20-final-checklist", title: "Final Checklist", sectionId: "20-final-checklist" },
+    { id: "21-recommended-resources", title: "Recommended Resources", sectionId: "21-recommended-resources" }
+  ]
+};

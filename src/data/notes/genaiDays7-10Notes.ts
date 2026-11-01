@@ -1,0 +1,41 @@
+export const genAIDays7to10Notes = {
+  id: "generative-ai-genaidays7-10-classical-ml-foundation",
+  day: 7,
+  dayStart: 7,
+  dayEnd: 10,
+  dayRange: "Days 7–10",
+  title: "Classical ML Foundation",
+  track: "AI / ML",
+  section: "Generative AI",
+  contentFile: "genaiDays7-10Content.md",
+  status: "not-started",
+  overview: "Linear regression, logistic regression, sigmoid, model formulation, assumptions, limitations.",
+  resources: [
+    { title: "Microsoft Generative AI for Beginners", url: "https://github.com/microsoft/generative-ai-for-beginners", type: "course" },
+    { title: "Microsoft AI for Beginners", url: "https://microsoft.github.io/AI-For-Beginners/", type: "course" },
+    { title: "scikit-learn Model Evaluation", url: "https://scikit-learn.org/stable/modules/model_evaluation.html", type: "documentation" },
+    { title: "scikit-learn Linear Models", url: "https://scikit-learn.org/stable/modules/linear_model.html", type: "documentation" }
+  ],
+  flowchart: [
+    { id: "1-overview", title: "Overview", sectionId: "1-overview" },
+    { id: "2-linear-regression-problem-setup", title: "Linear Regression: Problem Setup", sectionId: "2-linear-regression-problem-setup" },
+    { id: "3-least-squares-objective", title: "Least Squares Objective", sectionId: "3-least-squares-objective" },
+    { id: "4-interpreting-linear-regression-coefficients", title: "Interpreting Linear Regression Coefficients", sectionId: "4-interpreting-linear-regression-coefficients" },
+    { id: "5-linear-regression-assumptions", title: "Linear Regression Assumptions", sectionId: "5-linear-regression-assumptions" },
+    { id: "6-linear-regression-limitations", title: "Linear Regression Limitations", sectionId: "6-linear-regression-limitations" },
+    { id: "7-logistic-regression-classification", title: "Logistic Regression: Classification", sectionId: "7-logistic-regression-classification" },
+    { id: "8-sigmoid-function", title: "Sigmoid Function", sectionId: "8-sigmoid-function" },
+    { id: "9-log-odds-interpretation", title: "Log-Odds Interpretation", sectionId: "9-log-odds-interpretation" },
+    { id: "10-logistic-regression-loss", title: "Logistic Regression Loss", sectionId: "10-logistic-regression-loss" },
+    { id: "11-linear-vs-logistic-regression", title: "Linear vs Logistic Regression", sectionId: "11-linear-vs-logistic-regression" },
+    { id: "12-logistic-regression-assumptions-and-limitations", title: "Logistic Regression Assumptions and Limitations", sectionId: "12-logistic-regression-assumptions-and-limitations" },
+    { id: "13-scikit-learn-example-linear-regression", title: "scikit-learn Example: Linear Regression", sectionId: "13-scikit-learn-example-linear-regression" },
+    { id: "14-scikit-learn-example-logistic-regression", title: "scikit-learn Example: Logistic Regression", sectionId: "14-scikit-learn-example-logistic-regression" },
+    { id: "15-common-mistakes", title: "Common Mistakes", sectionId: "15-common-mistakes" },
+    { id: "16-placement-and-interview-questions", title: "Placement and Interview Questions", sectionId: "16-placement-and-interview-questions" },
+    { id: "17-practice", title: "Practice", sectionId: "17-practice" },
+    { id: "18-quick-revision", title: "Quick Revision", sectionId: "18-quick-revision" },
+    { id: "19-final-checklist", title: "Final Checklist", sectionId: "19-final-checklist" },
+    { id: "20-recommended-resources", title: "Recommended Resources", sectionId: "20-recommended-resources" }
+  ]
+};
