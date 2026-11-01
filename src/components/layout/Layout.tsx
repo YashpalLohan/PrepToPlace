@@ -26,6 +26,20 @@ export const Layout: React.FC = () => {
     if (viewportWidth >= 768) setMobileMenuOpen(false);
   }, [viewportWidth]);
 
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setMobileMenuOpen(false);
+    };
+    window.addEventListener('keydown', closeOnEscape);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', closeOnEscape);
+    };
+  }, [mobileMenuOpen]);
+
   const isMobile = viewportWidth < 768;
   const effectiveCollapsed = viewportWidth < 1024 || sidebarCollapsed;
   const toggleSidebar = () => setSidebarCollapsed(current => {
@@ -46,7 +60,7 @@ export const Layout: React.FC = () => {
       <div className="flex min-h-screen min-w-0 flex-col transition-[margin] duration-150 ease-out motion-reduce:transition-none" style={{ marginLeft: isMobile ? 0 : effectiveCollapsed ? 80 : 256 }}>
         <TopNavbar onMenuClick={() => setMobileMenuOpen(true)} />
         {(progressState.error || syncError) && <div role="alert" className="bg-amber-50 border-b border-amber-200 px-6 py-2 text-xs text-amber-800">Shared progress sync failed: {progressState.error || syncError}</div>}
-        <main className="flex-1 p-6 md:p-8 max-w-7xl w-full mx-auto">
+        <main className="mx-auto min-w-0 w-full max-w-7xl flex-1 overflow-x-clip p-4 sm:p-5 md:p-8">
           <Outlet />
         </main>
       </div>

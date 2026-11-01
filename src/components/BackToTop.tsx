@@ -167,7 +167,7 @@ export const BackToTop: React.FC<BackToTopProps> = ({
       aria-label="Back to top"
       title="Back to top"
       className={cn(
-        'fixed bottom-6 right-6 z-40',
+        'fixed bottom-[calc(1rem+env(safe-area-inset-bottom))] right-[calc(1rem+env(safe-area-inset-right))] z-40 sm:bottom-6 sm:right-6',
         'w-10 h-10 rounded-full',
         'bg-white border border-slate-200 shadow-lg',
         'text-slate-600 hover:text-slate-900',

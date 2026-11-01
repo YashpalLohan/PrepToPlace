@@ -42,7 +42,7 @@ export const AllTracksPage: React.FC = () => {
     <div className="space-y-8">
       <div className="border-b border-slate-200 pb-5">
         <p className="editorial-eyebrow mb-2">Choose your next chapter</p>
-        <h1 className="font-serif text-4xl font-semibold leading-none tracking-tight text-slate-900 md:text-5xl">Primary Learning Tracks</h1>
+        <h1 className="font-serif text-3xl sm:text-4xl font-semibold leading-tight tracking-tight text-slate-900 md:text-5xl">Primary Learning Tracks</h1>
         <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600">
           Structured preparation roadmaps designed for tech placement excellence.
         </p>

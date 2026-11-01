@@ -201,7 +201,7 @@ export const TopicNotesPage: React.FC = () => {
     <div className="space-y-6">
       {/* Navigation & Header */}
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div className="flex items-center gap-2 text-xs text-slate-500">
+        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 text-xs text-slate-500">
           <Link to={`/tracks/${track.slug}`} className="hover:text-slate-800 transition-colors">
             {track.name}
           </Link>
@@ -220,7 +220,7 @@ export const TopicNotesPage: React.FC = () => {
       </div>
 
       {/* Topic Title Card */}
-      <div className="bg-white rounded-xl border border-slate-200 p-6 shadow-xs">
+      <div className="bg-white rounded-xl border border-slate-200 p-4 sm:p-6 shadow-xs">
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div className="text-xs font-semibold uppercase tracking-wider text-sky-600">
@@ -525,7 +525,7 @@ export const TopicNotesPage: React.FC = () => {
         /* READING MODE - Distraction free */
         <div className="space-y-6">
           {/* Main Content Area */}
-          <div className="bg-white rounded-xl border border-slate-200 p-8 shadow-xs">
+          <div className="bg-white rounded-xl border border-slate-200 p-4 sm:p-8 shadow-xs">
             {!markdown && keyTakeaways.length === 0 && images.length === 0 ? (
               <div className="text-center py-12">
                 <div className="w-10 h-10 rounded-full bg-slate-100 text-slate-400 flex items-center justify-center mx-auto mb-3">

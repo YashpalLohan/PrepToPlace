@@ -71,7 +71,7 @@ export const SettingsPage: React.FC = () => {
   return (
     <div className="space-y-6 max-w-4xl">
       <div>
-        <h1 className="font-serif text-4xl font-semibold leading-none tracking-tight text-slate-900">System Settings</h1>
+        <h1 className="font-serif text-3xl sm:text-4xl font-semibold leading-tight tracking-tight text-slate-900">System Settings</h1>
         <p className="text-sm text-slate-500 mt-1">
           Manage image storage options and back up or restore learning data.
         </p>

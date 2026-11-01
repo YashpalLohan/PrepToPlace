@@ -359,14 +359,14 @@ export const LearningFlowchart: React.FC<LearningFlowchartProps> = ({
           <div className="flex items-center gap-2">
             {/* Desktop label */}
             <span
-              className="hidden lg:inline-block text-xs uppercase font-extrabold tracking-widest px-2.5 py-0.5 rounded-full border-2 border-[#1A3A21] bg-[#DDE9DC] text-[#1A3A21]"
+              className="hidden xl:inline-block text-xs uppercase font-extrabold tracking-widest px-2.5 py-0.5 rounded-full border-2 border-[#1A3A21] bg-[#DDE9DC] text-[#1A3A21]"
               style={{ fontFamily: "'Caveat', cursive, sans-serif", fontSize: '15px' }}
             >
               VISUAL ROADMAP
             </span>
             {/* Mobile/Tablet label */}
             <span
-              className="lg:hidden text-xs uppercase font-extrabold tracking-widest px-2.5 py-0.5 rounded-full border-2 border-[#1A3A21] bg-[#DDE9DC] text-[#1A3A21]"
+              className="xl:hidden text-xs uppercase font-extrabold tracking-widest px-2.5 py-0.5 rounded-full border-2 border-[#1A3A21] bg-[#DDE9DC] text-[#1A3A21]"
               style={{ fontFamily: "'Caveat', cursive, sans-serif", fontSize: '15px' }}
             >
               TOPIC ROADMAP
@@ -377,14 +377,14 @@ export const LearningFlowchart: React.FC<LearningFlowchartProps> = ({
           </div>
           {/* Desktop heading */}
           <h2
-            className="hidden lg:block text-xl sm:text-2xl lg:text-3xl font-extrabold text-[#1A3A21] tracking-tight mt-1 break-words max-w-xl"
+            className="hidden xl:block text-xl sm:text-2xl xl:text-3xl font-extrabold text-[#1A3A21] tracking-tight mt-1 break-words max-w-xl"
             style={{ fontFamily: "'Caveat', cursive, sans-serif" }}
           >
             Infographic Curriculum: Click any circle to jump
           </h2>
           {/* Mobile/Tablet heading */}
           <h2
-            className="lg:hidden text-lg font-extrabold text-[#1A3A21] tracking-tight mt-1 break-words"
+            className="xl:hidden text-lg font-extrabold text-[#1A3A21] tracking-tight mt-1 break-words"
             style={{ fontFamily: "'Caveat', cursive, sans-serif" }}
           >
             Connected Learning Stages
@@ -417,7 +417,7 @@ export const LearningFlowchart: React.FC<LearningFlowchartProps> = ({
       </div>
 
       {/* ─── DESKTOP INFOGRAPHIC VIEW (lg+): Balanced 4 & 4 Columns + Central Circle ─── */}
-      <div ref={containerRef} className="hidden lg:block relative z-10 my-2">
+      <div ref={containerRef} className="hidden xl:block relative z-10 my-2">
         {/* SVG Curved Connector Lines Layer - dynamically positioned */}
         <svg
           className="absolute inset-0 w-full h-full pointer-events-none"
@@ -566,7 +566,7 @@ export const LearningFlowchart: React.FC<LearningFlowchartProps> = ({
       </div>
 
       {/* ─── MOBILE & TABLET INFOGRAPHIC VIEW (<lg): Vertical Hand-Drawn Flow ─── */}
-      <div className="lg:hidden relative z-10 space-y-5">
+      <div className="xl:hidden relative z-10 space-y-5">
         {/* Top Central Topic Circle */}
         <div className="flex justify-center mb-6">
           <div

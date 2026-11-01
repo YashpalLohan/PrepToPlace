@@ -80,7 +80,7 @@ export const TopicStatusDropdown: React.FC<TopicStatusDropdownProps> = ({ status
           }
         }}
         className={cn(
-          'inline-flex min-h-9 items-center gap-2 rounded-xl border px-3 text-xs font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1',
+          'inline-flex min-h-11 items-center gap-2 rounded-xl border px-3 text-xs font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-1 sm:min-h-9',
           statusClasses,
           isOpen && 'ring-2 ring-offset-1'
         )}
@@ -114,7 +114,7 @@ export const TopicStatusDropdown: React.FC<TopicStatusDropdownProps> = ({ status
                   triggerRef.current?.focus();
                 }}
                 className={cn(
-                  'flex w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-left text-xs transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300',
+                  'flex min-h-11 w-full items-center gap-2.5 rounded-lg px-2.5 py-2 text-left text-xs transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-300 sm:min-h-0 sm:py-2',
                   selected ? 'bg-emerald-50' : 'hover:bg-stone-50',
                   textColor
                 )}

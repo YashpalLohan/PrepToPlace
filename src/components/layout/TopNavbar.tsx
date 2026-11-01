@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Search, Calendar as CalendarIcon, User, X, Menu } from 'lucide-react';
+import { Search, Calendar as CalendarIcon, User, X, Menu, GraduationCap } from 'lucide-react';
 import { StorageService } from '../../services/storage';
 
 export const TopNavbar: React.FC<{ onMenuClick?: () => void }> = ({ onMenuClick }) => {
@@ -30,6 +30,13 @@ export const TopNavbar: React.FC<{ onMenuClick?: () => void }> = ({ onMenuClick 
 
   useEffect(() => {
     if (isSpotlightOpen) searchInputRef.current?.focus();
+  }, [isSpotlightOpen]);
+
+  useEffect(() => {
+    if (!isSpotlightOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => { document.body.style.overflow = previousOverflow; };
   }, [isSpotlightOpen]);
 
   const closeSpotlight = () => {
@@ -71,29 +78,33 @@ export const TopNavbar: React.FC<{ onMenuClick?: () => void }> = ({ onMenuClick 
   }, [isSpotlightOpen, searchResults, activeResult]);
 
   return (
-    <header className={`h-16 bg-white border-b border-slate-200 sticky top-0 ${isSpotlightOpen ? 'z-[110]' : 'z-30'} px-3 sm:px-6 flex items-center gap-3 justify-between shadow-[0_1px_2px_rgba(0,0,0,0.03)]`}>
-      <button type="button" onClick={onMenuClick} aria-label="Open navigation menu" className="md:hidden shrink-0 rounded-lg p-2 text-slate-600 hover:bg-slate-100">
+    <header className={`h-16 bg-white border-b border-slate-200 sticky top-0 ${isSpotlightOpen ? 'z-[110]' : 'z-30'} px-2.5 sm:px-6 flex items-center gap-2 sm:gap-3 justify-between shadow-[0_1px_2px_rgba(0,0,0,0.03)]`}>
+      <button type="button" onClick={onMenuClick} aria-label="Open navigation menu" className="md:hidden shrink-0 rounded-lg p-2 text-slate-600 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-600">
         <Menu className="h-5 w-5" />
       </button>
+      <div className="md:hidden flex shrink-0 items-center gap-1.5 text-xs min-[380px]:text-sm font-bold tracking-tight text-slate-900" aria-label="PrepToPlace">
+        <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-700 text-white"><GraduationCap className="h-4 w-4" /></span>
+        <span className="hidden min-[380px]:inline">PrepToPlace</span>
+      </div>
       {/* Global Search Bar */}
-      <div className="relative w-full max-w-md flex-1">
+      <div className="relative w-full min-w-0 max-w-md flex-1">
         <div className="relative">
-          <Search className="absolute left-3.5 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
           <input
             type="text"
-            placeholder="Search tracks, sections, topics, notes... (Ctrl+K)"
+            placeholder="Search tracks and notes"
             value=""
             readOnly
             onClick={() => setIsSpotlightOpen(true)}
             onKeyDown={(event) => { if (event.key === 'Enter' || event.key === ' ') setIsSpotlightOpen(true); }}
-            className="w-full pl-10 pr-20 py-2 text-sm bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all placeholder:text-slate-400 cursor-pointer"
+            className="w-full min-w-0 pl-9 pr-3 sm:pr-20 py-2 text-sm bg-slate-50 border border-slate-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-sky-500/20 focus:border-sky-500 transition-all placeholder:text-slate-400 cursor-pointer"
           />
-          <span className="absolute right-3 top-1/2 -translate-y-1/2 rounded border border-slate-200 bg-white px-1.5 py-0.5 text-[10px] font-medium text-slate-400">Ctrl K</span>
+          <span className="hidden sm:inline absolute right-3 top-1/2 -translate-y-1/2 rounded border border-slate-200 bg-white px-1.5 py-0.5 text-[10px] font-medium text-slate-400">Ctrl K</span>
         </div>
       </div>
 
       {/* Right Controls: Date, Badge, Profile */}
-      <div className="flex items-center gap-4">
+      <div className="flex shrink-0 items-center gap-2 sm:gap-4">
         <div className="hidden sm:flex items-center gap-2 text-xs font-medium text-slate-500 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-lg">
           <CalendarIcon className="w-3.5 h-3.5 text-slate-400" />
           <span>{today}</span>
@@ -117,7 +128,7 @@ export const TopNavbar: React.FC<{ onMenuClick?: () => void }> = ({ onMenuClick 
           className="fixed inset-0 z-[100] bg-slate-950/35 backdrop-blur-[2px] px-4 pt-[12vh] sm:pt-[16vh]"
           onMouseDown={(event) => { if (event.target === event.currentTarget) closeSpotlight(); }}
         >
-          <div role="dialog" aria-modal="true" aria-label="Search PrepToPlace" className="mx-auto w-full max-w-2xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl animate-in fade-in slide-in-from-top-2 duration-150">
+          <div role="dialog" aria-modal="true" aria-label="Search PrepToPlace" className="mx-auto max-h-[calc(100dvh-2rem)] w-full max-w-2xl overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl animate-in fade-in slide-in-from-top-2 duration-150">
             <div className="flex items-center gap-3 border-b border-slate-100 px-5">
               <Search className="h-5 w-5 shrink-0 text-slate-400" />
               <input

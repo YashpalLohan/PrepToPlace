@@ -76,14 +76,14 @@ export const GenerativeAIPage: React.FC = () => {
       </div>
 
       {/* Header Card */}
-      <div className="rounded-[1.75rem] border border-slate-200 bg-beige p-6 shadow-sm md:p-8">
+      <div className="rounded-[1.5rem] border border-slate-200 bg-beige p-4 shadow-sm sm:rounded-[1.75rem] sm:p-6 md:p-8">
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
           <div>
             <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-xs font-semibold bg-amber-50 text-amber-700 border border-amber-100 mb-2">
               <Layers className="w-3.5 h-3.5" />
               <span>Section 3 of 3</span>
             </div>
-            <h1 className="font-serif text-4xl font-semibold leading-none tracking-tight text-slate-900 md:text-5xl">Generative AI</h1>
+            <h1 className="font-serif text-3xl sm:text-4xl font-semibold leading-tight tracking-tight text-slate-900 md:text-5xl">Generative AI</h1>
             <p className="text-xs text-slate-500 mt-1 max-w-2xl leading-relaxed">
               A practical 60-day journey from AI/ML fundamentals to Generative AI, RAG, Agentic AI
               and portfolio development across 19 structured milestones.

@@ -134,11 +134,11 @@ export const TrackDetailPage: React.FC = () => {
       </div>
 
       {/* Track Header Card */}
-      <div className="grid grid-cols-1 gap-6 rounded-[1.75rem] border border-slate-200 bg-beige p-6 shadow-sm md:grid-cols-[1.2fr_0.8fr] md:items-center md:p-8">
+      <div className="grid grid-cols-1 gap-5 rounded-[1.5rem] border border-slate-200 bg-beige p-4 shadow-sm sm:gap-6 sm:rounded-[1.75rem] sm:p-6 md:grid-cols-[1.2fr_0.8fr] md:items-center md:p-8">
         <div className="flex flex-col gap-4 xl:flex-row xl:items-center xl:justify-between">
           <div>
-            <div className="flex items-center gap-3">
-              <h1 className="font-serif text-4xl font-semibold leading-none tracking-tight text-slate-900 md:text-5xl">{track.name}</h1>
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-3">
+              <h1 className="min-w-0 break-words font-serif text-3xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-4xl md:text-5xl">{track.name}</h1>
               <span className="text-xs font-semibold px-2.5 py-0.5 rounded-full bg-sky-50 text-sky-700 border border-sky-100">
                 {stats.progressPercentage}% Completed
               </span>
@@ -160,7 +160,7 @@ export const TrackDetailPage: React.FC = () => {
               <div className="whitespace-nowrap font-medium text-slate-400">Last Studied</div>
               <div className="font-semibold text-slate-800 flex items-center gap-1 mt-0.5">
                 <Calendar className="w-3.5 h-3.5 text-slate-400" />
-                <span className="whitespace-nowrap">{stats.lastStudiedDate || 'Not started'}</span>
+                <span className="break-words">{stats.lastStudiedDate || 'Not started'}</span>
               </div>
             </div>
           </div>

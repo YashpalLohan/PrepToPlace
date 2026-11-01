@@ -87,10 +87,10 @@ export const DashboardPage: React.FC = () => {
   return (
     <div className="space-y-9">
       {/* Page Title & Status */}
-      <section className="grid grid-cols-1 gap-6 rounded-[1.75rem] border border-slate-200 bg-beige p-6 shadow-sm md:grid-cols-[1.2fr_0.8fr] md:items-center md:p-8">
+      <section className="grid grid-cols-1 gap-5 rounded-[1.5rem] border border-slate-200 bg-beige p-4 shadow-sm sm:gap-6 sm:rounded-[1.75rem] sm:p-6 md:grid-cols-[1.2fr_0.8fr] md:items-center md:p-8">
         <div className="max-w-2xl">
           <p className="editorial-eyebrow mb-3">PrepToPlace · Learning journal</p>
-          <h1 className="font-serif text-4xl font-semibold leading-[0.98] tracking-tight text-slate-900 md:text-5xl">Placement Overview</h1>
+          <h1 className="font-serif text-3xl font-semibold leading-tight tracking-tight text-slate-900 sm:text-4xl md:text-5xl">Placement Overview</h1>
           <p className="mt-3 max-w-xl text-sm leading-6 text-slate-600">
             A clear view of your preparation, the skills you are building, and the next step in your learning.
           </p>

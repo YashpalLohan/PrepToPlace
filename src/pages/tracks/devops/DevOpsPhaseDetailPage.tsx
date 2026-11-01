@@ -153,13 +153,13 @@ export const DevOpsPhaseDetailPage: React.FC = () => {
       </div>
 
       {/* Header card */}
-      <div className="rounded-[1.75rem] border border-slate-200 bg-beige p-6 shadow-sm md:p-8">
+      <div className="rounded-[1.5rem] border border-slate-200 bg-beige p-4 shadow-sm sm:rounded-[1.75rem] sm:p-6 md:p-8">
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-4">
           <div>
             <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-md text-xs font-semibold bg-rose-50 text-rose-700 border border-rose-100 mb-2">
               <span>Phase {phaseNum} of {DEVOPS_SECTIONS.length}</span>
             </div>
-            <h1 className="font-serif text-4xl font-semibold leading-none tracking-tight text-slate-900 md:text-5xl">{section.title}</h1>
+            <h1 className="font-serif text-3xl sm:text-4xl font-semibold leading-tight tracking-tight text-slate-900 md:text-5xl">{section.title}</h1>
             <p className="text-xs text-slate-500 mt-1 max-w-2xl leading-relaxed">{section.description}</p>
           </div>
 
