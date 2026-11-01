@@ -1,0 +1,14 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // PrepToPlace intentionally exposes one public shared learning dataset.
+    // Never place secrets, passwords, or private information in this namespace.
+    match /global/preptoplace/{document=**} {
+      allow read, write: if true;
+    }
+    // No access is granted to any other collection, including legacy UID data.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

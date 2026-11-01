@@ -1,0 +1,304 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#F8FAFC] text-slate-800 antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Clean markdown formatting */
+.prose-custom {
+  color: #334155;
+  line-height: 1.7;
+}
+.prose-custom h1 {
+  font-size: 1.85rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.02em;
+}
+.prose-custom h2 {
+  font-size: 1.45rem;
+  font-weight: 600;
+  color: #0F172A;
+  margin-top: 1.3rem;
+  margin-bottom: 0.6rem;
+  border-bottom: 1px solid #E2E8F0;
+  padding-bottom: 0.3rem;
+}
+.prose-custom h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #1E293B;
+  margin-top: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+.prose-custom p {
+  margin-top: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+.prose-custom ul {
+  list-style-type: disc;
+  padding-left: 1.4rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+.prose-custom ol {
+  list-style-type: decimal;
+  padding-left: 1.4rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0.8rem;
+}
+.prose-custom li {
+  margin-bottom: 0.35rem;
+}
+.prose-custom pre {
+  background: #0F172A;
+  color: #E2E8F0;
+  padding: 1rem;
+  border-radius: 0.6rem;
+  overflow-x: auto;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.88rem;
+  margin: 1rem 0;
+  border: 1px solid #1E293B;
+}
+.prose-custom code:not(pre code) {
+  background: #F1F5F9;
+  color: #0369A1;
+  padding: 0.15rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 500;
+}
+.prose-custom blockquote {
+  border-left: 4px solid #0284C7;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: #475569;
+  font-style: italic;
+  background: #F0F9FF;
+  padding: 0.75rem 1rem;
+  border-radius: 0 0.5rem 0.5rem 0;
+}
+
+/* Handwritten Typography for Notes Content                                      */
+/* Scoped to .notes-handwritten-scope - only prose elements receive the font.    */
+/* Code blocks, math, and flowcharts are explicitly excluded via !important.     */
+
+/* CSS custom properties */
+:root {
+  --font-handwritten: 'Patrick Hand', 'Comic Neue', cursive, sans-serif;
+  --font-code:        'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+  --font-math:        Georgia, 'Times New Roman', serif;
+}
+
+.notes-handwritten-scope {
+  font-family: var(--font-handwritten);
+  letter-spacing: 0.015em;
+  line-height: 1.75;
+}
+
+/* Prose headings */
+.notes-handwritten-scope h1,
+.notes-handwritten-scope h2,
+.notes-handwritten-scope h3,
+.notes-handwritten-scope h4,
+.notes-handwritten-scope h5,
+.notes-handwritten-scope h6 {
+  font-family: var(--font-handwritten);
+  letter-spacing: 0.02em;
+  max-width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  white-space: normal;
+}
+.notes-handwritten-scope h1 { font-size: 2.15rem; font-weight: 700; line-height: 1.3; }
+.notes-handwritten-scope h2 { font-size: 1.7rem;  font-weight: 700; line-height: 1.35; }
+.notes-handwritten-scope h3 { font-size: 1.4rem;  font-weight: 700; line-height: 1.4; }
+.notes-handwritten-scope h4 { font-size: 1.22rem; font-weight: 700; line-height: 1.4; }
+.notes-handwritten-scope h5 { font-size: 1.15rem; font-weight: 700; line-height: 1.45; }
+.notes-handwritten-scope h6 { font-size: 1.02rem; font-weight: 700; line-height: 1.45; }
+
+/* Text wrapping and containment for responsive notes */
+.notes-content {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+.notes-content p,
+.notes-content li,
+.notes-content h1,
+.notes-content h2,
+.notes-content h3,
+.notes-content h4,
+.notes-content h5,
+.notes-content h6 {
+  max-width: 100%;
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+}
+
+/* Prose body — targeted tags only, no broad span rule */
+.notes-handwritten-scope p          { font-family: var(--font-handwritten); font-size: 1.12rem; line-height: 1.8; overflow-wrap: break-word; }
+.notes-handwritten-scope li         { font-family: var(--font-handwritten); font-size: 1.08rem; line-height: 1.75; overflow-wrap: break-word; }
+.notes-handwritten-scope blockquote { font-family: var(--font-handwritten); overflow-wrap: break-word; }
+
+/* Bold/italic only within prose — not inside code or math wrappers */
+.notes-handwritten-scope p > strong,
+.notes-handwritten-scope p > em,
+.notes-handwritten-scope li > strong,
+.notes-handwritten-scope li > em,
+.notes-handwritten-scope blockquote strong,
+.notes-handwritten-scope blockquote em {
+  font-family: var(--font-handwritten);
+}
+
+/* ── Code: lock element AND every descendant (covers Prism .token spans) ─────── */
+.notes-handwritten-scope pre,
+.notes-handwritten-scope pre *,
+.notes-handwritten-scope code,
+.notes-handwritten-scope code *,
+.notes-handwritten-scope .font-mono,
+.notes-handwritten-scope .font-mono *,
+.notes-handwritten-scope .token,
+.notes-handwritten-scope .token * {
+  font-family: var(--font-code) !important;
+  letter-spacing: normal !important;
+}
+
+/* ── Math: lock element AND every descendant (covers renderTokens spans) ─────── */
+.notes-handwritten-scope .math-formula,
+.notes-handwritten-scope .math-formula *,
+.notes-handwritten-scope .formula-container,
+.notes-handwritten-scope .formula-container *,
+.notes-handwritten-scope .katex,
+.notes-handwritten-scope .katex *,
+.notes-handwritten-scope .MathJax,
+.notes-handwritten-scope .MathJax * {
+  font-family: var(--font-math) !important;
+  letter-spacing: normal !important;
+}
+
+/* Ensure KaTeX inline math doesn't wrap and scrolls horizontally on mobile */
+.notes-handwritten-scope .katex-html {
+  white-space: nowrap;
+  display: inline-block;
+  overflow-x: auto;
+  max-width: 100%;
+}
+
+/* Additional container for MathRenderer component */
+.notes-handwritten-scope span[style*="display: inline"] {
+  display: inline !important;
+  white-space: nowrap;
+  overflow-x: auto;
+}
+
+
+
+
+/* VS Code Dark Modern syntax highlighting for Prism */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #6A9955;
+  font-style: italic;
+}
+.token.punctuation {
+  color: #D4D4D4;
+}
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #B5CEA8;
+}
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #CE9178;
+}
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #D4D4D4;
+}
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #C586C0;
+}
+.token.function,
+.token.class-name {
+  color: #DCDCAA;
+}
+.token.regex,
+.token.important,
+.token.variable {
+  color: #9CDCFE;
+}
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+
+/* Heading highlight flash on navigation */
+@keyframes headingFlash {
+  0% {
+    background-color: rgba(56, 189, 248, 0.25);
+    border-radius: 8px;
+    padding-left: 8px;
+  }
+  70% {
+    background-color: rgba(56, 189, 248, 0.15);
+  }
+  100% {
+    background-color: transparent;
+    padding-left: 0;
+  }
+}
+
+.heading-highlight-flash {
+  animation: headingFlash 2.2s ease-out forwards;
+}
+
+

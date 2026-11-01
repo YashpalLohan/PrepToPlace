@@ -1,0 +1,517 @@
+﻿import React, { useState } from 'react';
+import {
+  Copy,
+  Check,
+  Sigma,
+  BookOpen,
+  Lightbulb,
+  Info,
+  AlertTriangle,
+  Code2,
+  Terminal,
+  MessageCircleQuestion,
+  Target,
+  GraduationCap,
+  Bookmark,
+  ExternalLink,
+  Clock,
+  RefreshCw,
+  CheckCircle2,
+  List
+} from 'lucide-react';
+
+interface MarkdownRendererProps {
+  content: string;
+}
+
+// Formula container component with Background #ffffff, Text #FF4D4D, subtle red accent
+export const FormulaContainer: React.FC<{ formula: string; centered?: boolean }> = ({ formula, centered = true }) => {
+  return (
+    <div className="my-4 rounded-xl border border-rose-950/60 bg-[#ffffff] border-l-4 border-l-[#FF4D4D] p-4 text-[#FF4D4D] shadow-md transition-all">
+      <div className="flex items-center justify-between mb-1.5 opacity-60 text-[11px] font-mono tracking-wider uppercase">
+        <span className="flex items-center gap-1.5 text-rose-300/80">
+          <Sigma className="w-3.5 h-3.5 text-[#FF4D4D]" />
+          <span>Formula</span>
+        </span>
+      </div>
+      <div className={`font-mono font-semibold text-[14px] sm:text-[15px] tracking-wide overflow-x-auto py-1 ${centered ? 'text-center' : ''} text-[#FF4D4D]`}>
+        {formatMath(formula)}
+      </div>
+    </div>
+  );
+};
+
+// Clean and convert LaTeX formulas to clean Unicode / mathematical HTML
+const formatMath = (math: string): React.ReactNode => {
+  let cleaned = math.trim();
+
+  // Strip math brackets if passed
+  cleaned = cleaned.replace(/^\\\[|\\\]$/g, '').trim();
+
+  // Common replacements for clean mathematical display without raw backslashes
+  cleaned = cleaned
+    .replace(/\\textcolor\{[^}]+\}\{([^}]+)\}/g, '$1')
+    // Matrix dimensions and sets
+    .replace(/\\mathbb\{R\}\^\{([^}]+)\}/g, 'â„^($1)')
+    .replace(/\\mathbb\{R\}/g, 'â„')
+    .replace(/\\in/g, ' âˆˆ ')
+    .replace(/\\times/g, ' Ã— ')
+    .replace(/\\cdot/g, ' Â· ')
+    .replace(/\\pm/g, ' Â± ')
+    .replace(/\\neq/g, ' â‰  ')
+    .replace(/\\leq/g, ' â‰¤ ')
+    .replace(/\\geq/g, ' â‰¥ ')
+    .replace(/\\approx/g, ' â‰ˆ ')
+    // Greek symbols
+    .replace(/\\mu/g, 'Î¼')
+    .replace(/\\sigma\^2/g, 'ÏƒÂ²')
+    .replace(/\\sigma/g, 'Ïƒ')
+    .replace(/\\alpha/g, 'Î±')
+    .replace(/\\beta/g, 'Î²')
+    .replace(/\\epsilon/g, 'Îµ')
+    .replace(/\\theta/g, 'Î¸')
+    .replace(/\\lambda/g, 'Î»')
+    .replace(/\\nabla_\{([^}]+)\}/g, 'âˆ‡_$1')
+    .replace(/\\nabla/g, 'âˆ‡')
+    // Bold vectors/matrices \mathbf{X} -> bold X
+    .replace(/\\mathbf\{([^}]+)\}/g, '$1')
+    .replace(/\\hat\{([^}]+)\}/g, '$1Ì‚')
+    // Norms \|x\| -> ||x||
+    .replace(/\\\|/g, 'â€–')
+    // Subscripts & Superscripts
+    .replace(/_\{([^}]+)\}/g, '_($1)')
+    .replace(/\^\{([^}]+)\}/g, '^($1)')
+    // Fractions \frac{a}{b} -> (a / b)
+    .replace(/\\frac\{([^}]+)\}\{([^}]+)\}/g, '($1 / $2)')
+    // Clean up double spaces or left over curly brackets
+    .replace(/\{|\}/g, '');
+
+  return <span>{cleaned}</span>;
+};
+
+export const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => {
+  const [copiedIndex, setCopiedIndex] = useState<number | null>(null);
+
+  const copyToClipboard = (text: string, index: number) => {
+    navigator.clipboard.writeText(text);
+    setCopiedIndex(index);
+    setTimeout(() => setCopiedIndex(null), 2000);
+  };
+
+  // Helper to parse inline markdown (code, math $...$, bold, links)
+  const renderInline = (text: string): React.ReactNode => {
+    // 1. Split by inline code first: `code`
+    const codeParts = text.split(/(`[^`]+`)/g);
+
+    return codeParts.map((part, pIdx) => {
+      if (part.startsWith('`') && part.endsWith('`') && part.length >= 2) {
+        return (
+          <code
+            key={pIdx}
+            className="px-1.5 py-0.5 mx-0.5 rounded bg-slate-100 text-sky-700 font-mono text-[13px] border border-slate-200/60"
+          >
+            {part.slice(1, -1)}
+          </code>
+        );
+      }
+
+      // 2. Parse inline math: $math$
+      let elements: React.ReactNode[] = [part];
+
+      elements = elements.flatMap((el, eIdx) => {
+        if (typeof el !== 'string') return [el];
+        const mathParts = el.split(/(\$[^$]+\$)/g);
+        return mathParts.map((mPart, mIdx) => {
+          if (mPart.startsWith('$') && mPart.endsWith('$') && mPart.length >= 3) {
+            return (
+              <React.Fragment key={`${eIdx}-${mIdx}`}>
+                {formatMath(mPart.slice(1, -1))}
+              </React.Fragment>
+            );
+          }
+          return mPart;
+        });
+      });
+
+      // 3. Parse bold: **text**
+      elements = elements.flatMap((el, eIdx) => {
+        if (typeof el !== 'string') return [el];
+        const boldParts = el.split(/(\*\*[^*]+\*\*)/g);
+        return boldParts.map((bPart, bIdx) => {
+          if (bPart.startsWith('**') && bPart.endsWith('**') && bPart.length >= 4) {
+            return (
+              <strong key={`${eIdx}-${bIdx}`} className="font-bold text-slate-900">
+                {bPart.slice(2, -2)}
+              </strong>
+            );
+          }
+          return bPart;
+        });
+      });
+
+      // 4. Parse italics: *text* (when not part of **)
+      elements = elements.flatMap((el, eIdx) => {
+        if (typeof el !== 'string') return [el];
+        const italicParts = el.split(/(?<!\*)\*([^*]+)\*(?!\*)/g);
+        if (italicParts.length <= 1) return [el];
+        return italicParts.map((iPart, iIdx) => {
+          if (iIdx % 2 === 1) {
+            return (
+              <em key={`${eIdx}-${iIdx}`} className="italic font-medium text-slate-800">
+                {iPart}
+              </em>
+            );
+          }
+          return iPart;
+        });
+      });
+
+      // 5. Parse links: [text](url)
+      elements = elements.flatMap((el, eIdx) => {
+        if (typeof el !== 'string') return [el];
+        const linkParts = el.split(/(\[[^\]]+\]\([^)]+\))/g);
+        return linkParts.map((lPart, lIdx) => {
+          const match = lPart.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+          if (match) {
+            return (
+              <a
+                key={`${eIdx}-${lIdx}`}
+                href={match[2]}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sky-600 hover:text-sky-800 underline font-medium"
+              >
+                {match[1]}
+              </a>
+            );
+          }
+          return lPart;
+        });
+      });
+
+      return <React.Fragment key={pIdx}>{elements}</React.Fragment>;
+    });
+  };
+
+  // Split into structural blocks
+  const renderBlocks = () => {
+    const lines = content.split('\n');
+    const nodes: React.ReactNode[] = [];
+    let i = 0;
+    let codeBlockIdx = 0;
+
+    while (i < lines.length) {
+      const line = lines[i];
+
+      // 1. Code blocks: ```language ... ```
+      if (line.trim().startsWith('```')) {
+        const lang = line.trim().slice(3).trim() || 'code';
+        const codeLines: string[] = [];
+        i++;
+        while (i < lines.length && !lines[i].trim().startsWith('```')) {
+          codeLines.push(lines[i]);
+          i++;
+        }
+        i++; // skip closing ```
+        const codeText = codeLines.join('\n');
+        const currIdx = codeBlockIdx++;
+
+        nodes.push(
+          <div key={`code-${i}`} className="my-5 rounded-xl overflow-hidden border border-slate-800 bg-slate-950 shadow-md">
+            <div className="flex items-center justify-between px-4 py-2 bg-slate-900 border-b border-slate-800 text-xs">
+              <span className="font-mono uppercase font-semibold text-slate-400 text-[11px] tracking-wider">
+                {lang}
+              </span>
+              <button
+                type="button"
+                onClick={() => copyToClipboard(codeText, currIdx)}
+                className="flex items-center gap-1.5 text-[11px] font-medium text-slate-400 hover:text-slate-200 transition-colors bg-slate-800/80 hover:bg-slate-800 px-2.5 py-1 rounded-md"
+              >
+                {copiedIndex === currIdx ? (
+                  <>
+                    <Check className="w-3.5 h-3.5 text-emerald-400" />
+                    <span className="text-emerald-400">Copied!</span>
+                  </>
+                ) : (
+                  <>
+                    <Copy className="w-3.5 h-3.5" />
+                    <span>Copy</span>
+                  </>
+                )}
+              </button>
+            </div>
+            <pre className="p-4 overflow-x-auto text-slate-100 font-mono text-[13px] leading-relaxed select-text">
+              <code>{codeText}</code>
+            </pre>
+          </div>
+        );
+        continue;
+      }
+
+      // 2. Display Math Blocks: $$ ... $$ or \[ ... \]
+      if (line.trim().startsWith('$$') || line.trim().startsWith('\\[')) {
+        const isBracket = line.trim().startsWith('\\[');
+        let mathText = isBracket ? line.trim().slice(2) : line.trim().slice(2);
+        const endPattern = isBracket ? '\\]' : '$$';
+        if (mathText.endsWith(endPattern) && mathText.length >= 2) {
+          mathText = mathText.slice(0, -2);
+          nodes.push(
+            <FormulaContainer key={`formula-${i}`} formula={mathText} />
+          );
+          i++;
+          continue;
+        } else {
+          // Multi-line math block
+          const mathLines: string[] = [mathText];
+          i++;
+          while (i < lines.length && !lines[i].trim().endsWith(endPattern)) {
+            mathLines.push(lines[i]);
+            i++;
+          }
+          if (i < lines.length) {
+            mathLines.push(lines[i].replace(new RegExp(`${endPattern.replace('\\', '\\\\')}$`), ''));
+            i++;
+          }
+          nodes.push(
+            <FormulaContainer key={`formula-${i}`} formula={mathLines.join(' ')} />
+          );
+          continue;
+        }
+      }
+
+      // 3. Headings
+      if (line.startsWith('# ')) {
+        nodes.push(
+          <h1 key={`h1-${i}`} className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight mt-8 mb-4 pb-2 border-b border-slate-200 flex items-center gap-2.5">
+            <BookOpen className="w-6 h-6 text-sky-600 shrink-0" />
+            <span>{renderInline(line.slice(2).trim())}</span>
+          </h1>
+        );
+        i++;
+        continue;
+      }
+      if (line.startsWith('## ')) {
+        const titleText = line.slice(3).trim();
+        // Determine suitable Lucide icon for section
+        let SectionIcon = BookOpen;
+        if (/Topic Overview/i.test(titleText)) SectionIcon = BookOpen;
+        else if (/Prerequisites/i.test(titleText)) SectionIcon = Lightbulb;
+        else if (/Part 1/i.test(titleText) || /Python Fundamentals/i.test(titleText)) SectionIcon = Code2;
+        else if (/Part 2/i.test(titleText) || /NumPy Architecture/i.test(titleText)) SectionIcon = Terminal;
+        else if (/Part 3/i.test(titleText) || /Applied to Machine Learning/i.test(titleText)) SectionIcon = Sigma;
+        else if (/Part 4/i.test(titleText) || /Practical/i.test(titleText)) SectionIcon = Terminal;
+        else if (/Part 5/i.test(titleText) || /Interview/i.test(titleText) || /Placement/i.test(titleText)) SectionIcon = Target;
+        else if (/Part 6/i.test(titleText) || /Revision/i.test(titleText) || /Cheat Sheet/i.test(titleText)) SectionIcon = RefreshCw;
+        else if (/Table of Contents/i.test(titleText)) SectionIcon = List;
+
+        nodes.push(
+          <h2 key={`h2-${i}`} className="text-xl sm:text-2xl font-bold text-slate-900 tracking-tight mt-8 mb-3.5 pb-2 border-b border-slate-100 flex items-center gap-2.5">
+            <SectionIcon className="w-5 h-5 text-sky-600 shrink-0" />
+            <span>{renderInline(titleText)}</span>
+          </h2>
+        );
+        i++;
+        continue;
+      }
+      if (line.startsWith('### ')) {
+        nodes.push(
+          <h3 key={`h3-${i}`} className="text-lg font-bold text-slate-800 mt-6 mb-2.5">
+            {renderInline(line.slice(4).trim())}
+          </h3>
+        );
+        i++;
+        continue;
+      }
+      if (line.startsWith('#### ')) {
+        const subTitle = line.slice(5).trim();
+        const isInterviewChallenge = /Challenge/i.test(subTitle);
+        nodes.push(
+          <h4 key={`h4-${i}`} className="text-base font-semibold text-slate-800 mt-4 mb-2 flex items-center gap-2">
+            {isInterviewChallenge && <MessageCircleQuestion className="w-4 h-4 text-sky-600 shrink-0" />}
+            <span>{renderInline(subTitle)}</span>
+          </h4>
+        );
+        i++;
+        continue;
+      }
+
+      // 4. Horizontal Rule
+      if (line.trim() === '---' || line.trim() === '***') {
+        nodes.push(<hr key={`hr-${i}`} className="my-6 border-slate-200" />);
+        i++;
+        continue;
+      }
+
+      // 5. Blockquotes / Callouts with Lucide Icons
+      if (line.startsWith('>')) {
+        const quoteLines: string[] = [];
+        while (i < lines.length && lines[i].startsWith('>')) {
+          quoteLines.push(lines[i].replace(/^>\s?/, ''));
+          i++;
+        }
+        const combined = quoteLines.join(' ');
+        let CalloutIcon = Info;
+        let borderColor = 'border-sky-500';
+        let bgColor = 'bg-sky-50/70';
+        let iconColor = 'text-sky-600';
+
+        if (/\[!WARNING\]|Warning:|Danger:|Trap:/i.test(combined)) {
+          CalloutIcon = AlertTriangle;
+          borderColor = 'border-amber-500';
+          bgColor = 'bg-amber-50/70';
+          iconColor = 'text-amber-600';
+        } else if (/\[!TIP\]|Interview Tip:|Placement Tip:/i.test(combined)) {
+          CalloutIcon = Target;
+          borderColor = 'border-emerald-500';
+          bgColor = 'bg-emerald-50/70';
+          iconColor = 'text-emerald-600';
+        } else if (/\[!IMPORTANT\]|Key Takeaway:|Remember:/i.test(combined)) {
+          CalloutIcon = Bookmark;
+          borderColor = 'border-indigo-500';
+          bgColor = 'bg-indigo-50/70';
+          iconColor = 'text-indigo-600';
+        } else if (/Advanced:/i.test(combined)) {
+          CalloutIcon = GraduationCap;
+          borderColor = 'border-purple-500';
+          bgColor = 'bg-purple-50/70';
+          iconColor = 'text-purple-600';
+        }
+
+        nodes.push(
+          <div key={`quote-${i}`} className={`my-4 border-l-4 ${borderColor} ${bgColor} p-4 rounded-r-xl text-slate-700 text-sm flex gap-3 shadow-2xs`}>
+            <CalloutIcon className={`w-5 h-5 ${iconColor} shrink-0 mt-0.5`} />
+            <div className="space-y-1">
+              {quoteLines.map((ql, qIdx) => (
+                <p key={qIdx} className={qIdx > 0 ? 'mt-1' : ''}>
+                  {renderInline(ql)}
+                </p>
+              ))}
+            </div>
+          </div>
+        );
+        continue;
+      }
+
+      // 6. Tables: markdown | header | header | ...
+      if (line.trim().startsWith('|') && line.includes('|')) {
+        const tableLines: string[] = [];
+        while (i < lines.length && lines[i].trim().startsWith('|')) {
+          tableLines.push(lines[i].trim());
+          i++;
+        }
+        if (tableLines.length >= 2) {
+          const parseRow = (rowStr: string) =>
+            rowStr
+              .slice(1, -1)
+              .split('|')
+              .map((c) => c.trim());
+
+          const headers = parseRow(tableLines[0]);
+          // tableLines[1] is separator |---|---|
+          const rows = tableLines.slice(2).map(parseRow);
+
+          nodes.push(
+            <div key={`table-${i}`} className="my-5 overflow-x-auto rounded-xl border border-slate-200 shadow-xs">
+              <table className="w-full text-left text-xs border-collapse">
+                <thead>
+                  <tr className="bg-slate-100/80 border-b border-slate-200 text-slate-800">
+                    {headers.map((h, hIdx) => (
+                      <th key={hIdx} className="px-4 py-2.5 font-bold whitespace-nowrap">
+                        {renderInline(h)}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-slate-100 bg-white">
+                  {rows.map((r, rIdx) => (
+                    <tr key={rIdx} className="hover:bg-slate-50/80 transition-colors">
+                      {r.map((cell, cIdx) => (
+                        <td key={cIdx} className="px-4 py-2.5 text-slate-700 leading-relaxed font-normal">
+                          {renderInline(cell)}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          );
+        }
+        continue;
+      }
+
+      // 7. Bullet lists & Task Checklists
+      if (line.trim().startsWith('- ') || line.trim().startsWith('* ')) {
+        const listItems: { text: string; isTask: boolean; checked: boolean }[] = [];
+        while (i < lines.length && (lines[i].trim().startsWith('- ') || lines[i].trim().startsWith('* '))) {
+          const raw = lines[i].trim().slice(2);
+          if (raw.startsWith('[x] ') || raw.startsWith('[X] ')) {
+            listItems.push({ text: raw.slice(4), isTask: true, checked: true });
+          } else if (raw.startsWith('[ ] ')) {
+            listItems.push({ text: raw.slice(4), isTask: true, checked: false });
+          } else {
+            listItems.push({ text: raw, isTask: false, checked: false });
+          }
+          i++;
+        }
+        nodes.push(
+          <ul key={`ul-${i}`} className="my-3 space-y-2 text-slate-700 text-sm">
+            {listItems.map((item, lIdx) => {
+              if (item.isTask) {
+                return (
+                  <li key={lIdx} className="flex items-start gap-2.5 list-none leading-relaxed">
+                    <span className="w-4 h-4 rounded mt-0.5 flex items-center justify-center bg-emerald-50 text-emerald-600 border border-emerald-300 shrink-0">
+                      <Check className="w-3 h-3 stroke-[3]" />
+                    </span>
+                    <span>{renderInline(item.text)}</span>
+                  </li>
+                );
+              }
+              return (
+                <li key={lIdx} className="pl-1 list-disc ml-4 leading-relaxed">
+                  {renderInline(item.text)}
+                </li>
+              );
+            })}
+          </ul>
+        );
+        continue;
+      }
+
+      // 8. Numbered lists
+      if (/^\d+\.\s/.test(line.trim())) {
+        const listItems: string[] = [];
+        while (i < lines.length && /^\d+\.\s/.test(lines[i].trim())) {
+          listItems.push(lines[i].trim().replace(/^\d+\.\s/, ''));
+          i++;
+        }
+        nodes.push(
+          <ol key={`ol-${i}`} className="my-3 space-y-1.5 pl-5 list-decimal text-slate-700 text-sm">
+            {listItems.map((item, lIdx) => (
+              <li key={lIdx} className="leading-relaxed">
+                {renderInline(item)}
+              </li>
+            ))}
+          </ol>
+        );
+        continue;
+      }
+
+      // 9. Plain paragraph
+      if (line.trim().length > 0) {
+        nodes.push(
+          <p key={`p-${i}`} className="my-2.5 text-slate-700 text-sm leading-relaxed">
+            {renderInline(line)}
+          </p>
+        );
+      }
+
+      i++;
+    }
+
+    return nodes;
+  };
+
+  return <div className="markdown-render space-y-1 select-text">{renderBlocks()}</div>;
+};
+
