@@ -287,7 +287,7 @@ export const DashboardPage: React.FC = () => {
                     >
                       {track.slug === 'dsa' ? 'Open Existing Platform' : 'Open Platform'} <ExternalLink className="w-3 h-3" />
                     </a>
-                    {track.slug === 'dsa' && <a href="https://dsyashpal.vercel.app" target="_blank" rel="noopener noreferrer" className="font-semibold text-sky-600 hover:text-sky-700 flex items-center gap-1">Open My Platform <ExternalLink className="w-3 h-3" /></a>}
+                    {track.slug === 'dsa' && <a href="https://dsayashpal.vercel.app" target="_blank" rel="noopener noreferrer" className="font-semibold text-sky-600 hover:text-sky-700 flex items-center gap-1">Open My Platform <ExternalLink className="w-3 h-3" /></a>}
                   </div>
                 </div>
               );

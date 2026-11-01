@@ -109,7 +109,7 @@ export const AllTracksPage: React.FC = () => {
 
                 <div className="mt-5 pt-3">
                   <div className="flex flex-col gap-2">
-                    {[{ label: track.slug === 'dsa' ? 'Open Existing Platform' : 'Open External Track', url: externalUrl }, ...(track.slug === 'dsa' ? [{ label: 'Open My Platform', url: 'https://dsyashpal.vercel.app' }] : [])].map(link => (
+                    {[{ label: track.slug === 'dsa' ? 'Open Existing Platform' : 'Open External Track', url: externalUrl }, ...(track.slug === 'dsa' ? [{ label: 'Open My Platform', url: 'https://dsayashpal.vercel.app' }] : [])].map(link => (
                       <a key={link.url} href={link.url} target="_blank" rel="noopener noreferrer" className="w-full inline-flex items-center justify-center gap-2 px-3.5 py-2 text-xs font-semibold text-sky-700 bg-sky-50 hover:bg-sky-100 rounded-lg transition-colors group">
                         <span>{link.label}</span><ExternalLink className="w-3.5 h-3.5" />
                       </a>

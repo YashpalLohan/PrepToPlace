@@ -45,6 +45,7 @@ function mergeMissingRegisteredNotes(remoteTrack: Track, localTrack?: Track): { 
         if (!remoteTopic.note && localTopic?.note?.markdown?.trim()) {
           remoteTopic.note = localTopic.note;
           changed = true;
+          return;
         }
       });
 

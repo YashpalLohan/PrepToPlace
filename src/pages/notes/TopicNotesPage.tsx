@@ -27,6 +27,9 @@ import { LearningFlowchart } from '../../components/notes/LearningFlowchart';
 import { BackToTop } from '../../components/BackToTop';
 import { hasNotesAvailable } from '../../services/notesAvailability';
 import { TopicStatusDropdown } from '../../components/tracks/TopicStatusDropdown';
+import mlDay1FormulaSheetUrl from '../../assets/notes/ml-day-1-formula-sheet.png';
+import mlDay2EdaSheetUrl from '../../assets/notes/ml-day-2-eda-sheet.png';
+import dlDay1MathSheetUrl from '../../assets/notes/dl-day-1-math-sheet.png';
 
 export const TopicNotesPage: React.FC = () => {
   const { topicId } = useParams<{ topicId: string }>();
@@ -554,6 +557,67 @@ export const TopicNotesPage: React.FC = () => {
                       ))}
                     </ul>
                   </div>
+                )}
+
+                {topic.id === 'ml-day-1' && (
+                  <figure className="overflow-hidden rounded-xl border border-[#D9D0C6] bg-[#F5E8E1]">
+                    <figcaption className="px-4 py-3 text-sm font-semibold text-[#1A3A21]">
+                      Lecture 1 handwritten formula sheet — organized by the 10 roadmap stages
+                    </figcaption>
+                    <button
+                      type="button"
+                      onClick={() => window.open(mlDay1FormulaSheetUrl, '_blank', 'noopener,noreferrer')}
+                      className="block w-full cursor-zoom-in focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2F844A]"
+                      aria-label="Open the Lecture 1 formula sheet full size"
+                    >
+                      <img
+                        src={mlDay1FormulaSheetUrl}
+                        alt="Handwritten formula notes for all ten Python and NumPy for Machine Learning lecture stages"
+                        className="mx-auto block h-auto w-full object-contain bg-white"
+                        loading="eager"
+                      />
+                    </button>
+                  </figure>
+                )}
+                {topic.id === 'ml-day-2' && (
+                  <figure className="overflow-hidden rounded-xl border border-[#D9D0C6] bg-[#F5E8E1]">
+                    <figcaption className="px-4 py-3 text-sm font-semibold text-[#1A3A21]">
+                      Lecture 2 handwritten short notes — Pandas and exploratory data analysis
+                    </figcaption>
+                    <button
+                      type="button"
+                      onClick={() => window.open(mlDay2EdaSheetUrl, '_blank', 'noopener,noreferrer')}
+                      className="block w-full cursor-zoom-in focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2F844A]"
+                      aria-label="Open the Lecture 2 Pandas and EDA notes full size"
+                    >
+                      <img
+                        src={mlDay2EdaSheetUrl}
+                        alt="Handwritten short notes covering Pandas and exploratory data analysis"
+                        className="mx-auto block h-auto w-full bg-white"
+                        loading="eager"
+                      />
+                    </button>
+                  </figure>
+                )}
+                {topic.id === 'dl-m-1' && (
+                  <figure className="overflow-hidden rounded-xl border border-[#D9D0C6] bg-[#F5E8E1]">
+                    <figcaption className="px-4 py-3 text-sm font-semibold text-[#1A3A21]">
+                      Deep Learning — handwritten short notes for Days 1–3
+                    </figcaption>
+                    <button
+                      type="button"
+                      onClick={() => window.open(dlDay1MathSheetUrl, '_blank', 'noopener,noreferrer')}
+                      className="block w-full cursor-zoom-in focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#2F844A]"
+                      aria-label="Open the Deep Learning math notes full size"
+                    >
+                      <img
+                        src={dlDay1MathSheetUrl}
+                        alt="Handwritten short notes on tensors, vector and matrix operations, norms, eigenvalues, and SVD for Deep Learning Days 1 to 3"
+                        className="mx-auto block h-auto w-full bg-white"
+                        loading="eager"
+                      />
+                    </button>
+                  </figure>
                 )}
 
                 {/* Interactive Visual Learning Roadmap (Flowchart instead of TOC) */}
